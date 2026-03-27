@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michigan Series 16-72 — Adjuster Exam Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #06090f;
+--surface: #0d1424;
+--surface2: #111c30;
+--border: #1a2a45;
+--border2: #223355;
+--accent: #1e6aff;
+--accent2: #3d85ff;
+--green: #00d97e;
+--red: #ff4757;
+--yellow: #ffc300;
+--purple: #9b59ff;
+--text: #dce8ff;
+--muted: #5a7aaa;
+--dim: #2a3f60;
+--mono: 'Space Mono', monospace;
+--sans: 'DM Sans', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; overflow-x: hidden; }
+
+/* HEADER */
+.header {
+background: linear-gradient(135deg, #0a1628 0%, #061020 100%);
+border-bottom: 1px solid var(–border);
+padding: 16px 20px 14px;
+position: sticky; top: 0; z-index: 100;
+}
+.header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.header-title { font-family: var(–mono); font-size: 15px; color: var(–accent2); font-weight: 700; letter-spacing: -0.3px; }
+.header-sub { font-size: 11px; color: var(–muted); margin-top: 3px; letter-spacing: 0.3px; }
+.header-stats { display: flex; gap: 14px; margin-top: 10px; font-size: 11px; }
+.stat-green { color: var(–green); font-weight: 600; }
+.stat-yellow { color: var(–yellow); }
+.badge { background: var(–accent); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-family: var(–mono); letter-spacing: 0.5px; }
+
+/* NAV */
+.nav { display: flex; gap: 6px; padding: 10px 16px; border-bottom: 1px solid var(–border); overflow-x: auto; scrollbar-width: none; background: var(–bg); }
+.nav::-webkit-scrollbar { display: none; }
+.nav-btn { padding: 8px 14px; border: 1px solid var(–border); border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: var(–sans); white-space: nowrap; transition: all 0.15s; background: var(–surface); color: var(–muted); }
+.nav-btn.active { background: var(–accent); color: #fff; border-color: var(–accent); }
+.nav-btn:hover:not(.active) { border-color: var(–border2); color: var(–text); }
+
+/* TOPIC PICKER */
+.topic-bar { padding: 8px 16px; border-bottom: 1px solid var(–border); background: var(–bg); }
+.topic-select { width: 100%; background: var(–surface); color: var(–text); border: 1px solid var(–border); border-radius: 8px; padding: 8px 12px; font-size: 13px; font-family: var(–sans); outline: none; cursor: pointer; }
+.topic-select:focus { border-color: var(–accent); }
+
+/* MAIN */
+.main { max-width: 720px; margin: 0 auto; padding: 18px 16px; }
+.page { display: none; }
+.page.active { display: block; }
+
+/* SECTION LABEL */
+.section-label { font-size: 11px; font-weight: 700; color: var(–muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; font-family: var(–mono); }
+
+/* OVERVIEW */
+.blueprint-card { background: var(–surface); border: 1px solid var(–border); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
+.blueprint-row { margin-bottom: 10px; }
+.blueprint-info { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
+.blueprint-name { color: var(–text); }
+.blueprint-pct { font-weight: 700; font-family: var(–mono); }
+.bar-track { height: 6px; background: var(–border); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.tip-box { background: var(–bg); border: 1px solid var(–border); border-radius: 8px; padding: 10px 12px; font-size: 12px; color: var(–muted); margin-top: 12px; line-height: 1.6; }
+.topic-list-item { background: var(–surface); border: 1px solid var(–border); border-radius: 10px; padding: 13px 14px; margin-bottom: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.15s, background 0.15s; }
+.topic-list-item:hover { border-color: var(–border2); background: var(–surface2); }
+.topic-list-name { font-size: 14px; font-weight: 600; }
+.topic-list-sub { font-size: 11px; color: var(–muted); margin-top: 3px; }
+.topic-list-arrow { color: var(–muted); font-size: 20px; }
+.quiz-start-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, var(–accent), #1550cc); color: #fff; border: none; border-radius: 12px; font-size: 15px; font-weight: 700; font-family: var(–sans); cursor: pointer; margin-top: 12px; letter-spacing: 0.3px; transition: opacity 0.15s; }
+.quiz-start-btn:hover { opacity: 0.9; }
+.master-progress { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; }
+.master-bar-track { height: 8px; background: var(–border); border-radius: 4px; overflow: hidden; margin-bottom: 14px; }
+.master-bar-fill { height: 100%; background: var(–green); border-radius: 4px; transition: width 0.4s; }
+
+/* FLASHCARDS */
+.fc-meta { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; }
+.fc-meta-left { color: var(–muted); font-family: var(–mono); font-size: 12px; }
+.fc-meta-right { color: var(–green); font-weight: 600; }
+.card { background: var(–surface); border: 2px solid var(–border); border-radius: 18px; padding: 28px 22px; min-height: 185px; cursor: pointer; margin-bottom: 14px; transition: border-color 0.2s, background 0.2s; user-select: none; }
+.card.flipped { background: #0a1628; border-color: var(–accent); }
+.card-tag { font-size: 10px; color: var(–muted); font-family: var(–mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+.card-text { font-size: 16px; line-height: 1.65; }
+.card-text.answer { color: #93c5fd; font-weight: 600; font-size: 15px; }
+.card-hint { margin-top: 14px; font-size: 12px; color: var(–dim); }
+.detail-toggle { width: 100%; background: var(–bg); border: 1px solid var(–border); color: var(–muted); border-radius: 9px; padding: 9px 0; font-size: 13px; cursor: pointer; font-family: var(–sans); margin-bottom: 10px; transition: border-color 0.15s; }
+.detail-toggle:hover { border-color: var(–border2); }
+.detail-box { background: #060d1a; border: 1px solid var(–border); border-left: 3px solid var(–accent); border-radius: 9px; padding: 13px 15px; font-size: 13px; color: var(–muted); margin-bottom: 12px; line-height: 1.7; }
+.fc-actions { display: flex; gap: 8px; margin-bottom: 10px; }
+.fc-btn { flex: 1; padding: 12px; background: var(–surface); border: 1px solid var(–border); color: var(–text); border-radius: 9px; cursor: pointer; font-size: 14px; font-family: var(–sans); transition: background 0.15s; }
+.fc-btn:hover { background: var(–surface2); }
+.fc-btn.mastered { background: #052e16; border-color: var(–green); color: var(–green); }
+.fc-btn.mark { font-size: 12px; font-weight: 600; }
+.fc-shuffle { width: 100%; padding: 10px; background: var(–bg); border: 1px solid var(–border); color: var(–muted); border-radius: 9px; cursor: pointer; font-size: 13px; font-family: var(–sans); }
+
+/* QUIZ */
+.quiz-progress { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; }
+.quiz-prog-left { color: var(–muted); font-family: var(–mono); font-size: 12px; }
+.quiz-prog-right { color: var(–green); font-weight: 700; }
+.prog-bar { height: 4px; background: var(–border); border-radius: 2px; margin-bottom: 18px; overflow: hidden; }
+.prog-fill { height: 100%; background: var(–accent); border-radius: 2px; transition: width 0.3s; }
+.quiz-question { background: var(–surface); border: 1px solid var(–border); border-radius: 14px; padding: 20px 18px; margin-bottom: 16px; font-size: 15px; line-height: 1.7; }
+.quiz-cat { font-size: 10px; color: var(–muted); font-family: var(–mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.option { background: var(–surface); border: 1px solid var(–border); border-radius: 11px; padding: 14px 15px; margin-bottom: 9px; cursor: pointer; font-size: 13px; line-height: 1.5; transition: all 0.15s; }
+.option:hover:not(.disabled) { border-color: var(–border2); background: var(–surface2); }
+.option.disabled { cursor: default; }
+.option.correct { background: #052e16; border-color: var(–green); color: var(–green); }
+.option.wrong { background: #3f0000; border-color: var(–red); color: var(–red); }
+.option.faded { color: var(–dim); }
+.option-letter { font-weight: 700; margin-right: 8px; font-family: var(–mono); }
+.quiz-tip { background: #060d1a; border: 1px solid var(–border); border-left: 3px solid var(–yellow); border-radius: 9px; padding: 12px 14px; font-size: 13px; color: var(–muted); margin-bottom: 12px; line-height: 1.7; }
+.next-btn { width: 100%; padding: 14px; background: var(–accent); color: #fff; border: none; border-radius: 11px; font-size: 14px; font-weight: 700; font-family: var(–sans); cursor: pointer; transition: opacity 0.15s; }
+.next-btn:hover { opacity: 0.9; }
+
+/* QUIZ IDLE */
+.quiz-idle { text-align: center; padding: 40px 0; }
+.quiz-idle-icon { font-size: 60px; margin-bottom: 16px; }
+.quiz-idle-text { color: var(–muted); margin-bottom: 22px; font-size: 14px; line-height: 1.7; }
+
+/* RESULTS */
+.results { text-align: center; }
+.results-icon { font-size: 64px; margin-bottom: 14px; }
+.results-score { font-size: 34px; font-weight: 800; font-family: var(–mono); margin-bottom: 6px; }
+.results-msg { color: var(–muted); font-size: 13px; margin-bottom: 22px; line-height: 1.6; }
+.wrong-section { text-align: left; margin-bottom: 20px; }
+.wrong-label { font-weight: 700; color: var(–red); font-size: 13px; margin-bottom: 10px; }
+.wrong-card { background: var(–surface); border: 1px solid #3f0000; border-radius: 10px; padding: 12px 14px; margin-bottom: 9px; }
+.wrong-q { color: var(–muted); font-size: 12px; margin-bottom: 5px; }
+.wrong-a { color: var(–green); font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+.wrong-d { color: var(–dim); font-size: 12px; line-height: 1.6; }
+.retake-btn { width: 100%; padding: 14px; background: var(–accent); color: #fff; border: none; border-radius: 11px; font-size: 14px; font-weight: 700; font-family: var(–sans); cursor: pointer; margin-bottom: 9px; }
+.back-btn { width: 100%; padding: 12px; background: var(–surface); color: var(–muted); border: 1px solid var(–border); border-radius: 11px; font-size: 13px; font-family: var(–sans); cursor: pointer; }
+
+/* NUMBERS */
+.num-intro { font-size: 12px; color: var(–muted); margin-bottom: 14px; line-height: 1.6; }
+.num-search { width: 100%; background: var(–surface); border: 1px solid var(–border); border-radius: 9px; padding: 9px 12px; color: var(–text); font-size: 13px; font-family: var(–sans); outline: none; margin-bottom: 18px; }
+.num-search:focus { border-color: var(–accent); }
+.num-section-label { font-size: 12px; font-weight: 700; color: var(–muted); font-family: var(–mono); letter-spacing: 0.8px; margin-bottom: 9px; margin-top: 18px; }
+.num-row { display: flex; justify-content: space-between; align-items: center; background: var(–surface); border: 1px solid var(–border); border-radius: 9px; padding: 10px 13px; margin-bottom: 6px; }
+.num-key { font-size: 13px; color: var(–muted); }
+.num-val { font-size: 13px; font-weight: 700; color: #60a5fa; font-family: var(–mono); }
+
+/* TRICK SECTION highlight */
+.trick-badge { display: inline-block; background: #ff4757; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-family: var(–mono); margin-left: 6px; vertical-align: middle; }
+
+@media (max-width: 480px) {
+.header-title { font-size: 13px; }
+.card-text { font-size: 15px; }
+.quiz-question { font-size: 14px; }
+.main { padding: 14px 12px; }
+}
+
+/* Animate in */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.page.active { animation: fadeUp 0.2s ease; }
+</style>
+
+</head>
+<body>
+
+<div class="header">
+<div class="header-top">
+<div>
+<div class="header-title">Michigan Series 16-72 <span class="badge">EXAM PREP</span></div>
+<div class="header-sub">100 Questions · Pass 70% · $41/attempt · 2 Hours · PSI Testing</div>
+</div>
+</div>
+<div class="header-stats">
+<span class="stat-green" id="mastered-count">✓ 0/0 mastered</span>
+<span class="stat-yellow" id="card-count">⚡ Loading...</span>
+</div>
+</div>
+
+<div class="nav">
+<button class="nav-btn active" onclick="showPage('overview')">📊 Overview</button>
+<button class="nav-btn" onclick="showPage('flashcards')">🃏 Flashcards</button>
+<button class="nav-btn" onclick="showPage('quiz')">🎯 Quiz</button>
+<button class="nav-btn" onclick="showPage('numbers')">🔢 Numbers</button>
+</div>
+
+<div class="topic-bar" id="topic-bar" style="display:none;">
+<select class="topic-select" id="topic-select" onchange="changeTopic()"></select>
+</div>
+
+<div class="main">
+
+<!-- OVERVIEW -->
+
+<div class="page active" id="page-overview">
+<div class="section-label">Official PSI Exam Blueprint</div>
+<div class="blueprint-card">
+<div id="blueprint-rows"></div>
+<div class="tip-box">📌 The top 5 sections = <strong style="color:var(--text)">77 of 100 questions</strong>. Allocate 75% of your study time here. Pass strategy: master Insurance Basics + Adjusting Losses first — they alone cover 40 questions.</div>
+</div>
+
+```
+<div class="section-label" style="margin-top:4px;">Study by Topic</div>
+<div style="margin-bottom:16px;">
+<div class="master-progress">
+<span style="font-size:13px;color:var(--muted)">Overall Progress</span>
+<span style="font-size:13px;color:var(--green);font-weight:600" id="overall-pct">0%</span>
+</div>
+<div class="master-bar-track"><div class="master-bar-fill" id="overall-bar" style="width:0%"></div></div>
+</div>
+<div id="topic-list"></div>
+<button class="quiz-start-btn" onclick="startQuiz('All Topics')">🎯 Start Full Practice Quiz — 20 Questions</button>
+```
+
+</div>
+
+<!-- FLASHCARDS -->
+
+<div class="page" id="page-flashcards">
+<div class="fc-meta">
+<span class="fc-meta-left" id="fc-counter">1/1</span>
+<span class="fc-meta-right" id="fc-mastered-pct">0% mastered</span>
+</div>
+<div class="card" id="fc-card" onclick="flipCard()">
+<div class="card-tag" id="fc-tag">Question</div>
+<div class="card-text" id="fc-text"></div>
+<div class="card-hint" id="fc-hint">Tap to reveal answer ›</div>
+</div>
+<button class="detail-toggle" id="fc-detail-btn" style="display:none" onclick="toggleDetail()">Show Exam Tip 💡</button>
+<div class="detail-box" id="fc-detail-box" style="display:none"></div>
+<div class="fc-actions">
+<button class="fc-btn" onclick="prevCard()">← Prev</button>
+<button class="fc-btn mark" id="fc-master-btn" onclick="toggleMastered()">Mark Mastered</button>
+<button class="fc-btn" onclick="nextCard()">Next →</button>
+</div>
+<button class="fc-shuffle" onclick="shuffleCards()">🔀 Shuffle Cards</button>
+</div>
+
+<!-- QUIZ -->
+
+<div class="page" id="page-quiz">
+<div id="quiz-idle" class="quiz-idle">
+<div class="quiz-idle-icon">🎯</div>
+<div class="quiz-idle-text">20 randomized multiple choice questions<br>Instant feedback after each answer<br>Full wrong-answer review at the end<br><br><strong style="color:var(--yellow)">Target: 90%+ before scheduling the real exam</strong></div>
+<button class="quiz-start-btn" onclick="startQuizMode()">Start Quiz</button>
+</div>
+<div id="quiz-active" style="display:none">
+<div class="quiz-progress">
+<span class="quiz-prog-left" id="q-counter">Q1/20</span>
+<span class="quiz-prog-right" id="q-score">0 correct</span>
+</div>
+<div class="prog-bar"><div class="prog-fill" id="q-prog" style="width:0%"></div></div>
+<div class="quiz-question">
+<div class="quiz-cat" id="q-cat"></div>
+<div id="q-text"></div>
+</div>
+<div id="q-options"></div>
+<div class="quiz-tip" id="q-tip" style="display:none"></div>
+<button class="next-btn" id="q-next" style="display:none" onclick="nextQuestion()">Next Question →</button>
+</div>
+<div id="quiz-results" style="display:none" class="results">
+<div class="results-icon" id="r-icon"></div>
+<div class="results-score" id="r-score"></div>
+<div class="results-msg" id="r-msg"></div>
+<div class="wrong-section" id="r-wrong"></div>
+<button class="retake-btn" onclick="startQuizMode()">Retake Quiz</button>
+<button class="back-btn" onclick="showPage('overview')">Back to Overview</button>
+</div>
+</div>
+
+<!-- NUMBERS -->
+
+<div class="page" id="page-numbers">
+<div class="section-label">Critical Michigan Numbers</div>
+<div class="num-intro">Every specific number the PSI exam tests. These numbers appear on 15–20 questions. Filter below to drill specific areas.</div>
+<input class="num-search" id="num-search" placeholder="Filter — try 'PIP' or '28' or 'finger'..." oninput="filterNumbers()">
+<div id="numbers-list"></div>
+</div>
+
+</div>
+
+<script>
+// ========================================================
+// ALL EXAM DATA — Built from official PSI content outline
+// ========================================================
+
+const WEIGHTS = [
+{ name: "Insurance Basics", pct: 20, q: 20, col: "#ef4444" },
+{ name: "Adjusting Losses", pct: 20, q: 20, col: "#f97316" },
+{ name: "Auto / No-Fault", pct: 15, q: 15, col: "#eab308" },
+{ name: "Homeowners", pct: 12, q: 12, col: "#22c55e" },
+{ name: "Workers' Comp", pct: 10, q: 10, col: "#3b82f6" },
+{ name: "Commercial Lines", pct: 10, q: 10, col: "#8b5cf6" },
+{ name: "Dwelling Policy", pct: 5, q: 5, col: "#ec4899" },
+{ name: "BOP", pct: 5, q: 5, col: "#14b8a6" },
+{ name: "Regulation", pct: 3, q: 3, col: "#6b7280" },
+];
+
+const NUMBERS = [
+{ section: "🚗 PIP / No-Fault Auto", rows: [
+["PIP wage loss rate", "85% of gross wages"],
+["PIP wage loss max/month", "~$7,201"],
+["PIP wage loss duration", "3 years"],
+["PIP replacement services", "$20/day × 3 years"],
+["PIP attendant care cap", "56 hrs/week (family)"],
+["PPI limit", "$1,000,000"],
+["BI/PD default limits", "$250K / $500K / $10K"],
+["BI/PD minimum limits", "$50K / $100K / $10K"],
+["Mini-tort maximum", "$3,000"],
+["QHC deductible max", "$6,000"],
+["PIP overdue threshold", "30 days after proof"],
+["PIP penalty interest", "12% per year"],
+["PIP lawsuit deadline", "1 year from denial (MCL 500.3145)"],
+["Assigned Claims Plan medical cap", "$250,000"],
+]},
+{ section: "👷 Workers' Compensation", rows: [
+["WC waiting period", "7 days"],
+["WC retroactive trigger", "14+ days disabled"],
+["WC first payment due", "14 days after onset"],
+["WC late payment penalty", "$50/day, max $1,500"],
+["WC employer physician", "First 28 days"],
+["WC wage loss rate", "80% of after-tax AWW"],
+["WC maximum benefit", "90% of SAWW"],
+["WC minimum benefit", "25% of SAWW"],
+["WC death benefits", "500 weeks"],
+["WC burial expenses", "Max $6,000"],
+["WC notice to employer", "90 days"],
+["WC claim filing deadline", "2 years from injury"],
+["WC death claim deadline", "2 years from death"],
+["WC arm (specific loss)", "269 weeks"],
+["WC hand / leg", "215 weeks each"],
+["WC foot / eye", "162 weeks each"],
+["WC thumb", "65 weeks"],
+["WC index finger", "38 weeks"],
+["WC middle finger / great toe", "33 weeks"],
+["WC ring finger", "22 weeks"],
+["WC pinky finger", "16 weeks"],
+["WC age reduction starts", "Age 65 — 5%/year, max 50% at 75"],
+]},
+{ section: "🏠 Homeowners / Property", rows: [
+["HO Coverage B (other structures)", "10% of Coverage A"],
+["HO Coverage C (personal property)", "50% of Coverage A"],
+["HO Coverage D (loss of use)", "30% of Coverage A"],
+["Vacancy provision trigger", "60 days"],
+["Boat HO coverage threshold", "≤26 feet AND ≤25 HP"],
+["HO jewelry sublimit", "$1,500 total"],
+["HO cash sublimit", "$200"],
+["HO securities sublimit", "$1,500"],
+["HO silverware sublimit", "$2,500"],
+]},
+{ section: "📋 Michigan Claims Law", rows: [
+["Claims payment deadline", "60 days after proof of loss"],
+["Insurer proof specification period", "30 days after receiving claim"],
+["Penalty interest on late claims", "12% per year (MCL 500.2006)"],
+["Driving uninsured fine", "$500 + up to 1 year jail"],
+]},
+{ section: "🪪 Licensing", rows: [
+["Exam fee", "$41 per attempt"],
+["Passing score", "70% (70 of 100 questions)"],
+["Time limit", "2 hours"],
+["License application fee", "$15"],
+["Annual renewal deadline", "March 31"],
+["Annual renewal fee", "$5"],
+["Continuing education required", "NONE"],
+["License validity after passing", "12 months to apply"],
+]},
+];
+
+const TOPICS = {
+"🔥 Insurance Basics (20% — 20 Qs)": [
+{ q:"What are the four elements of a valid insurance contract?", a:"Offer & acceptance, consideration, competent parties, legal purpose", d:"Memorize all four. 'Legal purpose' is the trick answer — gambling contracts lack this element." },
+{ q:"When must insurable interest exist — property vs. life insurance?", a:"Property: at time of LOSS. Life: at time of APPLICATION only.", d:"TRICK: Life insurance only needs insurable interest at inception — NOT at death. Property is the opposite." },
+{ q:"Distinguish physical, moral, and morale hazard.", a:"Physical = tangible risk condition. Moral = dishonesty/intent to defraud. Morale = carelessness because insured.", d:"Moral vs Morale: Moral = intentional bad behavior. Morale = indifference because you're covered." },
+{ q:"What are the four elements of negligence (all must be present)?", a:"1) Duty owed, 2) Breach of that duty, 3) Proximate causation, 4) Actual damages resulted", d:"ALL FOUR must be present. Exam presents scenarios where one element is absent — correct answer is 'no negligence.'" },
+{ q:"What is the coinsurance penalty formula?", a:"(Amount Carried ÷ Amount Required) × Loss = Payment", d:"EXAMPLE: $300K carried, 80% coinsurance on $500K building = $400K required. $50K loss: ($300÷$400)×$50K = $37,500. TRICK: Exam asks how much insured ABSORBS ($12,500)." },
+{ q:"What is Actual Cash Value (ACV)?", a:"Replacement Cost minus Depreciation — what the property was worth at time of loss", d:"ACV ≠ replacement cost new. Depreciation is subtracted for age and wear. This formula is guaranteed to appear." },
+{ q:"What is the principle of indemnity?", a:"Insurance restores insured to pre-loss position — no better, no worse. Cannot profit from a loss.", d:"This principle drives ACV valuation, coinsurance, and deductibles. Life insurance is NOT indemnity-based." },
+{ q:"What is subrogation and the 'made whole' doctrine?", a:"After paying insured, insurer steps into their shoes to recover from negligent party — but ONLY after insured is fully compensated.", d:"Insurer CANNOT subrogate until insured is made whole. Insurer CANNOT subrogate against its own insured." },
+{ q:"What are the four parts of every insurance policy (DICE)?", a:"Declarations, Insuring Agreement, Conditions, Exclusions", d:"'Where is named insured listed?' = Declarations. 'What must insured do after loss?' = Conditions. Endorsements modify any of these four parts." },
+{ q:"What is the difference between ROR letter and a nonwaiver agreement?", a:"ROR = unilateral letter from insurer. Nonwaiver = bilateral signed agreement. Both preserve insurer's right to deny later.", d:"Failure to send ROR when coverage is in doubt = WAIVER of the coverage defense. Fatal claims error." },
+{ q:"What is strict liability?", a:"Liability imposed without negligence — applies to abnormally dangerous activities and product defects", d:"Storing explosives, keeping wild animals, defective products. Prove causation and damages only — no negligence needed." },
+{ q:"What is vicarious liability?", a:"Employer is liable for employees' on-the-job negligence under respondeat superior — liability based on relationship, not personal fault", d:"Key for auto claims involving company vehicles or delivery drivers acting within scope of employment." },
+{ q:"What is the difference between agreed value and stated amount?", a:"Agreed value: pays full agreed amount for total loss, no depreciation. Stated amount: pays lesser of stated amount or ACV.", d:"Agreed value = better for insured. Stated amount can leave a gap. Fine art and classic cars often use agreed value." },
+{ q:"What is a binder?", a:"Temporary evidence of coverage pending formal policy issuance — valid 30–90 days and legally binding", d:"If a covered loss occurs during the binder period, insurer must pay even without a formal policy issued yet." },
+{ q:"What are compensatory, punitive, and nominal damages?", a:"Compensatory = economic + pain/suffering. Punitive = punishment for egregious conduct. Nominal = token award for technical violation, no real harm.", d:"Special damages = bills/wages. General damages = pain/suffering. Punitive can exceed policy limits if awarded." },
+{ q:"What is bad faith in insurance?", a:"Insurer unreasonably denies, delays, or underpays a legitimate claim without proper investigation", d:"Michigan recognizes bad faith claims. Disagreement over value alone is NOT bad faith. Can result in extra-contractual damages." },
+{ q:"What is the difference between vacancy and unoccupancy?", a:"Vacant = no contents AND no people. Unoccupied = contents present but no one currently residing.", d:"TRICK: Policies restrict/suspend coverage after 60 days of VACANCY — not unoccupancy. A furnished vacation home = unoccupied, not vacant." },
+{ q:"What is a waiver of subrogation endorsement?", a:"Insurer agrees in advance not to pursue recovery against a named third party — insurer still pays the claim but gives up recovery rights", d:"Common in commercial leases and construction contracts. Check for this BEFORE releasing any third party." },
+{ q:"What is utmost good faith (uberrimae fidei)?", a:"Both parties must disclose all material facts — concealment or misrepresentation can void the policy", d:"Higher standard than ordinary contract law. Misrepresentation on application = grounds for rescission." },
+{ q:"What is the pro rata other insurance clause?", a:"When multiple policies cover the same loss, each pays its proportional share based on its limits relative to total coverage", d:"Two $200K policies, $100K loss = each pays $50K. Insured cannot recover more than actual loss — indemnity principle enforced." },
+],
+"⚖️ Adjusting Losses (20% — 20 Qs)": [
+{ q:"What is the difference between staff, independent, and public adjusters?", a:"Staff = insurer employee. Independent = contractor working FOR insurer. Public = hired BY INSURED, charges % of settlement.", d:"Public adjusters work for the INSURED — NOT the insurer. Michigan requires licensing for all independent and public adjusters." },
+{ q:"Michigan claims payment deadline and penalty (MCL 500.2006)?", a:"60 days after satisfactory proof of loss. 12% annual interest on overdue amounts. Insurer has 30 days to specify what constitutes proof.", d:"MCL 500.2026 lists prohibited practices — requires a 'pattern of conduct,' not a single incident, to trigger regulatory action." },
+{ q:"What is a proof of loss and when is it required?", a:"Formal sworn statement by insured detailing the loss — most Michigan policies require within 60 days of loss", d:"Failure to submit = policy condition breach. Adjuster should NOT waive this requirement without explicit supervisor authority." },
+{ q:"What is an Examination Under Oath (EUO)?", a:"Sworn statement taken by insurer's attorney from insured — policy condition. Failure to comply can void the claim.", d:"More formal than a recorded statement. An attorney must be present. Refusal = breach of cooperation clause." },
+{ q:"What is the insured's duty to mitigate losses?", a:"Insured must take reasonable steps to prevent further damage after a covered loss — failure reduces or voids claim for additional damage", d:"Example: Put a tarp on a damaged roof immediately. Insurer reimburses mitigation costs even if main coverage is disputed." },
+{ q:"What is a declaratory judgment action?", a:"Lawsuit filed by insurer to determine whether a policy covers a specific claim BEFORE paying", d:"Insurer still has duty to DEFEND even during a DJ action if there's any possibility of coverage. Defense costs not recoverable if insurer loses." },
+{ q:"What is the Michigan appraisal process under MCL 500.2833?", a:"Either party demands appraisal — each hires an appraiser, they select an umpire, award requires two of three to agree. Resolves AMOUNT only — not coverage.", d:"Each party pays their own appraiser. Umpire cost split 50/50. Award is binding. Cannot use appraisal to dispute whether a loss is covered." },
+{ q:"When is a vehicle a total loss in Michigan?", a:"When repair cost exceeds approximately 75–80% of ACV. Michigan has no fixed statutory threshold — adjusters exercise judgment.", d:"Most Michigan carriers internally total at 75% ACV. Document ACV source (CCC, Mitchell, NADA) and repair estimate." },
+{ q:"What is salvage and how does it reduce insurer loss costs?", a:"Residual value of damaged property after total loss settlement — insurer takes title and sells it to reduce net claim cost", d:"If insured keeps salvage, deduct its value from settlement. Always get a salvage bid before finalizing a total loss." },
+{ q:"What are the required elements of a complete claim file?", a:"Notice of loss, statements, investigation report, photos, police/fire reports, coverage analysis, proof of loss, estimates, signed release", d:"Missing coverage analysis = major error. Missing photos = reconstruction problem. No signed release = open liability exposure." },
+{ q:"What is draft authority and consequences of exceeding it?", a:"Dollar limit adjuster can settle without supervisor approval — exceeding it = disciplinary action and potential bad faith exposure", d:"Always confirm authority limits before settling. Get written approval when approaching limits. Document the approval." },
+{ q:"Full release vs. partial release — what is the difference?", a:"Full release: surrenders ALL rights to ALL damages. Partial: releases only specified damages while preserving rights to others.", d:"NEVER obtain full release when damages are still being determined (ongoing medical treatment). Doing so = bad faith exposure." },
+{ q:"What is an advance payment and when is it appropriate?", a:"Partial payment before final settlement — appropriate when coverage is clear, liability established, and some damages are determined", d:"Document as ADVANCE — not full and final settlement. Helps insured immediately without waiving rights to contest total damages." },
+{ q:"Who can be compelled to give a recorded statement?", a:"INSUREDS must cooperate — it's a policy condition. THIRD-PARTY claimants cannot be compelled to give a recorded statement.", d:"Take recorded statements from YOUR insured ASAP. Third parties have no contractual duty to cooperate with your investigation." },
+{ q:"What is estoppel in insurance claims?", a:"Doctrine preventing insurer from denying coverage if they previously behaved in a way that led insured to reasonably believe coverage existed", d:"Example: Insurer investigates and defends for 6 months, then tries to deny. Court may estop the denial due to prior conduct." },
+{ q:"What are the three methods of property loss valuation?", a:"ACV (replacement cost minus depreciation), Replacement Cost (new for old), Functional Replacement Cost (modern equivalent at lower cost)", d:"ACV is default unless replacement cost endorsement is purchased. Exam loves ACV calculation questions with depreciation." },
+{ q:"What must adjuster verify before releasing a third party?", a:"Verify all subrogation rights BEFORE releasing the third party. Check for waiver of subrogation endorsements. Document the recovery claim.", d:"Releasing a third party without preserving subrogation rights = fatal adjusting error. Insurer loses recovery rights permanently." },
+{ q:"What is the difference between arbitration and mediation?", a:"Arbitration: neutral third party makes a decision (binding or nonbinding). Mediation: neutral facilitates negotiation — no imposed decision.", d:"Most UM/UIM disputes in Michigan require arbitration. Mediation is voluntary and non-binding unless both parties agree to the outcome." },
+{ q:"What is an independent medical examination (IME)?", a:"Medical exam ordered by insurer using their selected physician to evaluate injury severity, causation, and treatment necessity — a policy right", d:"Failure to attend as required can void coverage. Used heavily in PIP and liability bodily injury claims." },
+{ q:"Michigan unfair claims practices — key prohibited acts (MCL 500.2026)?", a:"Misrepresenting policy provisions, failing to acknowledge claims promptly, refusing to pay without investigation, compelling litigation by offering substantially less than due", d:"These practices require a 'general business practice' pattern — a single incident does not violate the Act. Individual remedies come from common law." },
+],
+"🚗 Michigan No-Fault Auto (15% — 15 Qs)": [
+{ q:"What THREE coverages must every Michigan driver carry?", a:"1) Personal Injury Protection (PIP), 2) Property Protection Insurance (PPI), 3) Residual Bodily Injury/Property Damage Liability", d:"MEMORIZE all three. PIP pays YOUR injuries regardless of fault. PPI = Michigan-only coverage for damage to stationary property." },
+{ q:"What are the six PIP tiers under Michigan's 2019 no-fault reform?", a:"1) Unlimited, 2) $500K, 3) $250K, 4) $250K w/QHC (deductible ≤$6K), 5) $50K (Medicaid only), 6) Opt-out (Medicare A+B only)", d:"Reform effective July 2, 2020. If NO selection is made = defaults to UNLIMITED at full premium. Each tier has a mandated premium reduction." },
+{ q:"What does Michigan PIP pay and at what limits?", a:"Medical (per tier) + wage loss at 85% gross up to ~$7,201/month × 3 years + replacement services $20/day × 3 years + attendant care + funeral", d:"Wage loss and replacement services apply even if driver OPTS OUT of PIP medical. Attendant care capped at 56 hrs/week for family members." },
+{ q:"What does Michigan Property Protection Insurance (PPI) cover?", a:"$1,000,000 for damage your vehicle causes to others' stationary property — buildings, fences, properly PARKED vehicles only", d:"TRICK: PPI does NOT cover moving vehicles. Damage to moving vehicles = liability, not PPI. PPI is unique to Michigan — no other state has it." },
+{ q:"Michigan BI/PD: default vs. minimum limits post-reform?", a:"Default: $250K/$500K/$10K. Minimum: $50K/$100K/$10K. (Old minimum was $20K/$40K/$10K)", d:"Reform raised limits substantially. The $10K property damage minimum remains inadequate for most vehicle damage claims." },
+{ q:"What is the Michigan mini-tort and its post-reform limit?", a:"Right to sue at-fault driver (≥50% fault) for uncompensated vehicle damage — maximum $3,000 (raised from $1,000 by 2019 reform)", d:"Only applies if you have no collision coverage OR paid a deductible. Cannot recover more than $3,000 regardless of actual damage." },
+{ q:"What is the PIP priority order for vehicle occupants?", a:"1) Your own insurer, 2) Spouse's insurer, 3) Resident relative's insurer, 4) Vehicle owner/registrant's insurer, 5) Driver's insurer, 6) Assigned Claims Plan", d:"EXCEPTION: Employer-owned vehicle occupants file with the employer's auto insurer — bypasses personal PIP entirely." },
+{ q:"When does PIP become overdue and what is the penalty?", a:"30 days after receiving reasonable proof of loss. 12% annual interest accrues. Attorney fees recoverable for unreasonable refusal.", d:"MCL 500.3142. Statute of limitations to sue for unpaid PIP = 1 year from DENIAL (not from date of accident)." },
+{ q:"What rating factors CANNOT be used in Michigan post-reform?", a:"Sex, marital status, home ownership, credit score, education level, occupation, ZIP code", d:"Insurers CAN still use: driving history, claims history, vehicle type, annual mileage, age. Rating now by county — not ZIP code." },
+{ q:"What tort threshold must be met to sue for pain & suffering in Michigan?", a:"Death, permanent serious disfigurement, or serious impairment of an important body function", d:"Michigan = limited tort. 'Serious impairment' must affect general ability to lead a normal life. Minor injuries don't qualify." },
+{ q:"Who covers PIP for Michigan motorcyclists?", a:"The insurer of the MOTOR VEHICLE involved — motorcycles are not 'motor vehicles' under the No-Fault Act", d:"TRICK: Solo motorcycle crash with no motor vehicle involved = file with Michigan Assigned Claims Plan (capped at $250K medical)." },
+{ q:"What is the Michigan Assigned Claims Plan?", a:"Safety net for uninsured accident victims — PIP benefits with $250K medical cap (no cap on wage loss or replacement services)", d:"Covers: uninsured drivers, hit-and-run victims, out-of-state drivers. Does NOT cover those who intentionally avoided buying insurance." },
+{ q:"What are PAP Parts A through F?", a:"A=Liability, B=Medical Payments, C=Uninsured Motorist, D=Collision/Comprehensive (OTC), E=Duties After Accident, F=General Provisions", d:"In Michigan, Part B (MedPay) is less common because PIP is mandatory. Parts A, C, and D are the key add-ons." },
+{ q:"What is GAP insurance?", a:"Covers the gap between ACV settlement and remaining loan/lease balance after a total loss", d:"Standard auto policy pays ACV only. A $35K car financed for $40K that totals 6 months later = $5K+ gap that GAP covers." },
+{ q:"What is UM/UIM coverage?", a:"UM: covers you when at-fault driver has NO insurance. UIM: covers you when at-fault driver has INSUFFICIENT insurance for your damages.", d:"Michigan allows stacking of UM/UIM if multiple vehicles are insured. UM/UIM disputes typically go to arbitration." },
+],
+"🏠 Homeowners Policy (12% — 12 Qs)": [
+{ q:"What are the HO policy forms and who uses each?", a:"HO-2=Broad, HO-3=Special/most common, HO-4=Renters, HO-5=Comprehensive, HO-6=Condo, HO-8=Older homes.", d:"HO-3 is by far the most exam-tested. HO-1 (basic) is rarely used today. Know who uses each form cold." },
+{ q:"HO-3 critical distinction: dwelling vs. personal property coverage?", a:"Dwelling (Coverage A): OPEN perils — all losses covered unless excluded. Personal Property (Coverage C): NAMED perils — only 16 listed perils covered.", d:"TRICK: Most think HO-3 is open perils on everything. WRONG — personal property = named perils only. HO-5 gives open perils on both." },
+{ q:"What are Coverages A–F and their standard percentage limits?", a:"A=Dwelling (100%), B=Other Structures (10%A), C=Personal Property (50%A), D=Loss of Use (30%A), E=Liability ($100K), F=Med Pay ($1K–$5K)", d:"TRICK: Percentages are of Coverage A amount. E and F are LIABILITY coverages — not property damage coverages." },
+{ q:"Difference between Coverage E (Liability) and Coverage F (Med Pay)?", a:"Coverage E: insurer defends you AND pays damages if sued — requires negligence. Coverage F: pays guest medical bills regardless of fault — no lawsuit needed.", d:"Coverage F = goodwill coverage to avoid lawsuits. Does NOT cover household residents. Very limited ($1K–$5K standard)." },
+{ q:"What perils are EXCLUDED from ALL homeowners policies?", a:"Flood, earthquake, earth movement, wear and tear, intentional acts, nuclear hazard, war, government action", d:"FLOOD is the #1 excluded peril — requires separate NFIP policy. Earthquake requires separate endorsement." },
+{ q:"What are the 16 named perils under HO-3 for personal property?", a:"Fire/lightning, windstorm/hail, explosion, riot, aircraft, vehicles, smoke, vandalism, theft, falling objects, weight of ice/snow, accidental water discharge, tearing of appliances, freezing, electrical damage, volcanic eruption", d:"TRICKS: 'Vehicles' excludes YOUR OWN vehicles. 'Theft' excludes mysterious disappearance. 'Falling objects' must penetrate exterior first." },
+{ q:"What does HO-6 (condo) cover vs. the master policy?", a:"HO-6: unit interior from bare walls inward, personal property, liability, loss assessment. Master policy: building exterior and common areas.", d:"Exam assumes 'bare walls in' — HO-6 covers everything from the drywall inward. What master policy type determines HO-6 scope." },
+{ q:"What homeowners coverage applies to business activities?", a:"NONE — business activities are EXCLUDED for both property and liability. Need a Home Business endorsement or separate BOP.", d:"CLASSIC TRAP: Customer slips at home-based business. HO Coverage E does NOT apply — business exclusion." },
+{ q:"What is a scheduled personal property (floater) endorsement?", a:"Open perils coverage for specific high-value items (jewelry, art, furs) at agreed value — no deductible, no sublimits", d:"Standard HO sublimits: jewelry $1,500, cash $200, securities $1,500, silverware $2,500. Floater removes these sublimits." },
+{ q:"What boat size is covered under homeowners liability (Coverage E)?", a:"Watercraft ≤26 feet AND ≤25 HP is covered under HO liability. Larger/more powerful boats need a separate watercraft policy.", d:"TRICK: Exam LOVES the 26-foot/25-HP rule. Any boat question on the exam = immediately check these two numbers." },
+{ q:"When does the homeowners vacancy provision trigger?", a:"After 60 days of VACANCY — vandalism/malicious mischief coverage is typically suspended", d:"Vacant = no contents AND no people. Unoccupied = contents present, no residents. Only VACANCY triggers the provision." },
+{ q:"What is a loss assessment charge and is it covered by HO-6?", a:"Special assessment to condo owners for shared losses exceeding master policy — HO-6 typically provides $1,000 coverage, expandable by endorsement", d:"Example: Association has $500K loss, master covers $400K. Each owner assessed $2K. HO-6 loss assessment coverage pays this." },
+],
+"👷 Workers' Compensation (10% — 10 Qs)": [
+{ q:"Which Michigan employers MUST carry workers' comp?", a:"Private: 3+ employees anytime OR 1+ working 35+ hrs/week for 13+ consecutive weeks. ALL government employers.", d:"MEMORIZE: 3 OR 1-full-time for private. Agricultural: 3+ on same day for 35+ days/year. Domestic workers: 2+ at 35+ hrs/week." },
+{ q:"How is Michigan WC wage loss calculated?", a:"80% of after-tax average weekly wage, based on highest 39 of last 52 weeks. Max = 90% of SAWW. Min = 25% of SAWW.", d:"Includes overtime, bonuses, and discontinued fringe benefits. After-tax wages — not gross. 'Highest 39 weeks' favors the injured worker." },
+{ q:"What is the 7-day waiting period and 14-day retroactive rule?", a:"7-day waiting period — benefits start day 8. If disability lasts 14+ days, benefits retroactively cover from day 1. First payment due within 14 days.", d:"MEMORIZE: 7/14/14. Late payment penalty = $50/day up to $1,500 maximum." },
+{ q:"Who selects the treating physician in Michigan WC?", a:"EMPLOYER selects the physician for the first 28 DAYS — after that, employee may choose their own with proper notice", d:"THE 28-DAY RULE — heavily tested. After 28 days, employee gives notice and selects their own physician." },
+{ q:"What are the four WC disability types?", a:"Temporary Total (TT), Temporary Partial (TP), Permanent Total (PT), Permanent Partial (PP)", d:"All pay at 80% of after-tax AWW for wage loss component. Specific loss = type of PP paid on schedule regardless of time off work." },
+{ q:"Michigan WC specific loss schedule — major body parts?", a:"Arm=269 wks, Hand=215, Leg=215, Foot=162, Eye=162, Thumb=65, Index=38, Middle/Gt.Toe=33, Ring=22, Pinky=16", d:"NO waiting period for specific loss. Paid regardless of time missed from work. Loss of 1st phalange only = half benefit; more = full benefit." },
+{ q:"What is the exclusive remedy doctrine in Michigan WC?", a:"WC is the ONLY remedy against the EMPLOYER — employees cannot sue employer in civil court (MCL 418.131)", d:"EXCEPTION: Third-party lawsuits ARE still allowed. Can sue equipment manufacturer or at-fault co-worker but NOT the employer directly." },
+{ q:"Michigan WC death benefits?", a:"500 weeks of wage loss benefits + up to $6,000 burial/funeral expenses. Spouse benefits end at remarriage. Children at 18 (21 if student).", d:"500 weeks ≈ 9.6 years. Benefits go to dependents. Spouse who remarries receives a 2-year lump sum." },
+{ q:"Federal WC laws tested on the Series 16-72?", a:"FELA (railroad — negligence-based), Longshore & Harbor Workers' Act (maritime shore — no-fault), Jones Act (seamen — negligence-based), Defense Base Act (overseas contractors — no-fault)", d:"FELA and Jones Act are NEGLIGENCE-based — not automatic like state WC. Key distinction for exam questions." },
+{ q:"Michigan WC filing deadlines?", a:"Notice to employer: 90 days. File claim: 2 years. Death claims: 2 years from death. Disputes: WC Board of Magistrates — NOT civil court.", d:"Employee files form WC-104A. No civil court jurisdiction over WC disputes. Second Injury Fund handles pre-existing condition cases." },
+],
+"🏢 Commercial Lines (10% — 10 Qs)": [
+{ q:"CPP vs. BOP — what is the difference?", a:"CPP = modular, customized, any size business. BOP = pre-packaged for small/mid businesses with automatic coverages including business income.", d:"BOP auto-includes business income/extra expense. CPP requires separate forms. Large/complex businesses use CPP; small businesses use BOP." },
+{ q:"What is Business Income (BI) and the 'period of restoration'?", a:"Covers lost net income + continuing expenses when business closes due to covered loss. Period of restoration = loss date to when business CAN reasonably reopen.", d:"TRICK: Period ends when business CAN reopen — not when it actually does. Extended Period of Indemnity covers reduced revenues post-reopening." },
+{ q:"What are the three CGL coverage parts?", a:"A: Bodily Injury & Property Damage Liability. B: Personal & Advertising Injury. C: Medical Payments to Others.", d:"CGL does NOT cover: auto, aircraft, WC, professional errors, pollution (standard form), or intentional injury. Occurrence-based by default." },
+{ q:"Occurrence vs. claims-made CGL policies?", a:"Occurrence: covers events that HAPPEN during policy period (whenever claimed). Claims-made: covers claims FILED during policy period (whenever event occurred).", d:"Claims-made needs retroactive date (prior acts) + tail coverage (extended reporting period). Most professional liability = claims-made." },
+{ q:"What is the Ordinance or Law exclusion?", a:"Standard commercial property EXCLUDES extra cost to meet current building codes after a covered loss — requires Ordinance or Law endorsement", d:"MAJOR TRAP: Fire damages 40% of building, but code requires demolishing and rebuilding all of it to current standards. Extra cost = excluded." },
+{ q:"Commercial Umbrella vs. Excess Liability?", a:"Umbrella: excess limits PLUS broader coverage filling some underlying policy gaps. Excess: additional limits ONLY — follows underlying policy exactly.", d:"True umbrella may cover claims that fall through underlying policy gaps. Excess is purely a limits-extension with no gap coverage." },
+{ q:"What is inland marine and why is pet insurance classified as such?", a:"Covers property in transit, movable specialty risks — pet insurance is classified as inland marine (NAIC Line 09) because it covers living animals as property.", d:"Other inland marine: contractors equipment, fine art, jewelry, accounts receivable, EDP. Open perils is the standard form." },
+{ q:"WC policy Part One vs. Part Two — standard EL limits?", a:"Part One: statutory WC (unlimited). Part Two: Employers' Liability — default $100K per accident / $100K per employee disease / $500K disease aggregate.", d:"EL default limits are almost always increased by endorsement. $100K/$100K/$500K is very low for serious catastrophic injury claims." },
+{ q:"Five ethics terms you must distinguish on the exam?", a:"Defamation = false statements about insurer finances. Misrepresentation = false statements to induce purchase. Twisting = policy switch via misrepresentation. Rebating = kickbacks. Unfair discrimination = different rates for same risk class.", d:"TWISTING requires misrepresentation — legitimate comparison shopping is NOT twisting. Rebating is illegal in Michigan regardless of amount." },
+{ q:"What is the difference between Commercial Umbrella and a CPP?", a:"CPP = primary policy combining multiple lines (property + liability). Umbrella = excess liability sitting above underlying primary policies.", d:"A business can have both: a CPP for primary coverage PLUS an umbrella for excess liability above CGL, auto, and employers' liability." },
+],
+"🏘️ Dwelling Policy (5% — 5 Qs)": [
+{ q:"What are the three dwelling policy forms?", a:"DP-1: Basic — named perils (fire, lightning, windstorm, hail only). DP-2: Broad — more named perils. DP-3: Special — open perils on dwelling.", d:"Dwelling policies cover non-owner-occupied rental properties and vacation homes that don't qualify for homeowners policies." },
+{ q:"Key difference between a dwelling policy and a homeowners policy?", a:"Dwelling policy: covers structure and limited contents ONLY — NO personal liability coverage included. Homeowners: covers structure, contents, AND liability.", d:"Liability must be added separately to a dwelling policy. DP policies are stripped-down by design for investment/rental properties." },
+{ q:"What fire-related coverage is in EVERY DP policy regardless of form?", a:"Fire, lightning, and internal explosion are covered in ALL DP forms — the foundational perils from the Standard Fire Policy era", d:"The Standard Fire Policy (SFP, 1943) is the historical foundation. Extended Coverage endorsement added windstorm, hail, explosion, riot, aircraft, vehicles, smoke." },
+{ q:"What is Coverage A, B, C, D in a dwelling policy?", a:"A=Dwelling, B=Other Private Structures, C=Personal Property (optional), D=Fair Rental Value (loss of rents)", d:"TRICK: DP Coverage D is loss of RENTAL INCOME — not loss of use like HO Coverage D. Makes sense: it's a rental property." },
+{ q:"What is a vacancy provision in a dwelling policy?", a:"If dwelling is vacant beyond 60 days, vandalism/malicious mischief coverage is suspended and some policies limit/void other coverages", d:"Landlords must notify insurer of extended vacancies. Vacant building = dramatically higher risk. Most policies suspend vandalism coverage specifically." },
+],
+"🎯 Trick Questions & Exam Strategy": [
+{ q:"TRICK: How do you handle 'Which is NOT covered?' or 'All EXCEPT' questions?", a:"Convert mentally: 'Which IS excluded?' Evaluate each option as True/False. The FALSE one is the answer to an EXCEPT question.", d:"Double negatives cost you 30 extra seconds each. Practice converting them instantly — it's the #1 most common trap on PSI exams." },
+{ q:"TRICK: Two answer choices mean essentially the same thing — what do you do?", a:"ELIMINATE BOTH — only one answer can be correct. If A and C are near-synonyms, neither can be uniquely correct. Focus on B and D.", d:"This is a common exam design flaw. When two options are near-synonyms, both are wrong by default. It's a gift — use it." },
+{ q:"TRICK: Should you trust 'always,' 'never,' 'all,' or 'none' as answers?", a:"Default to SUSPICION — these absolute terms are usually wrong in insurance because nearly every rule has exceptions. Eliminate them first.", d:"Exception: Some WC rules genuinely use absolutes. But as a default test-taking strategy, eliminate absolutes first and confirm from there." },
+{ q:"TRICK: A Michigan worker is injured commuting TO work. Is it covered by WC?", a:"NO — the 'going and coming' rule: standard commuting injuries are NOT work-related and NOT covered by WC", d:"EXCEPTIONS: Employer provides transportation, employee is on a special errand for employer, or employment creates the travel hazard." },
+{ q:"TRICK: A question mentions a boat — what two facts must you immediately identify?", a:"LENGTH (≤26 feet?) AND HORSEPOWER (≤25 HP?) — BOTH must be met for HO policy to cover the boat's liability", d:"Exam writers put boat questions specifically to test this rule. If either threshold is exceeded = need a separate watercraft policy." },
+{ q:"TRICK: Home-based business customer injured at insured's home. HO covers it?", a:"NO — business activity exclusion applies to BOTH property and liability under the standard homeowners policy", d:"Need a Home Business endorsement or BOP. This scenario appears on virtually every adjuster exam in some form." },
+{ q:"TRICK: What is the difference between defamation and misrepresentation in insurance ethics?", a:"Defamation = false malicious statements about a COMPETITOR insurer's financial condition. Misrepresentation = false statements to induce CUSTOMER to buy/change a policy.", d:"Defamation = attacks on competitors. Misrepresentation = lying to customers. Both prohibited under Michigan Unfair Trade Practices Act." },
+{ q:"TRICK: Against whom can an insurer NOT subrogate?", a:"Cannot subrogate against its OWN INSURED — and cannot subrogate until the insured has been fully made whole first", d:"EXAMPLE: Insurer pays homeowner's claim for damage caused by their adult child living in the house. Cannot subrogate against the child — they're an insured too." },
+{ q:"TRICK: What does 'twisting' mean and how is it different from legitimate sales?", a:"Twisting = inducing a policyholder to drop one policy for another through MISREPRESENTATION. Legitimate comparison of policies is NOT twisting.", d:"The key element is MISREPRESENTATION. Truthfully telling a customer another policy is better = legal. Lying to get them to switch = twisting." },
+{ q:"TRICK: Can a claimant sue for pain & suffering if they were in a Michigan auto accident?", a:"Only if they meet the tort threshold: death, permanent serious disfigurement, or serious impairment of an important body function", d:"Michigan is a limited tort state. The question is whether the injury meets the threshold — not whether there was an accident." },
+{ q:"STRATEGY: Best approach to scenario-based exam questions?", a:"Read the LAST SENTENCE first to identify what's being asked — then read the scenario to find relevant facts. Ignore distracting details.", d:"Scenario questions include distractors (names, weather, colors). Identify the legal principle being tested, then apply it to the facts given." },
+{ q:"STRATEGY: Should you change an answer on the exam?", a:"Only if you MISREAD the question OR a later question gives you contradicting information — first instinct is correct more often than the revision.", d:"Research shows changing answers based on 'gut feeling' lowers scores. Change only with a specific logical reason." },
+{ q:"STRATEGY: What practice exam score means you're ready to schedule the real exam?", a:"Consistently scoring 90%+ on TIMED practice exams — this buffer accounts for test-day nerves and trick wording", d:"The exam is intentionally worded differently from prep materials. 90% practice score = comfortable 70%+ on the actual PSI exam." },
+{ q:"EXAM INTEL: What is the exam format and what five topics account for 77% of questions?", a:"100 questions, 2 hours, 70% to pass ($41). Insurance Basics (20) + Adjusting Losses (20) + Auto (15) + Homeowners (12) + Workers' Comp (10) = 77 questions.", d:"Allocate approximately 75% of your study time to these five topics. The remaining 23 questions are spread thin across 4 other sections." },
+{ q:"TRICK: What is the difference between rebating and misrepresentation in insurance ethics?", a:"Rebating = offering inducements (money, gifts, discounts) not specified in the policy. Misrepresentation = making false statements to induce a purchase.", d:"Both are illegal in Michigan. Rebating doesn't require a false statement — the inducement itself is the violation. Even small rebates are illegal." },
+],
+};
+
+// ========================================================
+// APP STATE
+// ========================================================
+let currentPage = 'overview';
+let currentTopic = 'All Topics';
+let currentIdx = 0;
+let isFlipped = false;
+let showingDetail = false;
+let mastered = new Set();
+let quizDeck = [];
+let quizIdx = 0;
+let quizScore = 0;
+let quizWrong = [];
+let quizAnswered = false;
+let quizActive = false;
+
+const ALL_CARDS = [];
+Object.entries(TOPICS).forEach(([cat, cards]) => {
+cards.forEach(c => ALL_CARDS.push({ ...c, category: cat }));
+});
+
+function getFiltered() {
+if (currentTopic === 'All Topics') return ALL_CARDS;
+return ALL_CARDS.filter(c => c.category === currentTopic);
+}
+
+// ========================================================
+// INIT
+// ========================================================
+window.onload = function() {
+buildBlueprint();
+buildTopicList();
+buildTopicSelect();
+updateStats();
+renderCard();
+buildNumbers();
+};
+
+function updateStats() {
+const total = ALL_CARDS.length;
+const m = mastered.size;
+document.getElementById('mastered-count').textContent = `✓ ${m}/${total} mastered`;
+document.getElementById('card-count').textContent = `⚡ ${total} exam-targeted cards`;
+const pct = total ? Math.round((m / total) * 100) : 0;
+const bar = document.getElementById('overall-bar');
+const pctEl = document.getElementById('overall-pct');
+if (bar) bar.style.width = pct + '%';
+if (pctEl) pctEl.textContent = pct + '%';
+}
+
+// ========================================================
+// BLUEPRINT
+// ========================================================
+function buildBlueprint() {
+const container = document.getElementById('blueprint-rows');
+WEIGHTS.forEach(w => {
+container.innerHTML += `
+<div class="blueprint-row">
+<div class="blueprint-info">
+<span class="blueprint-name">${w.name}</span>
+<span class="blueprint-pct" style="color:${w.col}">${w.pct}% · ${w.q} Qs</span>
+</div>
+<div class="bar-track"><div class="bar-fill" style="width:${w.pct * 4}%;background:${w.col}"></div></div>
+</div>`;
+});
+}
+
+// ========================================================
+// TOPIC LIST (overview)
+// ========================================================
+function buildTopicList() {
+const container = document.getElementById('topic-list');
+Object.entries(TOPICS).forEach(([cat, cards]) => {
+const el = document.createElement('div');
+el.className = 'topic-list-item';
+el.setAttribute('data-cat', cat);
+el.innerHTML = `
+<div>
+<div class="topic-list-name">${cat}</div>
+<div class="topic-list-sub" id="tl-sub-${encodeURIComponent(cat)}">${cards.length} cards · 0 mastered</div>
+</div>
+<div class="topic-list-arrow">›</div>`;
+el.onclick = () => {
+currentTopic = cat;
+currentIdx = 0;
+document.getElementById('topic-select').value = cat;
+showPage('flashcards');
+};
+container.appendChild(el);
+});
+updateTopicSubtitles();
+}
+
+function updateTopicSubtitles() {
+Object.entries(TOPICS).forEach(([cat, cards]) => {
+const m = cards.filter(c => mastered.has(c.q)).length;
+const el = document.getElementById('tl-sub-' + encodeURIComponent(cat));
+if (el) el.textContent = `${cards.length} cards · ${m} mastered`;
+});
+}
+
+// ========================================================
+// TOPIC SELECT
+// ========================================================
+function buildTopicSelect() {
+const sel = document.getElementById('topic-select');
+sel.innerHTML = '<option value="All Topics">All Topics</option>';
+Object.keys(TOPICS).forEach(cat => {
+sel.innerHTML += `<option value="${cat}">${cat}</option>`;
+});
+}
+
+function changeTopic() {
+currentTopic = document.getElementById('topic-select').value;
+currentIdx = 0;
+isFlipped = false;
+showingDetail = false;
+renderCard();
+}
+
+// ========================================================
+// NAVIGATION
+// ========================================================
+function showPage(page) {
+document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+document.getElementById('page-' + page).classList.add('active');
+document.querySelectorAll('.nav-btn').forEach(b => {
+if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(page)) b.classList.add('active');
+});
+const showBar = page === 'flashcards' || page === 'quiz';
+document.getElementById('topic-bar').style.display = showBar ? 'block' : 'none';
+currentPage = page;
+if (page === 'flashcards') renderCard();
+if (page === 'quiz' && !quizActive) showQuizIdle();
+updateStats();
+updateTopicSubtitles();
+}
+
+// ========================================================
+// FLASHCARDS
+// ========================================================
+function renderCard() {
+const filtered = getFiltered();
+if (!filtered.length) return;
+if (currentIdx >= filtered.length) currentIdx = 0;
+const card = filtered[currentIdx];
+const m = mastered.size > 0 ? Math.round((filtered.filter(c => mastered.has(c.q)).length / filtered.length) * 100) : 0;
+
+document.getElementById('fc-counter').textContent = `${currentIdx + 1}/${filtered.length}`;
+document.getElementById('fc-mastered-pct').textContent = `${m}% mastered`;
+document.getElementById('fc-tag').textContent = isFlipped ? '✅ Answer — ' + card.category.split('(')[0].trim() : '❓ Question — ' + card.category.split('(')[0].trim();
+document.getElementById('fc-text').textContent = isFlipped ? card.a : card.q;
+document.getElementById('fc-text').className = isFlipped ? 'card-text answer' : 'card-text';
+document.getElementById('fc-hint').style.display = isFlipped ? 'none' : 'block';
+document.getElementById('fc-card').className = isFlipped ? 'card flipped' : 'card';
+
+const detailBtn = document.getElementById('fc-detail-btn');
+detailBtn.style.display = isFlipped ? 'block' : 'none';
+detailBtn.textContent = showingDetail ? 'Hide Exam Tip ▲' : 'Show Exam Tip 💡';
+const detailBox = document.getElementById('fc-detail-box');
+detailBox.style.display = (isFlipped && showingDetail) ? 'block' : 'none';
+if (isFlipped && showingDetail) detailBox.textContent = '💡 ' + card.d;
+
+const masterBtn = document.getElementById('fc-master-btn');
+if (mastered.has(card.q)) {
+masterBtn.textContent = '✓ Mastered';
+masterBtn.classList.add('mastered');
+} else {
+masterBtn.textContent = 'Mark Mastered';
+masterBtn.classList.remove('mastered');
+}
+}
+
+function flipCard() {
+isFlipped = !isFlipped;
+showingDetail = false;
+renderCard();
+}
+
+function toggleDetail() {
+showingDetail = !showingDetail;
+renderCard();
+}
+
+function prevCard() {
+const filtered = getFiltered();
+currentIdx = (currentIdx - 1 + filtered.length) % filtered.length;
+isFlipped = false; showingDetail = false;
+renderCard();
+}
+
+function nextCard() {
+const filtered = getFiltered();
+currentIdx = (currentIdx + 1) % filtered.length;
+isFlipped = false; showingDetail = false;
+renderCard();
+}
+
+function toggleMastered() {
+const filtered = getFiltered();
+const card = filtered[currentIdx];
+if (mastered.has(card.q)) mastered.delete(card.q);
+else mastered.add(card.q);
+renderCard();
+updateStats();
+updateTopicSubtitles();
+}
+
+function shuffleCards() {
+const filtered = getFiltered();
+currentIdx = Math.floor(Math.random() * filtered.length);
+isFlipped = false; showingDetail = false;
+renderCard();
+}
+
+// ========================================================
+// QUIZ
+// ========================================================
+function showQuizIdle() {
+document.getElementById('quiz-idle').style.display = 'block';
+document.getElementById('quiz-active').style.display = 'none';
+document.getElementById('quiz-results').style.display = 'none';
+quizActive = false;
+}
+
+function startQuiz(topicOverride) {
+if (topicOverride) {
+currentTopic = topicOverride;
+document.getElementById('topic-select').value = topicOverride;
+}
+showPage('quiz');
+startQuizMode();
+}
+
+function startQuizMode() {
+const filtered = getFiltered();
+const shuffled = [...filtered].sort(() => Math.random() - 0.5).slice(0, 20);
+quizDeck = shuffled.map(card => {
+const wrong = ALL_CARDS.filter(c => c.a !== card.a && c.a.length < 110).sort(() => Math.random() - 0.5).slice(0, 3);
+return { ...card, options: [card, ...wrong].sort(() => Math.random() - 0.5) };
+});
+quizIdx = 0; quizScore = 0; quizWrong = []; quizAnswered = false; quizActive = true;
+document.getElementById('quiz-idle').style.display = 'none';
+document.getElementById('quiz-results').style.display = 'none';
+document.getElementById('quiz-active').style.display = 'block';
+renderQuestion();
+}
+
+function renderQuestion() {
+if (quizIdx >= quizDeck.length) { showResults(); return; }
+const q = quizDeck[quizIdx];
+document.getElementById('q-counter').textContent = `Q${quizIdx + 1}/${quizDeck.length}`;
+document.getElementById('q-score').textContent = `${quizScore} correct`;
+document.getElementById('q-prog').style.width = `${(quizIdx / quizDeck.length) * 100}%`;
+document.getElementById('q-cat').textContent = q.category.split('(')[0].trim();
+document.getElementById('q-text').textContent = q.q;
+document.getElementById('q-tip').style.display = 'none';
+document.getElementById('q-next').style.display = 'none';
+quizAnswered = false;
+
+const opts = document.getElementById('q-options');
+opts.innerHTML = '';
+const letters = ['A', 'B', 'C', 'D'];
+q.options.forEach((opt, i) => {
+const el = document.createElement('div');
+el.className = 'option';
+el.innerHTML = `<span class="option-letter">${letters[i]}.</span>${opt.a}`;
+el.onclick = () => answerQuestion(opt.a, el, q);
+opts.appendChild(el);
+});
+}
+
+function answerQuestion(answer, el, q) {
+if (quizAnswered) return;
+quizAnswered = true;
+const correct = answer === q.a;
+if (correct) quizScore++;
+else quizWrong.push(q);
+
+document.querySelectorAll('.option').forEach(opt => {
+opt.classList.add('disabled');
+const text = opt.textContent.slice(2);
+if (text === q.a) opt.classList.add('correct');
+else if (opt === el && !correct) opt.classList.add('wrong');
+else if (text !== q.a) opt.classList.add('faded');
+});
+
+const tip = document.getElementById('q-tip');
+tip.textContent = '💡 ' + q.d;
+tip.style.display = 'block';
+
+const nextBtn = document.getElementById('q-next');
+nextBtn.textContent = quizIdx + 1 >= quizDeck.length ? 'See Results →' : 'Next Question →';
+nextBtn.style.display = 'block';
+
+document.getElementById('q-score').textContent = `${quizScore} correct`;
+}
+
+function nextQuestion() {
+quizIdx++;
+if (quizIdx >= quizDeck.length) showResults();
+else renderQuestion();
+}
+
+function showResults() {
+document.getElementById('quiz-active').style.display = 'none';
+document.getElementById('quiz-results').style.display = 'block';
+const total = quizDeck.length;
+const pct = Math.round((quizScore / total) * 100);
+document.getElementById('r-icon').textContent = pct >= 90 ? '🏆' : pct >= 70 ? '✅' : '📚';
+document.getElementById('r-score').textContent = `${quizScore}/${total} — ${pct}%`;
+document.getElementById('r-score').style.color = pct >= 70 ? 'var(--green)' : 'var(--red)';
+document.getElementById('r-msg').textContent = pct >= 90
+? 'Excellent — approaching exam-ready. Keep drilling until this is consistent across all topics.'
+: pct >= 70
+? 'Passing range. Drill your weak spots in flashcard mode before scheduling the real exam.'
+: 'Below passing threshold. Do NOT schedule the real exam yet — more flashcard work needed.';
+
+const wrongSec = document.getElementById('r-wrong');
+wrongSec.innerHTML = '';
+if (quizWrong.length) {
+wrongSec.innerHTML = `<div class="wrong-label">❌ Missed — Review These (${quizWrong.length})</div>`;
+quizWrong.forEach(w => {
+wrongSec.innerHTML += `
+<div class="wrong-card">
+<div class="wrong-q">${w.q}</div>
+<div class="wrong-a">✓ ${w.a}</div>
+<div class="wrong-d">💡 ${w.d}</div>
+</div>`;
+});
+}
+}
+
+// ========================================================
+// NUMBERS
+// ========================================================
+function buildNumbers() {
+renderNumbers('');
+}
+
+function filterNumbers() {
+const q = document.getElementById('num-search').value;
+renderNumbers(q);
+}
+
+function renderNumbers(query) {
+const container = document.getElementById('numbers-list');
+container.innerHTML = '';
+const q = query.toLowerCase();
+NUMBERS.forEach(({ section, rows }) => {
+const filtered = rows.filter(([k, v]) => !q || k.toLowerCase().includes(q) || v.toLowerCase().includes(q));
+if (!filtered.length) return;
+container.innerHTML += `<div class="num-section-label">${section}</div>`;
+filtered.forEach(([k, v]) => {
+container.innerHTML += `
+<div class="num-row">
+<span class="num-key">${k}</span>
+<span class="num-val">${v}</span>
+</div>`;
+});
+});
+}
+</script>
+
+</body>
+</html>
