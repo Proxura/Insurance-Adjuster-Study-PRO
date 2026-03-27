@@ -153,6 +153,27 @@ position: sticky; top: 0; z-index: 100;
 /* TRICK SECTION highlight */
 .trick-badge { display: inline-block; background: #ff4757; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-family: var(–mono); margin-left: 6px; vertical-align: middle; }
 
+/* STUDY STATS BAR */
+.study-stats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.study-stat-card { background: var(–surface); border: 1px solid var(–border); border-radius: 10px; padding: 10px 12px; flex: 1; min-width: 90px; }
+.study-stat-label { font-size: 10px; color: var(–muted); font-family: var(–mono); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+.study-stat-value { font-size: 15px; font-weight: 700; color: var(–text); }
+
+/* EXAM DATE */
+.exam-date-wrap { background: var(–surface); border: 1px solid var(–border); border-radius: 10px; padding: 12px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.exam-date-wrap label { font-size: 12px; color: var(–muted); white-space: nowrap; }
+.exam-date-wrap input[type=“date”] { background: var(–bg); border: 1px solid var(–border); border-radius: 6px; padding: 6px 10px; color: var(–text); font-size: 12px; font-family: var(–mono); outline: none; }
+.exam-date-wrap input[type=“date”]:focus { border-color: var(–accent); }
+.exam-countdown { font-size: 13px; font-weight: 700; color: var(–accent); font-family: var(–mono); margin-left: auto; }
+
+/* WEAK SPOTS BUTTON */
+.weak-btn { width: 100%; padding: 13px; background: var(–surface); border: 1px solid #3f0000; color: var(–red); border-radius: 12px; font-size: 14px; font-weight: 700; font-family: var(–sans); cursor: pointer; margin-top: 8px; transition: all 0.15s; }
+.weak-btn:hover { background: #1a0000; border-color: var(–red); }
+.weak-btn:disabled { opacity: 0.4; cursor: default; }
+
+/* PERF DOT on topic list items */
+.topic-perf-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-right: 8px; }
+
 @media (max-width: 480px) {
 .header-title { font-size: 13px; }
 .card-text { font-size: 15px; }
@@ -178,6 +199,9 @@ position: sticky; top: 0; z-index: 100;
 <div class="header-stats">
 <span class="stat-green" id="mastered-count">✓ 0/0 mastered</span>
 <span class="stat-yellow" id="card-count">⚡ Loading...</span>
+<span class="stat-yellow" id="session-timer" style="color:var(--muted)">⏱ 0:00</span>
+<span class="stat-green" id="streak-display" style="display:none">🔥 0 day streak</span>
+<span id="header-countdown" style="color:var(--accent);font-size:11px;font-family:var(--mono)" ></span>
 </div>
 </div>
 
@@ -203,7 +227,27 @@ position: sticky; top: 0; z-index: 100;
 <div class="tip-box">📌 The top 5 sections = <strong style="color:var(--text)">77 of 100 questions</strong>. Allocate 75% of your study time here. Pass strategy: master Insurance Basics + Adjusting Losses first — they alone cover 40 questions.</div>
 </div>
 
-```
+<div class="exam-date-wrap">
+<label>📅 Exam date:</label>
+<input type="date" id="exam-date-input" onchange="saveExamDate()">
+<span class="exam-countdown" id="exam-countdown"></span>
+</div>
+
+<div class="study-stats">
+<div class="study-stat-card">
+<div class="study-stat-label">Total Study Time</div>
+<div class="study-stat-value" id="total-study-time">0h 0m</div>
+</div>
+<div class="study-stat-card">
+<div class="study-stat-label">Session</div>
+<div class="study-stat-value" id="session-study-time">0:00</div>
+</div>
+<div class="study-stat-card">
+<div class="study-stat-label">Streak</div>
+<div class="study-stat-value" id="streak-value">0 days</div>
+</div>
+</div>
+
 <div class="section-label" style="margin-top:4px;">Study by Topic</div>
 <div style="margin-bottom:16px;">
 <div class="master-progress">
@@ -214,7 +258,7 @@ position: sticky; top: 0; z-index: 100;
 </div>
 <div id="topic-list"></div>
 <button class="quiz-start-btn" onclick="startQuiz('All Topics')">🎯 Start Full Practice Quiz — 20 Questions</button>
-```
+<button class="weak-btn" id="weak-spots-btn" onclick="startWeakSpotQuiz()" disabled>🔥 Weak Spots Quiz — Drill Your Misses</button>
 
 </div>
 
@@ -512,6 +556,20 @@ let quizWrong = [];
 let quizAnswered = false;
 let quizActive = false;
 
+// Performance tracking — unified between flashcards & quiz
+let perfData = {}; // { questionText: { right: N, wrong: N, lastSeen: timestamp } }
+let topicScores = {}; // { topicName: { score: N, total: N, date: string } }
+let weakPool = new Set(); // questions answered wrong
+
+// Timer
+let sessionStart = Date.now();
+let sessionTimerInterval = null;
+let totalStudyMs = 0;
+
+// Streak
+let streakCount = 0;
+let lastStudyDate = null;
+
 const ALL_CARDS = [];
 Object.entries(TOPICS).forEach(([cat, cards]) => {
 cards.forEach(c => ALL_CARDS.push({ ...c, category: cat }));
@@ -523,15 +581,207 @@ return ALL_CARDS.filter(c => c.category === currentTopic);
 }
 
 // ========================================================
+// LOCALSTORAGE
+// ========================================================
+function saveProgress() {
+try {
+localStorage.setItem('adj_mastered', JSON.stringify([...mastered]));
+localStorage.setItem('adj_perf', JSON.stringify(perfData));
+localStorage.setItem('adj_topicScores', JSON.stringify(topicScores));
+localStorage.setItem('adj_weakPool', JSON.stringify([...weakPool]));
+localStorage.setItem('adj_totalStudyMs', String(totalStudyMs + (Date.now() - sessionStart)));
+localStorage.setItem('adj_streakCount', String(streakCount));
+localStorage.setItem('adj_lastStudyDate', lastStudyDate || '');
+} catch(e) { /* quota exceeded — silent fail */ }
+}
+
+function loadProgress() {
+try {
+const m = localStorage.getItem('adj_mastered');
+if (m) mastered = new Set(JSON.parse(m));
+const p = localStorage.getItem('adj_perf');
+if (p) perfData = JSON.parse(p);
+const ts = localStorage.getItem('adj_topicScores');
+if (ts) topicScores = JSON.parse(ts);
+const wp = localStorage.getItem('adj_weakPool');
+if (wp) weakPool = new Set(JSON.parse(wp));
+const tms = localStorage.getItem('adj_totalStudyMs');
+if (tms) totalStudyMs = parseInt(tms) || 0;
+const sc = localStorage.getItem('adj_streakCount');
+if (sc) streakCount = parseInt(sc) || 0;
+lastStudyDate = localStorage.getItem('adj_lastStudyDate') || null;
+} catch(e) {}
+}
+
+// ========================================================
+// STUDY TIMER
+// ========================================================
+function startSessionTimer() {
+sessionStart = Date.now();
+sessionTimerInterval = setInterval(() => {
+const elapsed = Date.now() - sessionStart;
+const mins = Math.floor(elapsed / 60000);
+const secs = Math.floor((elapsed % 60000) / 1000);
+const timeStr = mins + ':' + String(secs).padStart(2, '0');
+document.getElementById('session-timer').textContent = '⏱ ' + timeStr;
+document.getElementById('session-study-time').textContent = timeStr;
+// Update total display
+const totalMs = totalStudyMs + elapsed;
+const totalH = Math.floor(totalMs / 3600000);
+const totalM = Math.floor((totalMs % 3600000) / 60000);
+document.getElementById('total-study-time').textContent = totalH + 'h ' + totalM + 'm';
+}, 1000);
+}
+
+// ========================================================
+// STREAK
+// ========================================================
+function updateStreak() {
+const today = new Date().toISOString().split('T')[0];
+if (lastStudyDate === today) return; // already logged today
+if (lastStudyDate) {
+const last = new Date(lastStudyDate);
+const now = new Date(today);
+const diff = Math.round((now - last) / 86400000);
+if (diff === 1) streakCount++;
+else if (diff > 1) streakCount = 1;
+} else {
+streakCount = 1;
+}
+lastStudyDate = today;
+saveProgress();
+renderStreak();
+}
+
+function renderStreak() {
+const el = document.getElementById('streak-display');
+const val = document.getElementById('streak-value');
+if (streakCount > 0) {
+el.style.display = 'inline';
+el.textContent = '🔥 ' + streakCount + ' day streak';
+}
+if (val) val.textContent = streakCount + ' days';
+}
+
+// ========================================================
+// EXAM COUNTDOWN
+// ========================================================
+function saveExamDate() {
+const d = document.getElementById('exam-date-input').value;
+if (d) localStorage.setItem('adj_examDate', d);
+renderCountdown();
+}
+
+function renderCountdown() {
+const d = localStorage.getItem('adj_examDate');
+const el1 = document.getElementById('exam-countdown');
+const el2 = document.getElementById('header-countdown');
+const input = document.getElementById('exam-date-input');
+if (!d) { el1.textContent = ''; el2.textContent = ''; return; }
+if (input) input.value = d;
+const diff = Math.ceil((new Date(d + 'T23:59:59') - new Date()) / 86400000);
+if (diff < 0) {
+el1.textContent = 'Good luck today!';
+el2.textContent = '🎯 Exam day!';
+} else if (diff === 0) {
+el1.textContent = 'EXAM IS TODAY!';
+el2.textContent = '🎯 Exam today!';
+} else {
+el1.textContent = diff + ' days until exam';
+el2.textContent = '📅 ' + diff + 'd to exam';
+}
+}
+
+// ========================================================
+// PERFORMANCE TRACKING (unified)
+// ========================================================
+function recordPerf(questionText, correct) {
+if (!perfData[questionText]) perfData[questionText] = { right: 0, wrong: 0 };
+if (correct) perfData[questionText].right++;
+else {
+perfData[questionText].wrong++;
+weakPool.add(questionText);
+}
+// If right 3 times consecutively in total rights vs wrongs
+if (perfData[questionText].right >= 3 && perfData[questionText].wrong === 0) {
+weakPool.delete(questionText);
+}
+// If gotten right 3 more times than wrong, remove from weak pool
+if (perfData[questionText].right - perfData[questionText].wrong >= 3) {
+weakPool.delete(questionText);
+}
+perfData[questionText].lastSeen = Date.now();
+saveProgress();
+}
+
+function getCardWeight(card) {
+const p = perfData[card.q];
+if (!p) return 1;
+if (p.wrong > p.right) return 3; // show more often
+if (mastered.has(card.q)) return 0.3; // show less
+if (p.right >= 3 && p.right > p.wrong) return 0.5;
+return 1;
+}
+
+function weightedShuffle(cards) {
+return cards.map(c => ({ card: c, sort: Math.random() * getCardWeight(c) }))
+.sort((a, b) => b.sort - a.sort)
+.map(x => x.card);
+}
+
+// ========================================================
+// WEAK SPOTS QUIZ
+// ========================================================
+function updateWeakSpotsBtn() {
+const btn = document.getElementById('weak-spots-btn');
+if (!btn) return;
+if (weakPool.size > 0) {
+btn.disabled = false;
+btn.textContent = '🔥 Weak Spots Quiz — ' + weakPool.size + ' cards to drill';
+} else {
+btn.disabled = true;
+btn.textContent = '🔥 Weak Spots Quiz — Complete a quiz first';
+}
+}
+
+function startWeakSpotQuiz() {
+if (weakPool.size === 0) return;
+const weakCards = ALL_CARDS.filter(c => weakPool.has(c.q));
+if (weakCards.length === 0) return;
+showPage('quiz');
+// Build quiz from weak cards only
+const shuffled = [...weakCards].sort(() => Math.random() - 0.5).slice(0, 20);
+quizDeck = shuffled.map(card => {
+const wrong = ALL_CARDS.filter(c => c.a !== card.a && c.a.length < 110).sort(() => Math.random() - 0.5).slice(0, 3);
+return { ...card, options: [card, ...wrong].sort(() => Math.random() - 0.5) };
+});
+quizIdx = 0; quizScore = 0; quizWrong = []; quizAnswered = false; quizActive = true;
+document.getElementById('quiz-idle').style.display = 'none';
+document.getElementById('quiz-results').style.display = 'none';
+document.getElementById('quiz-active').style.display = 'block';
+renderQuestion();
+}
+
+// ========================================================
 // INIT
 // ========================================================
 window.onload = function() {
+loadProgress();
 buildBlueprint();
 buildTopicList();
 buildTopicSelect();
 updateStats();
 renderCard();
 buildNumbers();
+startSessionTimer();
+renderStreak();
+renderCountdown();
+updateWeakSpotsBtn();
+// Auto-save on unload
+window.addEventListener('beforeunload', () => {
+totalStudyMs += (Date.now() - sessionStart);
+saveProgress();
+});
 };
 
 function updateStats() {
@@ -573,9 +823,12 @@ const el = document.createElement('div');
 el.className = 'topic-list-item';
 el.setAttribute('data-cat', cat);
 el.innerHTML = `
+<div style="display:flex;align-items:center;">
+<div class="topic-perf-dot" id="perf-dot-${encodeURIComponent(cat)}" style="background:var(--border)"></div>
 <div>
 <div class="topic-list-name">${cat}</div>
 <div class="topic-list-sub" id="tl-sub-${encodeURIComponent(cat)}">${cards.length} cards · 0 mastered</div>
+</div>
 </div>
 <div class="topic-list-arrow">›</div>`;
 el.onclick = () => {
@@ -593,7 +846,24 @@ function updateTopicSubtitles() {
 Object.entries(TOPICS).forEach(([cat, cards]) => {
 const m = cards.filter(c => mastered.has(c.q)).length;
 const el = document.getElementById('tl-sub-' + encodeURIComponent(cat));
-if (el) el.textContent = `${cards.length} cards · ${m} mastered`;
+if (!el) return;
+let sub = cards.length + ' cards · ' + m + ' mastered';
+const ts = topicScores[cat];
+if (ts) sub += ' · Last: ' + ts.pct + '% (' + ts.date + ')';
+el.textContent = sub;
+// Performance dot
+const dot = document.getElementById('perf-dot-' + encodeURIComponent(cat));
+if (dot) {
+const pct = m / cards.length;
+const hasBadScores = cards.some(c => {
+const p = perfData[c.q];
+return p && p.wrong > p.right;
+});
+if (pct >= 0.8 && !hasBadScores) dot.style.background = 'var(--green)';
+else if (pct >= 0.3 || (ts && ts.pct >= 50)) dot.style.background = 'var(--yellow)';
+else if (hasBadScores || (ts && ts.pct < 50)) dot.style.background = 'var(--red)';
+else dot.style.background = 'var(--border)';
+}
 });
 }
 
@@ -690,9 +960,16 @@ renderCard();
 
 function nextCard() {
 const filtered = getFiltered();
+// If card was flipped but not mastered, note it as "seen"
+const card = filtered[currentIdx];
+if (isFlipped && !mastered.has(card.q)) {
+if (!perfData[card.q]) perfData[card.q] = { right: 0, wrong: 0 };
+perfData[card.q].lastSeen = Date.now();
+}
 currentIdx = (currentIdx + 1) % filtered.length;
 isFlipped = false; showingDetail = false;
 renderCard();
+updateStreak();
 }
 
 function toggleMastered() {
@@ -700,6 +977,8 @@ const filtered = getFiltered();
 const card = filtered[currentIdx];
 if (mastered.has(card.q)) mastered.delete(card.q);
 else mastered.add(card.q);
+updateStreak();
+saveProgress();
 renderCard();
 updateStats();
 updateTopicSubtitles();
@@ -707,7 +986,11 @@ updateTopicSubtitles();
 
 function shuffleCards() {
 const filtered = getFiltered();
-currentIdx = Math.floor(Math.random() * filtered.length);
+const weighted = weightedShuffle(filtered);
+// Find the index of the top weighted card in the original filtered array
+const topCard = weighted[0];
+currentIdx = filtered.indexOf(topCard);
+if (currentIdx < 0) currentIdx = Math.floor(Math.random() * filtered.length);
 isFlipped = false; showingDetail = false;
 renderCard();
 }
@@ -775,6 +1058,8 @@ quizAnswered = true;
 const correct = answer === q.a;
 if (correct) quizScore++;
 else quizWrong.push(q);
+recordPerf(q.q, correct);
+updateStreak();
 
 document.querySelectorAll('.option').forEach(opt => {
 opt.classList.add('disabled');
@@ -828,6 +1113,15 @@ wrongSec.innerHTML += `
 </div>`;
 });
 }
+
+// Save topic score
+const topicName = currentTopic;
+const now = new Date();
+const dateStr = (now.getMonth()+1) + '/' + now.getDate();
+topicScores[topicName] = { score: quizScore, total: total, pct: pct, date: dateStr };
+saveProgress();
+updateWeakSpotsBtn();
+updateTopicSubtitles();
 }
 
 // ========================================================
