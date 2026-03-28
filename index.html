@@ -157,6 +157,35 @@ position: sticky; top: 0; z-index: 100;
 /* TRICK SECTION highlight */
 .trick-badge { display: inline-block; background: #ff4757; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-family: var(–mono); margin-left: 6px; vertical-align: middle; }
 
+/* GLOSSARY */
+.gloss-row { background: #0d1424; background: var(–surface); border: 1px solid #1a2a45; border: 1px solid var(–border); border-radius: 9px; padding: 11px 13px; margin-bottom: 6px; }
+.gloss-term { font-size: 13px; font-weight: 700; color: #60a5fa; font-family: var(–mono); margin-bottom: 3px; }
+.gloss-def { font-size: 12px; color: #5a7aaa; color: var(–muted); line-height: 1.5; }
+
+/* STUDY GUIDE */
+.sg-intro { font-size: 12px; color: #5a7aaa; color: var(–muted); margin-bottom: 14px; line-height: 1.6; }
+.sg-voice-select { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.sg-voice-btn { text-transform: capitalize; }
+.sg-controls { margin-bottom: 18px; }
+.sg-audio-bar { display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.sg-play-btn { padding: 10px 20px; background: #1e6aff; color: #ffffff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; font-family: var(–sans); cursor: pointer; transition: opacity 0.15s; min-width: 90px; }
+.sg-play-btn:hover { opacity: 0.9; }
+.sg-play-btn.playing { background: #f97316; }
+.sg-stop-btn { padding: 10px 14px; background: #0d1424; color: #5a7aaa; border: 1px solid #1a2a45; border-radius: 8px; font-size: 14px; font-family: var(–sans); cursor: pointer; }
+.sg-stop-btn:hover { border-color: #223355; color: #dce8ff; }
+.sg-speed { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.sg-speed label { font-size: 11px; color: #5a7aaa; margin-right: 2px; }
+.sg-speed-btn { padding: 5px 8px; background: #0d1424; border: 1px solid #1a2a45; color: #5a7aaa; border-radius: 6px; font-size: 11px; font-family: var(–mono); cursor: pointer; }
+.sg-speed-btn.sg-speed-active { background: #1e6aff; color: #ffffff; border-color: #1e6aff; }
+.sg-status { font-size: 11px; color: #5a7aaa; margin-top: 8px; font-family: var(–mono); }
+.sg-section { margin-bottom: 20px; }
+.sg-section-title { font-size: 14px; font-weight: 700; color: #dce8ff; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #1a2a45; }
+.sg-concept { background: #0d1424; border: 1px solid #1a2a45; border-radius: 10px; padding: 14px; margin-bottom: 10px; transition: border-color 0.2s, background 0.2s; }
+.sg-concept.sg-reading { border-color: #1e6aff; background: #0a1628; }
+.sg-concept-q { font-size: 13px; font-weight: 600; color: #dce8ff; margin-bottom: 6px; }
+.sg-concept-a { font-size: 13px; color: #93c5fd; line-height: 1.6; margin-bottom: 6px; }
+.sg-concept-tip { font-size: 12px; color: #5a7aaa; line-height: 1.5; padding-top: 6px; border-top: 1px solid #1a2a45; }
+
 /* STUDY STATS BAR */
 .study-stats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
 .study-stat-card { background: var(–surface); border: 1px solid var(–border); border-radius: 10px; padding: 10px 12px; flex: 1; min-width: 90px; }
@@ -211,9 +240,11 @@ position: sticky; top: 0; z-index: 100;
 
 <div class="nav">
 <button class="nav-btn active" onclick="showPage('overview')">📊 Overview</button>
-<button class="nav-btn" onclick="showPage('flashcards')">🃏 Flashcards</button>
+<button class="nav-btn" onclick="showPage('study')">📖 Study</button>
+<button class="nav-btn" onclick="showPage('flashcards')">🃏 Cards</button>
 <button class="nav-btn" onclick="showPage('quiz')">🎯 Quiz</button>
 <button class="nav-btn" onclick="showPage('numbers')">🔢 Numbers</button>
+<button class="nav-btn" onclick="showPage('glossary')">📋 Glossary</button>
 </div>
 
 <div class="topic-bar" id="topic-bar" style="display:none;">
@@ -264,6 +295,42 @@ position: sticky; top: 0; z-index: 100;
 <button class="quiz-start-btn" onclick="startQuiz('All Topics')">🎯 Start Full Practice Quiz — 20 Questions</button>
 <button class="weak-btn" id="weak-spots-btn" onclick="startWeakSpotQuiz()" disabled>🔥 Weak Spots Quiz — Drill Your Misses</button>
 
+</div>
+
+<!-- STUDY GUIDE -->
+
+<div class="page" id="page-study">
+<div class="section-label">Study Guide — Listen & Read</div>
+<div class="sg-intro">Select a topic below and hit play. A natural human voice reads each section out loud. Study while driving or follow along on screen.</div>
+
+<div class="sg-voice-select" style="margin-bottom:10px">
+<label style="font-size:11px;color:var(--muted);margin-right:6px">Voice:</label>
+<button class="sg-speed-btn sg-voice-btn sg-speed-active" onclick="sgSetVoice('nova')">Nova</button>
+<button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('shimmer')">Shimmer</button>
+<button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('alloy')">Alloy</button>
+<button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('echo')">Echo</button>
+<button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('onyx')">Onyx</button>
+<button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('fable')">Fable</button>
+</div>
+
+<div class="sg-controls">
+<select class="topic-select" id="sg-topic-select" onchange="sgChangeTopic()">
+</select>
+<div class="sg-audio-bar">
+<button class="sg-play-btn" id="sg-play-btn" onclick="sgTogglePlay()">▶ Play</button>
+<button class="sg-stop-btn" onclick="sgStop()">⏹ Stop</button>
+<div class="sg-speed">
+<label>Speed:</label>
+<button class="sg-speed-btn" onclick="sgSetSpeed(0.75)">0.75x</button>
+<button class="sg-speed-btn sg-speed-active" onclick="sgSetSpeed(1)">1x</button>
+<button class="sg-speed-btn" onclick="sgSetSpeed(1.25)">1.25x</button>
+<button class="sg-speed-btn" onclick="sgSetSpeed(1.5)">1.5x</button>
+</div>
+</div>
+<div class="sg-status" id="sg-status"></div>
+</div>
+
+<div id="sg-content"></div>
 </div>
 
 <!-- FLASHCARDS -->
@@ -327,6 +394,15 @@ position: sticky; top: 0; z-index: 100;
 <div class="num-intro">Every specific number the PSI exam tests. These numbers appear on 15–20 questions. Filter below to drill specific areas.</div>
 <input class="num-search" id="num-search" placeholder="Filter — try 'PIP' or '28' or 'finger'..." oninput="filterNumbers()">
 <div id="numbers-list"></div>
+</div>
+
+<!-- GLOSSARY -->
+
+<div class="page" id="page-glossary">
+<div class="section-label">Glossary of Terms & Acronyms</div>
+<div class="num-intro">Every abbreviation, acronym, and technical term used in this study guide and on the PSI exam. Search below to find any term.</div>
+<input class="num-search" id="gloss-search" placeholder="Search — try 'PIP' or 'subrogation' or 'ACV'..." oninput="filterGlossary()">
+<div id="glossary-list"></div>
 </div>
 
 </div>
@@ -417,6 +493,144 @@ const NUMBERS = [
 ["License validity after passing", "12 months to apply"],
 ]},
 ];
+
+const GLOSSARY = [
+{ section: "🔤 Insurance Acronyms", terms: [
+["PIP", "Personal Injury Protection — Michigan's mandatory no-fault auto coverage that pays your own medical bills, wage loss, and replacement services regardless of who caused the accident"],
+["PPI", "Property Protection Insurance — Michigan-only coverage ($1M limit) that pays for damage your vehicle causes to other people's buildings, fences, and parked vehicles"],
+["BI/PD", "Bodily Injury / Property Damage Liability — coverage that pays when YOU cause injury or property damage to someone else. Listed as three numbers like $250K/$500K/$10K (per person/per accident/property damage)"],
+["ACV", "Actual Cash Value — what your property was actually worth at the time of the loss. Calculated as replacement cost minus depreciation (wear and tear)"],
+["RCV", "Replacement Cost Value — the cost to replace damaged property with new equivalent property, with no deduction for depreciation"],
+["WC", "Workers' Compensation — insurance that covers employees injured on the job. Pays medical bills and wage loss benefits regardless of fault"],
+["AWW", "Average Weekly Wage — the worker's average earnings used to calculate workers' comp benefits. Based on the highest 39 of the last 52 weeks"],
+["SAWW", "State Average Weekly Wage — the statewide average used to cap workers' comp benefits. Maximum WC benefit is 90% of SAWW"],
+["CGL", "Commercial General Liability — a business insurance policy covering bodily injury and property damage claims from third parties"],
+["CPP", "Commercial Package Policy — a customizable commercial policy that bundles multiple coverage types (property, liability, auto, etc.) into one package"],
+["BOP", "Business Owners Policy — a pre-packaged insurance policy for small to mid-size businesses that automatically includes property, liability, and business income coverage"],
+["HO", "Homeowners Policy — insurance covering your home's structure, personal property, liability, and additional living expenses. Comes in numbered forms (HO-2, HO-3, HO-4, HO-5, HO-6, HO-8)"],
+["DP", "Dwelling Policy — stripped-down property insurance for rental or investment properties. Covers the building but does NOT include liability coverage"],
+["UM/UIM", "Uninsured Motorist / Underinsured Motorist — coverage that protects you when the at-fault driver has no insurance (UM) or not enough insurance (UIM) to cover your damages"],
+["GAP", "Guaranteed Asset Protection — insurance that covers the difference between what your car is worth (ACV) and what you still owe on your loan or lease after a total loss"],
+["NFIP", "National Flood Insurance Program — the federal program that provides flood insurance, since standard homeowners policies exclude flood damage"],
+["EUO", "Examination Under Oath — a formal sworn statement taken by the insurer's attorney from the insured person, usually when fraud is suspected"],
+["IME", "Independent Medical Examination — a medical exam ordered by the insurance company using their own chosen doctor to evaluate the severity of an injury"],
+["ROR", "Reservation of Rights — a letter from the insurer telling the insured 'we're investigating your claim but we might not cover it.' Preserves the insurer's right to deny later"],
+["MCL", "Michigan Compiled Laws — the official collection of Michigan state statutes. When you see MCL 500.xxxx, that's the Michigan Insurance Code"],
+["FELA", "Federal Employers Liability Act — a federal law covering railroad worker injuries. Unlike regular WC, FELA requires the worker to prove the railroad was negligent"],
+["EL", "Employers' Liability — Part Two of a workers' comp policy that covers lawsuits from injured employees that fall outside standard WC. Default limits are $100K/$100K/$500K"],
+["SFP", "Standard Fire Policy — the historical foundation of property insurance dating back to 1943. Fire, lightning, and internal explosion are the core perils from this original policy"],
+["PAP", "Personal Auto Policy — the standard personal auto insurance policy. Has six parts: A (Liability), B (Medical Payments), C (Uninsured Motorist), D (Physical Damage), E (Duties), F (General Provisions)"],
+]},
+{ section: "📋 Key Insurance Terms", terms: [
+["Subrogation", "After an insurer pays your claim, they 'step into your shoes' and can go after the person who actually caused the damage to recover what they paid. The insurer can't do this until you've been fully compensated first"],
+["Indemnity", "The core principle of insurance: it restores you to where you were before the loss, no better and no worse. You can't profit from an insurance claim"],
+["Coinsurance", "A clause that penalizes you if you don't insure your property for enough. If you're supposed to carry 80% of value and you carry less, the insurer pays proportionally less on claims"],
+["Deductible", "The amount you pay out of pocket before insurance kicks in. A $1,000 deductible means you pay the first $1,000 of any covered loss"],
+["Premium", "The amount you pay for your insurance policy, usually monthly or annually"],
+["Endorsement", "An add-on or modification to an existing insurance policy that changes what's covered. Also called a 'rider'"],
+["Exclusion", "Something specifically NOT covered by your policy. Flood, earthquake, and intentional acts are common exclusions"],
+["Named Perils", "A policy that ONLY covers the specific dangers listed in it. If it's not on the list, it's not covered. HO-3 personal property uses named perils"],
+["Open Perils", "A policy that covers everything UNLESS it's specifically excluded. Much broader protection. HO-3 dwelling coverage is open perils"],
+["Declarations Page", "The front page of your policy listing your name, address, coverage amounts, deductibles, and premium. The 'who, what, where, how much' page"],
+["Insurable Interest", "You must have a financial stake in the thing you're insuring. You can't insure your neighbor's house because you don't lose money if it burns down"],
+["Bad Faith", "When an insurer unreasonably denies, delays, or lowballs a legitimate claim without proper investigation. Can result in penalties beyond the policy limits"],
+["Waiver", "When an insurer gives up a right, either intentionally or by accident. Example: if an insurer investigates for months without sending a Reservation of Rights letter, they may have waived the right to deny coverage"],
+["Estoppel", "A legal doctrine that prevents an insurer from denying coverage if their previous actions led the insured to reasonably believe they were covered"],
+["Tort", "A wrongful act (other than breach of contract) that causes harm and allows the injured person to sue for damages. Negligence is the most common tort"],
+["Negligence", "Failure to exercise reasonable care, resulting in harm. Requires four elements: duty, breach, causation, and damages — all four must be present"],
+["Strict Liability", "Liability without negligence. Applies to abnormally dangerous activities (storing explosives) and defective products. You're liable just for doing it"],
+["Vicarious Liability", "When an employer is held liable for what their employee did on the job, even though the employer wasn't personally at fault"],
+["Proximate Cause", "The primary cause that sets a chain of events in motion leading to a loss. Insurance pays based on whether the proximate cause is covered, not what happened after"],
+["Moral Hazard", "The risk that a person will intentionally cause or exaggerate a loss because they have insurance. Think arson for profit"],
+["Morale Hazard", "The risk that a person becomes careless because they know insurance will pay. Not intentional fraud, just sloppiness because they're covered"],
+["Mini-tort", "Michigan's rule allowing you to sue an at-fault driver for up to $3,000 in vehicle damage that wasn't covered by your own insurance"],
+["Tort Threshold", "In Michigan, you can only sue for pain and suffering from an auto accident if you have death, permanent serious disfigurement, or serious impairment of an important body function"],
+["Twisting", "Illegally convincing someone to drop their current insurance policy and buy a new one by using misrepresentation or lies about the old policy"],
+["Rebating", "Illegally offering money, gifts, or kickbacks to get someone to buy insurance. Even small gifts count. The inducement itself is the violation"],
+["Vacancy vs Unoccupancy", "Vacant means no stuff AND no people inside. Unoccupied means your stuff is still there but nobody's living in it. Policies restrict coverage after 60 days of VACANCY specifically"],
+["Assigned Claims Plan", "Michigan's safety net for uninsured accident victims. Provides PIP benefits capped at $250K for medical (no cap on wage loss). Covers hit-and-run victims and uninsured drivers"],
+["Period of Restoration", "In business income insurance, the time from when the loss happens until the business COULD reasonably reopen. Not when it actually reopens, when it COULD"],
+["Salvage", "The leftover value of damaged property after a total loss. Insurer takes ownership and sells it to reduce their net cost on the claim"],
+["Proof of Loss", "A formal sworn document you submit to your insurer detailing what was lost or damaged. Most policies require it within 60 days"],
+["Appraisal", "A dispute resolution process for disagreements about HOW MUCH a loss is worth (not whether it's covered). Each side picks an appraiser, they pick an umpire, two of three must agree"],
+]},
+];
+
+
+const LESSONS = {
+"🔥 Insurance Basics (20% — 20 Qs)": [
+{title: "What Insurance Actually Is", text: "Insurance is a contract where you pay money, called a premium, and in exchange the insurance company agrees to pay for certain losses if they happen. That contract is called a policy. The whole idea behind insurance is the principle of indemnity, which means if something bad happens, insurance puts you back where you were before the loss. No better, no worse. You cannot make a profit from an insurance claim. Life insurance is the one exception to this rule because you obviously cannot put a price on a human life."},
+{title: "The Four Elements of a Valid Insurance Contract", text: "Every insurance contract needs four things to be legally valid. First, offer and acceptance, meaning one side offers terms and the other agrees. Second, consideration, which is the exchange of value. You pay your premium and the insurer promises to pay claims. Third, competent parties, meaning both sides are legally capable of entering a contract. A minor or someone mentally incapacitated cannot enter a valid contract. Fourth, legal purpose. The contract must be for something legal. You cannot insure an illegal drug operation. Remember all four of these. The exam will test them."},
+{title: "Insurable Interest", text: "Insurable interest means you have a financial stake in whatever you are insuring. You would lose money if it was damaged or destroyed. You cannot insure your neighbor's house because their loss does not cost you anything. Here is the critical distinction the exam tests. For property insurance, insurable interest must exist at the time of the loss. For life insurance, insurable interest only needs to exist at the time of application. So if you buy a life insurance policy on your spouse and later get divorced, the policy is still valid because insurable interest existed when you applied."},
+{title: "Hazards: Physical, Moral, and Morale", text: "A hazard is a condition that increases the chance of a loss. There are three types and the exam loves testing whether you know the difference. A physical hazard is a tangible condition like a cracked sidewalk, faulty wiring, or a wooden roof. A moral hazard is intentional dishonesty. Think arson for profit or faking an injury. The person is deliberately trying to cause or exaggerate a loss. A morale hazard is carelessness because you know you are covered. You leave your car unlocked because you have theft insurance. It is not intentional fraud, just sloppiness. Moral equals intentional bad behavior. Morale equals indifference because you are insured."},
+{title: "Negligence and Its Four Elements", text: "Negligence is the failure to exercise reasonable care, and it is the foundation of most liability claims. All four elements must be present or there is no negligence. First, duty owed. The defendant had a responsibility to act a certain way. Second, breach of that duty. They failed to meet that standard. Third, proximate causation. The breach directly caused the harm. Fourth, actual damages. Real harm resulted, whether physical injury, property damage, or financial loss. The exam will present scenarios where one element is missing and the correct answer is that there is no negligence."},
+{title: "Strict Liability and Vicarious Liability", text: "Strict liability means you are liable without negligence. It applies to abnormally dangerous activities like storing explosives or keeping wild animals, and to defective products. You do not need to prove the person was careless. You just prove causation and damages. Vicarious liability means an employer is responsible for what their employee does on the job. This comes from a legal doctrine called respondeat superior. If a delivery driver causes an accident while making deliveries, the employer is liable even though the employer was not in the car."},
+{title: "Actual Cash Value and Replacement Cost", text: "Actual cash value, or ACV, is what your property was worth at the time of the loss. The formula is replacement cost minus depreciation. If a five year old roof costs 20,000 dollars to replace new but has depreciated 8,000 dollars, the ACV is 12,000 dollars. Replacement cost value, or RCV, pays the full cost to replace with new equivalent property with no deduction for depreciation. You get the full 20,000 dollars. Standard policies pay ACV unless you purchase a replacement cost endorsement. The exam will absolutely have ACV calculation questions."},
+{title: "The Coinsurance Penalty", text: "Coinsurance is a clause that penalizes you if you do not carry enough insurance. Most commercial property policies require you to insure to at least 80 percent of your property's value. If you do not, the insurer pays proportionally less on every claim. The formula is amount carried divided by amount required, multiplied by the loss. Here is an example. You have a 500,000 dollar building with an 80 percent coinsurance clause. That means you are required to carry at least 400,000 dollars of coverage. If you only carry 300,000 dollars and have a 50,000 dollar loss, the insurer pays 300,000 divided by 400,000 times 50,000, which equals 37,500 dollars. You absorb the remaining 12,500 dollars yourself. The exam may ask how much the insured absorbs, not how much the insurer pays, so read carefully."},
+{title: "Subrogation and the Made Whole Doctrine", text: "Subrogation means after your insurer pays your claim, they step into your shoes and can go after the person who actually caused the damage to recover what they paid. But there is a critical rule called the made whole doctrine. The insurer cannot pursue subrogation until you, the insured, have been fully compensated first. Also, an insurer can never subrogate against its own insured. A waiver of subrogation endorsement is when the insurer agrees in advance not to pursue recovery against a specific third party. These are common in commercial leases and construction contracts."},
+{title: "The Four Parts of Every Insurance Policy", text: "Every insurance policy has four parts and you can remember them with the acronym DICE. D is for Declarations, which is the front page listing who is insured, what is covered, the policy period, limits, deductibles, and premium. I is for Insuring Agreement, which states what the insurer promises to cover. C is for Conditions, which are the rules both sides must follow, like the insured's duty to report losses promptly and cooperate with the investigation. E is for Exclusions, which list what is specifically not covered. Endorsements can modify any of these four parts."},
+{title: "Reservation of Rights and Nonwaiver Agreements", text: "When an insurer is not sure whether a claim is covered, they need to protect their right to deny the claim later while still investigating. They do this with either a reservation of rights letter or a nonwaiver agreement. A reservation of rights letter, called an ROR, is a one-sided letter from the insurer to the insured. The insurer sends it unilaterally. A nonwaiver agreement is a two-sided document that both the insurer and insured sign. Both serve the same purpose, which is preserving the insurer's right to deny coverage after investigation. If the insurer investigates without sending either of these, they may have waived their right to deny, which is a fatal claims error."},
+{title: "Other Insurance, Binders, and Utmost Good Faith", text: "When two or more policies cover the same loss, the pro rata other insurance clause determines how they split the payment. Each insurer pays its proportional share based on its limits relative to total coverage. The insured cannot recover more than the actual loss. A binder is temporary proof of coverage that is legally binding while the formal policy is being issued. It typically lasts 30 to 90 days. If a covered loss happens during the binder period, the insurer must pay. Utmost good faith, also called uberrimae fidei, means both parties must disclose all material facts. If you lie or conceal information on your application, the insurer can rescind the entire policy."},
+{title: "Types of Damages", text: "There are three categories of damages tested on the exam. Compensatory damages restore the injured party and include both special damages, which are measurable costs like medical bills and lost wages, and general damages like pain and suffering. Punitive damages are awarded to punish particularly bad conduct. They go beyond compensating the victim and can exceed policy limits. Nominal damages are token awards for a technical violation where no real harm occurred. Bad faith is when an insurer unreasonably denies, delays, or underpays a legitimate claim without proper investigation. A simple disagreement over value is not bad faith. Bad faith can result in extra-contractual damages beyond the policy limits."},
+{title: "Vacancy Versus Unoccupancy", text: "This is a classic exam trick question. A property is vacant when it has no contents and no people. It is completely empty. A property is unoccupied when contents are still present but nobody is currently living there. A furnished vacation home with nobody staying in it is unoccupied, not vacant. Insurance policies restrict or suspend coverage after 60 days of vacancy specifically. The vacancy provision does not apply to unoccupied properties. Vandalism and malicious mischief coverage is typically the first coverage suspended when the 60-day vacancy threshold is reached."},
+],
+"⚖️ Adjusting Losses (20% — 20 Qs)": [
+{title: "Types of Adjusters", text: "There are three types of adjusters and the exam tests whether you know who each one works for. A staff adjuster is a salaried employee of the insurance company. An independent adjuster is a contractor who works for the insurance company on a per-claim basis, often handling overflow or specialized claims. A public adjuster is hired by and works for the insured, the policyholder, and charges a percentage of the settlement. This is the key distinction. Public adjusters represent the insured, not the insurer. Michigan requires licensing for all independent and public adjusters."},
+{title: "Michigan Claims Payment Rules", text: "Under Michigan law, specifically MCL 500.2006, the insurer has 60 days after receiving satisfactory proof of loss to pay the claim. If they are late, they owe 12 percent annual interest on the overdue amount. The insurer also has 30 days after receiving a claim to tell the insured exactly what constitutes satisfactory proof of loss. They cannot just sit on a claim and never specify what they need. MCL 500.2026 lists unfair claims practices, but it requires a pattern of conduct, not a single incident, to trigger regulatory action against the insurer. Individual bad faith remedies come from common law."},
+{title: "Proof of Loss and Examination Under Oath", text: "A proof of loss is a formal sworn statement submitted by the insured detailing what was lost or damaged. Most Michigan policies require it within 60 days of the loss. If the insured fails to submit it, that is a breach of a policy condition and can jeopardize the claim. An examination under oath, or EUO, is more formal. It is a sworn statement taken by the insurer's attorney and the insured must have their own attorney present. Refusing to participate in an EUO is a breach of the cooperation clause and can void the claim entirely. A recorded statement is less formal and does not require an attorney."},
+{title: "Duty to Mitigate and Advance Payments", text: "After a covered loss, the insured has a duty to take reasonable steps to prevent further damage. If your roof is damaged in a storm, you need to put a tarp on it immediately. You cannot just let rain pour in for weeks and expect the insurer to pay for all the water damage too. The insurer will reimburse reasonable mitigation costs even if the main coverage is being disputed. An advance payment is a partial payment before the final settlement. It is appropriate when coverage is clear, liability is established, and at least some damages are determined. Always document it as an advance, not a full and final settlement."},
+{title: "The Appraisal Process", text: "Under MCL 500.2833, when the insurer and insured disagree on how much a loss is worth, either party can demand an appraisal. This is important: appraisal resolves the amount of the loss only. It does not determine whether coverage exists. Each side hires their own appraiser. The two appraisers then select a neutral umpire. An award requires two of the three to agree. Each party pays their own appraiser and the umpire cost is split 50-50. The award is binding."},
+{title: "Total Loss Vehicles and Salvage", text: "In Michigan, a vehicle is considered a total loss when the repair cost exceeds approximately 75 to 80 percent of the actual cash value. Michigan does not have a fixed statutory threshold, so adjusters exercise judgment. Always document your ACV source, whether it is CCC, Mitchell, or NADA. Salvage is the residual value of damaged property after a total loss settlement. The insurer takes title and sells the wreck to reduce their net claim cost. If the insured wants to keep the salvage, deduct its value from the settlement amount. Always get a salvage bid before finalizing a total loss."},
+{title: "Claim File Requirements and Draft Authority", text: "A complete claim file must include notice of loss, recorded statements, investigation report, photographs, police or fire reports, coverage analysis, proof of loss, repair estimates, and a signed release. A missing coverage analysis is a major error. Missing photographs means you cannot reconstruct the scene later. No signed release means open liability exposure. Draft authority is the dollar amount an adjuster can settle without supervisor approval. Exceeding your draft authority can result in disciplinary action and bad faith exposure. Always confirm your authority limits before settling and get written approval when approaching them."},
+{title: "Releases and Recorded Statements", text: "A full release surrenders all rights to all damages. A partial release covers only specified damages while preserving rights to others. Never obtain a full release when damages are still being determined, such as when the insured has ongoing medical treatment. Doing so is bad faith exposure. Regarding recorded statements, your own insured must cooperate because it is a policy condition. Third-party claimants cannot be compelled to give a statement because they have no contractual duty to cooperate with your investigation. Take recorded statements from your own insured as soon as possible."},
+{title: "Estoppel, Valuation Methods, and Unfair Practices", text: "Estoppel prevents an insurer from denying coverage if they previously acted in a way that led the insured to reasonably believe they were covered. If an insurer investigates and defends a claim for six months and then tries to deny, the court may stop them because of their prior conduct. There are three methods of property loss valuation. ACV is replacement cost minus depreciation. Replacement cost pays new for old. Functional replacement cost pays for a modern equivalent at lower cost. Michigan unfair claims practices include misrepresenting policy provisions, failing to acknowledge claims promptly, refusing to pay without investigation, and offering substantially less than what is owed to force litigation."},
+],
+"🚗 Michigan No-Fault Auto (15% — 15 Qs)": [
+{title: "The Three Mandatory Coverages", text: "Every Michigan driver must carry three coverages. First is Personal Injury Protection, called PIP, which pays your own medical bills, wage loss, and replacement services regardless of who caused the accident. Second is Property Protection Insurance, called PPI, which is unique to Michigan and no other state has it. PPI provides one million dollars of coverage for damage your vehicle causes to other people's stationary property like buildings, fences, and properly parked vehicles. PPI does not cover moving vehicles. Third is residual bodily injury and property damage liability, called BI/PD. Know all three of these cold."},
+{title: "PIP Benefits in Detail", text: "PIP is the heart of Michigan's no-fault system. It pays medical expenses based on your chosen tier, wage loss at 85 percent of gross wages up to approximately 7,201 dollars per month for up to three years, replacement services at 20 dollars per day for up to three years for things like housework and yard care you cannot do while injured, attendant care capped at 56 hours per week for family members, and funeral expenses. Wage loss and replacement services apply even if the driver opted out of PIP medical coverage. PIP becomes overdue 30 days after the insurer receives reasonable proof of loss. Late payments accrue 12 percent annual interest. The deadline to sue for unpaid PIP is one year from the date of denial, not from the accident date."},
+{title: "The Six PIP Tiers Under the 2019 Reform", text: "Michigan's 2019 no-fault reform, effective July 2, 2020, created six PIP medical coverage tiers. Tier one is unlimited coverage. Tier two caps medical at 500,000 dollars. Tier three caps at 250,000 dollars. Tier four is 250,000 dollars with a qualified health coverage deductible of up to 6,000 dollars. Tier five is 50,000 dollars and is only available to people on Medicaid. Tier six is a full opt-out available only to people who have Medicare Parts A and B. If no selection is made, coverage defaults to unlimited at full premium. Each tier has a mandated premium reduction."},
+{title: "BI/PD Limits and the Mini-Tort", text: "The 2019 reform raised BI/PD limits. The new default is 250,000 per person, 500,000 per accident, and 10,000 for property damage. The new minimum is 50,000 per person, 100,000 per accident, and 10,000 for property damage. The old minimum was 20 and 40. The mini-tort allows you to sue the at-fault driver, who must be at least 50 percent at fault, for up to 3,000 dollars in uncompensated vehicle damage. This was raised from 1,000 dollars by the 2019 reform. It only applies if you have no collision coverage or you paid a deductible."},
+{title: "PIP Priority Order", text: "When someone is injured in a vehicle, PIP benefits are paid in a specific priority order. First, your own auto insurer. Second, your spouse's auto insurer. Third, a resident relative's auto insurer. Fourth, the insurer of the vehicle owner or registrant. Fifth, the driver's insurer. Sixth, the Michigan Assigned Claims Plan. There is one big exception: if the injured person was in an employer-owned vehicle, they file with the employer's auto insurer, which bypasses the personal PIP priority entirely."},
+{title: "Rating Factors, Tort Threshold, and Motorcycles", text: "After the 2019 reform, insurers cannot use sex, marital status, home ownership, credit score, education level, occupation, or ZIP code as rating factors. They can still use driving history, claims history, vehicle type, annual mileage, and age. Rating is now by county, not ZIP code. Michigan is a limited tort state. To sue for pain and suffering from an auto accident, the injury must meet the tort threshold: death, permanent serious disfigurement, or serious impairment of an important body function. Motorcycles are not considered motor vehicles under the No-Fault Act. If a motorcyclist is hit by a car, PIP comes from the car's insurer. A solo motorcycle crash with no motor vehicle involved goes to the Assigned Claims Plan with a 250,000 dollar medical cap."},
+{title: "Assigned Claims Plan, PAP Parts, and GAP Insurance", text: "The Michigan Assigned Claims Plan is the safety net for uninsured accident victims. It provides PIP benefits with a 250,000 dollar medical cap but no cap on wage loss or replacement services. It covers uninsured drivers, hit-and-run victims, and out-of-state drivers. It does not cover people who intentionally avoided buying insurance. The Personal Auto Policy has six parts. Part A is liability. Part B is medical payments, which is less common in Michigan because PIP is mandatory. Part C is uninsured motorist. Part D covers collision and comprehensive. Part E covers duties after an accident. Part F is general provisions. GAP insurance covers the difference between the ACV settlement and the remaining loan or lease balance after a total loss."},
+],
+"🏠 Homeowners Policy (12% — 12 Qs)": [
+{title: "Homeowners Policy Forms", text: "Homeowners policies come in numbered forms and you need to know who uses each one. HO-2 is the broad form with named perils coverage. HO-3 is the special form and it is by far the most common and most tested on the exam. HO-4 is for renters. HO-5 is the comprehensive form offering the broadest coverage. HO-6 is for condo owners. HO-8 is for older homes where replacement cost would far exceed market value. HO-1 was the basic form but it is rarely used today."},
+{title: "HO-3: The Critical Distinction", text: "HO-3 is the policy the exam tests most. Here is the most important thing to understand about it. The dwelling, which is Coverage A, is covered on an open perils basis, meaning everything is covered unless it is specifically excluded. But personal property, which is Coverage C, is covered on a named perils basis, meaning only the 16 listed perils are covered. Most people think HO-3 is open perils on everything. That is wrong and the exam will test this. If you want open perils on both the dwelling and personal property, you need an HO-5."},
+{title: "Coverages A Through F and Their Percentages", text: "Coverage A is the dwelling itself and it is set at 100 percent, meaning whatever amount you choose. Coverage B covers other structures on the property like a detached garage or fence, and it is automatically set at 10 percent of Coverage A. Coverage C covers personal property and is set at 50 percent of Coverage A. Coverage D covers loss of use, meaning additional living expenses if you cannot live in your home, and it is set at 30 percent of Coverage A. Coverage E is personal liability with a standard limit of 100,000 dollars. Coverage F is medical payments to others, typically 1,000 to 5,000 dollars. Remember that Coverages A through D are property coverages and E and F are liability coverages."},
+{title: "Coverage E Versus Coverage F", text: "Coverage E is personal liability. If someone sues you because they got hurt on your property, Coverage E pays for your legal defense and any damages awarded. It requires negligence, meaning someone has to prove you did something wrong. Coverage F is medical payments to others. It pays small medical bills for guests who are injured on your property regardless of fault. No lawsuit is needed. It is essentially goodwill coverage to avoid lawsuits over minor injuries. Coverage F does not cover household members and the limits are small, usually 1,000 to 5,000 dollars."},
+{title: "Excluded Perils and the 16 Named Perils", text: "Certain perils are excluded from all homeowners policies. The big ones are flood, earthquake and earth movement, wear and tear, intentional acts, nuclear hazard, war, and government action. Flood is the number one excluded peril and requires a separate policy through the National Flood Insurance Program, or NFIP. The 16 named perils that apply to personal property under HO-3 are fire and lightning, windstorm and hail, explosion, riot, aircraft, vehicles, smoke, vandalism, theft, falling objects, weight of ice and snow, accidental water discharge, tearing of appliances, freezing, electrical damage, and volcanic eruption. Some important catches: vehicles means other people's vehicles, not your own. Theft excludes mysterious disappearance. Falling objects must penetrate the exterior of the building first."},
+{title: "Sublimits, Floaters, and Special Situations", text: "Standard homeowners policies have sublimits on certain high-value items. Jewelry is limited to 1,500 dollars total, cash to 200 dollars, securities to 1,500 dollars, and silverware to 2,500 dollars. If you own a 10,000 dollar engagement ring, the most you would get under the standard policy is 1,500 dollars. To get full coverage, you need a scheduled personal property endorsement, also called a floater. Floaters provide open perils coverage for specific high-value items at agreed value with no deductible and no sublimits. For boats, the homeowners policy only covers liability for watercraft that are 26 feet or shorter and have 25 horsepower or less. Both conditions must be met. If either is exceeded, you need a separate watercraft policy. The exam loves this rule."},
+{title: "HO-6 for Condos, Business Exclusions, and Vacancy", text: "HO-6 is the condo policy. It covers the unit interior from bare walls inward, including personal property, liability, and loss assessment coverage. The condo association's master policy covers the building exterior and common areas. Loss assessment coverage, typically 1,000 dollars and expandable by endorsement, pays your share when the association assesses unit owners for a shared loss that exceeds the master policy. Business activities are excluded from all homeowners policies for both property and liability. If a customer slips and falls at your home-based business, Coverage E does not apply. You need a home business endorsement or a separate business owners policy. The vacancy provision triggers after 60 days of vacancy, typically suspending vandalism and malicious mischief coverage."},
+],
+"👷 Workers' Compensation (10% — 10 Qs)": [
+{title: "Which Employers Must Carry Workers' Comp", text: "In Michigan, private employers must carry workers' compensation insurance if they have three or more employees at any time, or one or more employees working 35 or more hours per week for 13 or more consecutive weeks. All government employers must carry it regardless of size. For agricultural employers, coverage is required when three or more employees work on the same day for 35 or more days in a calendar year. For domestic workers, it is two or more working 35 or more hours per week. Memorize these thresholds because they will be on the exam."},
+{title: "How Michigan WC Benefits Are Calculated", text: "Workers' comp wage loss benefits are calculated at 80 percent of after-tax average weekly wage. That is after-tax, not gross wages. The average is based on the highest 39 of the last 52 weeks, which favors the injured worker by excluding their lowest-earning weeks. Overtime, bonuses, and discontinued fringe benefits are included in the calculation. The maximum benefit is capped at 90 percent of the state average weekly wage, or SAWW. The minimum benefit is 25 percent of SAWW."},
+{title: "The 7-14-14 Rule", text: "This is one of the most tested concepts. Memorize 7, 14, 14. There is a 7-day waiting period before benefits begin, so the worker does not get paid for the first 7 days. Benefits start on day 8. However, if the disability lasts 14 or more days, benefits are retroactively paid from day 1, covering those initial 7 days. The employer's first payment is due within 14 days of the onset of disability. If the employer pays late, the penalty is 50 dollars per day up to a maximum of 1,500 dollars."},
+{title: "The 28-Day Physician Rule and Disability Types", text: "For the first 28 days after an injury, the employer selects the treating physician. After 28 days, the employee may choose their own doctor by giving proper notice. This 28-day rule is heavily tested. There are four types of workers' comp disability. Temporary total means the worker is completely unable to work but is expected to recover. Temporary partial means they can do some work but not their full job. Permanent total means they will never be able to return to any gainful employment. Permanent partial means they have a lasting impairment but can still do some work. All types pay at 80 percent of after-tax average weekly wage for the wage loss component."},
+{title: "Specific Loss Schedule", text: "Michigan has a specific loss schedule that pays benefits for the loss of body parts regardless of whether the worker misses any time from work. There is no waiting period for specific loss claims. The schedule in weeks is: arm is 269 weeks, hand is 215 weeks, leg is 215 weeks, foot is 162 weeks, eye is 162 weeks, thumb is 65 weeks, index finger is 38 weeks, middle finger and great toe are each 33 weeks, ring finger is 22 weeks, and pinky finger is 16 weeks. Loss of just the first phalange pays half the benefit. Loss of more than the first phalange pays the full benefit. These numbers will be on the exam."},
+{title: "Death Benefits, Filing Deadlines, and Exclusive Remedy", text: "Workers' comp death benefits are paid for 500 weeks, which is approximately 9.6 years, plus up to 6,000 dollars for burial and funeral expenses. Benefits go to dependents. A spouse's benefits end at remarriage, but they receive a 2-year lump sum. Children receive benefits until age 18, or 21 if they are full-time students. The employee must give notice to the employer within 90 days of the injury. The deadline to file a claim is 2 years from the date of injury. Death claims must be filed within 2 years of the date of death. Disputes are handled by the Workers' Compensation Board of Magistrates, not civil court. The exclusive remedy doctrine means workers' comp is the only remedy against the employer. Employees cannot sue their employer in civil court for a work injury. However, they can still file third-party lawsuits against equipment manufacturers or others who contributed to the injury."},
+{title: "Federal Workers' Comp Laws", text: "The exam tests four federal workers' compensation laws. FELA, the Federal Employers Liability Act, covers railroad workers and is negligence-based, meaning the worker must prove the railroad was at fault. The Longshore and Harbor Workers' Compensation Act covers maritime shore workers and is a no-fault system like state workers' comp. The Jones Act covers seamen and is negligence-based like FELA. The Defense Base Act covers overseas contractors and is no-fault. The key distinction for the exam is which ones require proving negligence, FELA and Jones Act, and which ones are automatic like state WC, Longshore and Defense Base Act. Also know that age reduces benefits starting at 65, decreasing 5 percent per year to a maximum 50 percent reduction at age 75."},
+],
+"🏢 Commercial Lines (10% — 10 Qs)": [
+{title: "CPP Versus BOP", text: "A Commercial Package Policy, or CPP, is a modular customizable policy for any size business. You pick and choose the coverage forms you need, such as commercial property, commercial general liability, commercial auto, and others, and bundle them into one policy. A Business Owners Policy, or BOP, is a pre-packaged policy designed for small to mid-size businesses. The key difference is that a BOP automatically includes business income and extra expense coverage, while a CPP requires you to add that separately. Large or complex businesses use CPPs. Small businesses use BOPs."},
+{title: "Business Income and Period of Restoration", text: "Business income coverage pays for lost net income plus continuing expenses when a business has to shut down due to a covered loss. The coverage period is called the period of restoration, which runs from the date of the loss to the date when the business can reasonably reopen. The critical exam point is that the period ends when the business can reopen, not when it actually does. If a business owner decides to take a two-month vacation after repairs are done, the extra delay is not covered. An extended period of indemnity endorsement covers reduced revenues after the business reopens, giving the business time to rebuild its customer base."},
+{title: "Commercial General Liability", text: "The CGL policy has three coverage parts. Coverage A covers bodily injury and property damage liability. Coverage B covers personal and advertising injury, which includes things like defamation, false arrest, and copyright infringement in advertising. Coverage C is medical payments to others, similar to Coverage F in a homeowners policy. The CGL does not cover auto liability, aircraft liability, workers' compensation, professional errors, pollution under the standard form, or intentional injury. By default, CGL policies are occurrence-based."},
+{title: "Occurrence Versus Claims-Made Policies", text: "An occurrence policy covers events that happen during the policy period regardless of when the claim is actually filed. You could have an incident in 2024 and file a claim in 2027, and the 2024 policy responds. A claims-made policy covers claims that are filed during the policy period regardless of when the event happened, as long as it happened after the retroactive date. Claims-made policies need a retroactive date for prior acts and tail coverage, also called an extended reporting period, for claims filed after the policy expires. Most professional liability insurance is claims-made. Most general liability is occurrence-based."},
+{title: "Ordinance or Law, Umbrella Versus Excess, and Inland Marine", text: "Standard commercial property policies exclude the extra cost to comply with current building codes after a covered loss. This is the ordinance or law exclusion and it is a major exam trap. Example: fire damages 40 percent of your building, but current codes require demolishing and rebuilding the entire structure. The extra cost is excluded unless you have an ordinance or law endorsement. A commercial umbrella policy provides excess limits plus broader coverage that can fill gaps in underlying policies. An excess liability policy provides additional limits only and follows the underlying policy exactly with no gap coverage. Inland marine insurance covers property in transit and movable specialty risks like contractors' equipment, fine art, and accounts receivable. Pet insurance is classified as inland marine because it covers living animals as movable property."},
+{title: "Workers' Comp Policy Structure and Ethics Terms", text: "A standard workers' comp policy has two parts. Part One provides statutory workers' compensation coverage, which is unlimited because it pays whatever the state law requires. Part Two is employers' liability, which covers lawsuits from injured employees that fall outside standard WC. The default employers' liability limits are 100,000 dollars per accident, 100,000 dollars per employee for disease, and 500,000 dollars aggregate for disease. These defaults are almost always increased by endorsement because 100,000 dollars is very low for a serious injury. For the exam, you must distinguish five ethics terms. Defamation means making false statements about a competitor insurer's finances. Misrepresentation means making false statements to get a customer to buy or change a policy. Twisting means inducing a policyholder to switch policies through misrepresentation. Rebating means offering kickbacks or inducements not specified in the policy. Unfair discrimination means charging different rates to people in the same risk class."},
+],
+"🏘️ Dwelling Policy (5% — 5 Qs)": [
+{title: "Dwelling Policy Basics", text: "Dwelling policies cover properties that do not qualify for homeowners policies, primarily non-owner-occupied rental properties and vacation homes. They are stripped down by design. The most important difference from a homeowners policy is that dwelling policies do not include personal liability coverage. If you need liability coverage on a rental property, you must add it separately. There are three dwelling policy forms. DP-1 is the basic form covering only named perils, specifically fire, lightning, windstorm, and hail. DP-2 is the broad form with more named perils. DP-3 is the special form with open perils on the dwelling, similar to how HO-3 works."},
+{title: "Dwelling Policy Coverages and Vacancy", text: "Dwelling policies have four coverages. Coverage A covers the dwelling itself. Coverage B covers other private structures on the property. Coverage C covers personal property and is optional, which makes sense because in a rental the tenant usually has their own renter's policy. Coverage D covers fair rental value, which is the loss of rental income. This is different from homeowners Coverage D, which covers loss of use and additional living expenses. The dwelling policy Coverage D is about lost rental income because it is a rental property. Fire, lightning, and internal explosion are covered in every dwelling policy form, even the most basic DP-1. These foundational perils come from the historical Standard Fire Policy of 1943. The vacancy provision works the same as in homeowners: if the dwelling is vacant beyond 60 days, vandalism and malicious mischief coverage is suspended and some policies limit or void other coverages. Landlords need to notify their insurer of extended vacancies."},
+],
+"🎯 Trick Questions & Exam Strategy": [
+{title: "How to Handle Tricky Question Formats", text: "The exam uses several question formats designed to trip you up. The most common is the all except or which is not covered format. When you see these, mentally convert the question. Which is not covered really means which is excluded. Evaluate each answer choice as true or false. The one that is false is your answer. Double negatives cost you 30 extra seconds each, so practice converting them instantly. Another common trick is when two answer choices mean essentially the same thing. If option A and option C are near synonyms, eliminate both. Only one answer can be correct, so if two options say the same thing, neither can be uniquely correct. Focus on the remaining choices."},
+{title: "Absolute Words and the Going and Coming Rule", text: "Be suspicious of answers containing always, never, all, or none. In insurance, nearly every rule has exceptions, so absolute statements are usually wrong. Default to eliminating them first and then verify. There are some exceptions, particularly in workers' comp where certain rules are genuinely absolute, but as a test-taking strategy, flag absolutes for extra scrutiny. A classic trick question involves a worker injured while commuting to work. Standard commuting is not covered by workers' comp under the going and coming rule. Exceptions exist when the employer provides transportation, the employee is on a special errand for the employer, or employment creates the travel hazard. But the default answer is no coverage for normal commuting."},
+{title: "Common Scenario Traps", text: "Boat questions are designed to test one specific rule: is the boat 26 feet or shorter and 25 horsepower or less. Both conditions must be met for homeowners coverage to apply. Any time you see a boat in a question, immediately check those two numbers. Home-based business questions test the business activity exclusion. A customer injured at your home business is not covered under your homeowners policy, neither property nor liability. You need a home business endorsement or a separate BOP. Subrogation questions test whether the insurer can go after someone. Remember, an insurer cannot subrogate against its own insured and cannot subrogate until the insured is made whole first."},
+{title: "Ethics Traps and Best Test-Taking Practices", text: "Twisting requires misrepresentation. If an agent truthfully tells a customer that another policy is better, that is legal comparison shopping, not twisting. The misrepresentation is the key element. Rebating is offering any inducement not specified in the policy, and even small amounts are illegal in Michigan. Defamation is false statements about a competitor insurer's finances, not about customers. For pain and suffering in Michigan auto accidents, the injury must meet the tort threshold: death, permanent serious disfigurement, or serious impairment of an important body function. For scenario-based questions, read the last sentence first to identify what is actually being asked, then read the scenario to find the relevant facts. Ignore distracting details like names, weather, and colors. Only change an answer if you misread the question or a later question gives you contradicting information. First instinct is statistically more accurate than revisions based on gut feeling. Aim for 90 percent or higher on practice quizzes consistently before scheduling the real exam. That buffer accounts for test-day nerves and trick wording."},
+],
+};
 
 const TOPICS = {
 "🔥 Insurance Basics (20% — 20 Qs)": [
@@ -777,12 +991,15 @@ buildTopicSelect();
 updateStats();
 renderCard();
 buildNumbers();
+buildGlossary();
+buildStudyGuide();
 startSessionTimer();
 renderStreak();
 renderCountdown();
 updateWeakSpotsBtn();
 // Auto-save on unload
 window.addEventListener('beforeunload', () => {
+if (sgAudio) sgAudio.pause();
 totalStudyMs += (Date.now() - sessionStart);
 saveProgress();
 });
@@ -905,6 +1122,7 @@ document.getElementById('topic-bar').style.display = showBar ? 'block' : 'none';
 currentPage = page;
 if (page === 'flashcards') renderCard();
 if (page === 'quiz' && !quizActive) showQuizIdle();
+if (page !== 'study' && typeof sgStop === 'function') sgStop();
 updateStats();
 updateTopicSubtitles();
 }
@@ -1157,8 +1375,221 @@ container.innerHTML += `
 });
 });
 }
+
+// ========================================================
+// STUDY GUIDE WITH OPENAI TTS
+// ========================================================
+let sgCurrentTopic = '';
+let sgSpeed = 1;
+let sgIsPlaying = false;
+let sgIsPaused = false;
+let sgConceptIndex = 0;
+let sgCurrentConcepts = [];
+let sgAudio = null;
+let sgVoice = 'nova';
+let sgAudioCache = {};
+
+function sgSetVoice(v) {
+sgVoice = v;
+sgAudioCache = {};
+document.querySelectorAll('.sg-voice-btn').forEach(btn => {
+btn.classList.remove('sg-speed-active');
+if (btn.textContent.trim().toLowerCase() === v) btn.classList.add('sg-speed-active');
+});
+}
+
+function buildStudyGuide() {
+const sel = document.getElementById('sg-topic-select');
+sel.innerHTML = '';
+Object.keys(LESSONS).forEach((cat, i) => {
+const opt = document.createElement('option');
+opt.value = cat;
+opt.textContent = cat;
+sel.appendChild(opt);
+});
+sgCurrentTopic = Object.keys(LESSONS)[0];
+renderStudyContent();
+}
+
+function sgChangeTopic() {
+sgStop();
+sgCurrentTopic = document.getElementById('sg-topic-select').value;
+renderStudyContent();
+}
+
+function renderStudyContent() {
+const sections = LESSONS[sgCurrentTopic] || [];
+sgCurrentConcepts = sections;
+const container = document.getElementById('sg-content');
+container.innerHTML = '';
+
+const topicName = sgCurrentTopic.split('(')[0].trim();
+let h = '<div class="sg-section">';
+h += '<div class="sg-section-title">' + topicName + ' — ' + sections.length + ' sections</div>';
+
+sections.forEach((sec, i) => {
+h += '<div class="sg-concept" id="sg-c-' + i + '">';
+h += '<div class="sg-concept-q">' + sec.title + '</div>';
+h += '<div class="sg-concept-a">' + sec.text + '</div>';
+h += '</div>';
+});
+
+h += '</div>';
+container.innerHTML = h;
+document.getElementById('sg-status').textContent = sections.length + ' sections ready to play';
+}
+
+function sgTogglePlay() {
+if (sgIsPlaying && !sgIsPaused) {
+sgIsPaused = true;
+if (sgAudio) sgAudio.pause();
+document.getElementById('sg-play-btn').textContent = '▶ Resume';
+document.getElementById('sg-play-btn').classList.remove('playing');
+document.getElementById('sg-status').textContent = 'Paused — section ' + (sgConceptIndex + 1) + ' of ' + sgCurrentConcepts.length;
+} else if (sgIsPaused) {
+sgIsPaused = false;
+if (sgAudio) sgAudio.play();
+document.getElementById('sg-play-btn').textContent = '⏸ Pause';
+document.getElementById('sg-play-btn').classList.add('playing');
+document.getElementById('sg-status').textContent = 'Playing section ' + (sgConceptIndex + 1) + ' of ' + sgCurrentConcepts.length;
+} else {
+sgConceptIndex = 0;
+sgIsPlaying = true;
+sgIsPaused = false;
+sgReadConcept(0);
+}
+}
+
+function sgStop() {
+if (sgAudio) { sgAudio.pause(); sgAudio.currentTime = 0; }
+sgIsPlaying = false;
+sgIsPaused = false;
+sgConceptIndex = 0;
+document.getElementById('sg-play-btn').textContent = '▶ Play';
+document.getElementById('sg-play-btn').classList.remove('playing');
+document.getElementById('sg-status').textContent = sgCurrentConcepts.length + ' sections ready to play';
+document.querySelectorAll('.sg-concept').forEach(el => el.classList.remove('sg-reading'));
+}
+
+async function sgReadConcept(idx) {
+if (idx >= sgCurrentConcepts.length) {
+sgStop();
+document.getElementById('sg-status').textContent = 'Finished! All ' + sgCurrentConcepts.length + ' sections complete.';
+return;
+}
+
+sgConceptIndex = idx;
+const sec = sgCurrentConcepts[idx];
+
+document.querySelectorAll('.sg-concept').forEach(el => el.classList.remove('sg-reading'));
+const el = document.getElementById('sg-c-' + idx);
+if (el) {
+el.classList.add('sg-reading');
+el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+document.getElementById('sg-play-btn').textContent = '⏸ Pause';
+document.getElementById('sg-play-btn').classList.add('playing');
+document.getElementById('sg-status').textContent = 'Loading section ' + (idx + 1) + ' of ' + sgCurrentConcepts.length + '...';
+
+const text = sec.title + '. ' + sec.text;
+const cacheKey = sgVoice + ':' + sgCurrentTopic + ':' + idx;
+
+try {
+let audioUrl;
+if (sgAudioCache[cacheKey]) {
+audioUrl = sgAudioCache[cacheKey];
+} else {
+const response = await fetch('/api/tts', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+text: text,
+voice: sgVoice,
+speed: sgSpeed
+})
+});
+
+if (!response.ok) {
+const err = await response.json().catch(() => ({}));
+if (response.status === 429) {
+document.getElementById('sg-status').textContent = 'Rate limited. Wait a moment and try again.';
+} else {
+document.getElementById('sg-status').textContent = 'Audio error: ' + (err.error || response.status);
+}
+sgStop();
+return;
+}
+
+const blob = await response.blob();
+audioUrl = URL.createObjectURL(blob);
+sgAudioCache[cacheKey] = audioUrl;
+}
+
+if (!sgIsPlaying || sgIsPaused) return;
+
+document.getElementById('sg-status').textContent = 'Playing section ' + (idx + 1) + ' of ' + sgCurrentConcepts.length;
+
+sgAudio = new Audio(audioUrl);
+sgAudio.playbackRate = 1;
+sgAudio.onended = function() {
+if (sgIsPlaying && !sgIsPaused) {
+setTimeout(function() {
+if (sgIsPlaying && !sgIsPaused) sgReadConcept(idx + 1);
+}, 400);
+}
+};
+sgAudio.onerror = function() {
+document.getElementById('sg-status').textContent = 'Audio playback error. Try again.';
+sgStop();
+};
+sgAudio.play();
+
+} catch (err) {
+document.getElementById('sg-status').textContent = 'Network error. Check your connection.';
+sgStop();
+}
+}
+
+function sgSetSpeed(speed) {
+sgSpeed = speed;
+document.querySelectorAll('.sg-speed-btn:not(.sg-voice-btn)').forEach(btn => {
+btn.classList.remove('sg-speed-active');
+if (btn.textContent.trim() === speed + 'x') btn.classList.add('sg-speed-active');
+});
+if (sgAudio) sgAudio.playbackRate = speed;
+}
+
+// ========================================================
+// GLOSSARY
+// ========================================================
+function buildGlossary() {
+renderGlossary('');
+}
+
+function filterGlossary() {
+const q = document.getElementById('gloss-search').value;
+renderGlossary(q);
+}
+
+function renderGlossary(query) {
+const container = document.getElementById('glossary-list');
+container.innerHTML = '';
+const q = query.toLowerCase();
+GLOSSARY.forEach(({ section, terms }) => {
+const filtered = terms.filter(([t, d]) => !q || t.toLowerCase().includes(q) || d.toLowerCase().includes(q));
+if (!filtered.length) return;
+container.innerHTML += '<div class="num-section-label">' + section + '</div>';
+filtered.forEach(([term, def]) => {
+container.innerHTML +=
+'<div class="gloss-row">' +
+'<div class="gloss-term">' + term + '</div>' +
+'<div class="gloss-def">' + def + '</div>' +
+'</div>';
+});
+});
+}
 </script>
 
 </body>
 </html>
-
