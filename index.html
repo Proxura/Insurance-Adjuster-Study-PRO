@@ -166,7 +166,22 @@ position: sticky; top: 0; z-index: 100;
 .sg-intro { font-size: 12px; color: #5a7aaa; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
 .sg-voice-select { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 .sg-voice-btn { text-transform: capitalize; }
-.sg-controls { margin-bottom: 18px; }
+.sg-controls { margin-bottom: 14px; }
+.sg-controls-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.sg-controls-row + .sg-controls-row { margin-top: 6px; }
+
+/* FLOATING AUDIO PLAYER BAR */
+.sg-player-bar {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: #0d1424; border-top: 1px solid #1a2a45;
+  padding: 10px 16px; box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+}
+.sg-player-bar.active { display: flex; align-items: center; gap: 10px; }
+.sg-player-title { flex: 1; font-size: 12px; color: #dce8ff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sg-player-btn { padding: 8px 16px; background: #1e6aff; color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; min-width: 70px; }
+.sg-player-btn.playing { background: #f97316; }
+.sg-player-stop { padding: 8px 10px; background: #0d1424; color: #5a7aaa; border: 1px solid #1a2a45; border-radius: 6px; font-size: 13px; cursor: pointer; }
+.sg-player-status { font-size: 10px; color: #5a7aaa; font-family: var(--mono); }
 .sg-audio-bar { display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
 .sg-play-btn { padding: 10px 20px; background: #1e6aff; color: #ffffff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; font-family: var(--sans); cursor: pointer; transition: opacity 0.15s; min-width: 90px; }
 .sg-play-btn:hover { opacity: 0.9; }
@@ -178,7 +193,7 @@ position: sticky; top: 0; z-index: 100;
 .sg-speed-btn { padding: 5px 8px; background: #0d1424; border: 1px solid #1a2a45; color: #5a7aaa; border-radius: 6px; font-size: 11px; font-family: var(--mono); cursor: pointer; }
 .sg-speed-btn.sg-speed-active { background: #1e6aff; color: #ffffff; border-color: #1e6aff; }
 .sg-status { font-size: 11px; color: #5a7aaa; margin-top: 8px; font-family: var(--mono); }
-.sg-section { margin-bottom: 20px; }
+.sg-section { margin-bottom: 20px; padding-bottom: 70px; }
 .sg-section-title { font-size: 14px; font-weight: 700; color: #dce8ff; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #1a2a45; }
 .sg-concept { background: #0d1424; border: 1px solid #1a2a45; border-radius: 10px; padding: 14px; margin-bottom: 10px; transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; cursor: pointer; }
 .sg-concept:hover { border-color: #223355; background: #111c30; }
@@ -314,8 +329,20 @@ position: sticky; top: 0; z-index: 100;
 <div class="section-label">Study Guide — Listen & Read</div>
 <div class="sg-intro">Select a topic below and hit play. A natural human voice reads each section out loud. Study while driving or follow along on screen.</div>
 
-<div class="sg-voice-select" style="margin-bottom:10px">
-<label style="font-size:11px;color:var(--muted);margin-right:6px">Voice:</label>
+<div class="sg-controls">
+<div class="sg-controls-row">
+<select class="topic-select" id="sg-topic-select" onchange="sgChangeTopic()" style="flex:1;min-width:0"></select>
+<button class="sg-play-btn" id="sg-play-btn" onclick="sgTogglePlay()">▶ Play</button>
+<button class="sg-stop-btn" onclick="sgStop()">⏹</button>
+</div>
+<div class="sg-controls-row">
+<label style="font-size:10px;color:#5a7aaa">Speed:</label>
+<button class="sg-speed-btn" onclick="sgSetSpeed(0.75)">0.75x</button>
+<button class="sg-speed-btn sg-speed-active" onclick="sgSetSpeed(1)">1x</button>
+<button class="sg-speed-btn" onclick="sgSetSpeed(1.25)">1.25x</button>
+<button class="sg-speed-btn" onclick="sgSetSpeed(1.5)">1.5x</button>
+<span style="margin:0 4px;color:#1a2a45">|</span>
+<label style="font-size:10px;color:#5a7aaa">Voice:</label>
 <button class="sg-speed-btn sg-voice-btn sg-speed-active" onclick="sgSetVoice('nova')">Nova</button>
 <button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('shimmer')">Shimmer</button>
 <button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('alloy')">Alloy</button>
@@ -323,22 +350,7 @@ position: sticky; top: 0; z-index: 100;
 <button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('onyx')">Onyx</button>
 <button class="sg-speed-btn sg-voice-btn" onclick="sgSetVoice('fable')">Fable</button>
 </div>
-
-<div class="sg-controls">
-<select class="topic-select" id="sg-topic-select" onchange="sgChangeTopic()">
-</select>
-<div class="sg-audio-bar">
-<button class="sg-play-btn" id="sg-play-btn" onclick="sgTogglePlay()">▶ Play</button>
-<button class="sg-stop-btn" onclick="sgStop()">⏹ Stop</button>
-<div class="sg-speed">
-<label>Speed:</label>
-<button class="sg-speed-btn" onclick="sgSetSpeed(0.75)">0.75x</button>
-<button class="sg-speed-btn sg-speed-active" onclick="sgSetSpeed(1)">1x</button>
-<button class="sg-speed-btn" onclick="sgSetSpeed(1.25)">1.25x</button>
-<button class="sg-speed-btn" onclick="sgSetSpeed(1.5)">1.5x</button>
-</div>
-</div>
-<div class="sg-status" id="sg-status"></div>
+<div class="sg-status" id="sg-status" style="margin-top:4px"></div>
 </div>
 
 <div id="sg-content"></div>
@@ -415,6 +427,15 @@ position: sticky; top: 0; z-index: 100;
 <div id="glossary-list"></div>
 </div>
 
+</div>
+
+<div class="sg-player-bar" id="sg-player-bar">
+<button class="sg-player-btn" id="sg-player-btn" onclick="sgTogglePlay()">▶ Play</button>
+<button class="sg-player-stop" onclick="sgStop()">⏹</button>
+<div style="flex:1;min-width:0">
+<div class="sg-player-title" id="sg-player-title"></div>
+<div class="sg-player-status" id="sg-player-status"></div>
+</div>
 </div>
 
 <script>
@@ -1134,6 +1155,7 @@ if (page === 'quiz' && !quizActive) showQuizIdle();
 if (page !== 'study' && typeof sgStop === 'function') sgStop();
 updateStats();
 updateTopicSubtitles();
+if (typeof sgUpdatePlayerBar === 'function') sgUpdatePlayerBar();
 }
 
 // ========================================================
@@ -1398,6 +1420,19 @@ let sgAudio = null;
 let sgVoice = 'nova';
 let sgAudioCache = {};
 let sgSingleMode = false;
+let sgUserScrolling = false;
+let sgUserScrollTimer = null;
+let sgProgrammaticScroll = false;
+
+// Detect user manual scrolling — pause auto-scroll for 4 seconds
+window.addEventListener('scroll', function() {
+if (sgProgrammaticScroll) return;
+if (sgIsPlaying) {
+  sgUserScrolling = true;
+  clearTimeout(sgUserScrollTimer);
+  sgUserScrollTimer = setTimeout(function() { sgUserScrolling = false; }, 4000);
+}
+}, { passive: true });
 
 function sgSetVoice(v) {
 sgVoice = v;
@@ -1408,6 +1443,36 @@ document.querySelectorAll('.sg-voice-btn').forEach(btn => {
 });
 // If currently playing, stop and let them restart with new voice
 if (sgIsPlaying) sgStop();
+}
+
+function sgUpdatePlayerBar() {
+var bar = document.getElementById('sg-player-bar');
+var btn = document.getElementById('sg-player-btn');
+var title = document.getElementById('sg-player-title');
+var status = document.getElementById('sg-player-status');
+if (!bar) return;
+if (currentPage === 'study') {
+  bar.classList.add('active');
+} else {
+  bar.classList.remove('active');
+  return;
+}
+if (sgIsPlaying && !sgIsPaused) {
+  btn.textContent = '⏸ Pause';
+  btn.classList.add('playing');
+  var sec = sgCurrentConcepts[sgConceptIndex];
+  if (sec) title.textContent = sec.title;
+  status.textContent = 'Section ' + (sgConceptIndex + 1) + '/' + sgCurrentConcepts.length;
+} else if (sgIsPaused) {
+  btn.textContent = '▶ Resume';
+  btn.classList.remove('playing');
+  status.textContent = 'Paused';
+} else {
+  btn.textContent = '▶ Play';
+  btn.classList.remove('playing');
+  title.textContent = '';
+  status.textContent = 'Tap a section or hit Play';
+}
 }
 
 function sgInitAudio() {
@@ -1511,10 +1576,15 @@ document.querySelectorAll('.sg-word-active').forEach(el => el.classList.remove('
 const el = document.getElementById('sgw-' + wordIdx);
 if (el) {
   el.classList.add('sg-word-active');
-  // Scroll the word into view if needed
-  const rect = el.getBoundingClientRect();
-  if (rect.bottom > window.innerHeight - 80 || rect.top < 100) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // Only auto-scroll if user isn't manually scrolling
+  if (!sgUserScrolling) {
+    const rect = el.getBoundingClientRect();
+    if (rect.bottom > window.innerHeight - 80 || rect.top < 150) {
+      sgProgrammaticScroll = true;
+      var targetY = window.scrollY + rect.top - (window.innerHeight * 0.4);
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+      setTimeout(function() { sgProgrammaticScroll = false; }, 500);
+    }
   }
 }
 }
@@ -1549,12 +1619,14 @@ if (sgIsPlaying && !sgIsPaused) {
   document.getElementById('sg-play-btn').textContent = '▶ Resume';
   document.getElementById('sg-play-btn').classList.remove('playing');
   document.getElementById('sg-status').textContent = 'Paused — section ' + (sgConceptIndex + 1) + ' of ' + sgCurrentConcepts.length;
+  sgUpdatePlayerBar();
 } else if (sgIsPaused) {
   sgIsPaused = false;
   if (sgAudio) sgAudio.play();
   document.getElementById('sg-play-btn').textContent = '⏸ Pause';
   document.getElementById('sg-play-btn').classList.add('playing');
   document.getElementById('sg-status').textContent = 'Playing section ' + (sgConceptIndex + 1) + ' of ' + sgCurrentConcepts.length;
+  sgUpdatePlayerBar();
 } else {
   sgSingleMode = false;
   sgConceptIndex = 0;
@@ -1587,10 +1659,13 @@ if (sgConceptIndex < sgCurrentConcepts.length) sgUnwrapCurrentSection(sgConceptI
 sgIsPlaying = false;
 sgIsPaused = false;
 sgSingleMode = false;
+sgUserScrolling = false;
+clearTimeout(sgUserScrollTimer);
 document.getElementById('sg-play-btn').textContent = '▶ Play';
 document.getElementById('sg-play-btn').classList.remove('playing');
 document.getElementById('sg-status').textContent = sgCurrentConcepts.length + ' sections ready to play';
 document.querySelectorAll('.sg-concept').forEach(el => el.classList.remove('sg-reading'));
+sgUpdatePlayerBar();
 }
 
 async function sgReadConcept(idx) {
@@ -1608,7 +1683,13 @@ document.querySelectorAll('.sg-concept').forEach(el => el.classList.remove('sg-r
 const el = document.getElementById('sg-c-' + idx);
 if (el) {
   el.classList.add('sg-reading');
-  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (!sgUserScrolling) {
+    sgProgrammaticScroll = true;
+    var cardRect = el.getBoundingClientRect();
+    var targetY = window.scrollY + cardRect.top - 100;
+    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+    setTimeout(function() { sgProgrammaticScroll = false; }, 500);
+  }
 }
 
 if (!sgSingleMode) {
@@ -1655,6 +1736,7 @@ try {
   if (!sgIsPlaying || sgIsPaused) return;
 
   document.getElementById('sg-status').textContent = 'Playing section ' + (idx + 1) + ' of ' + sgCurrentConcepts.length;
+  sgUpdatePlayerBar();
 
   // Wrap words for karaoke highlighting
   sgWrapCurrentSection(idx);
