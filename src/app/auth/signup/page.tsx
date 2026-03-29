@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -12,12 +12,38 @@ export default function SignupPage() {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  if (!isSupabaseConfigured()) {
+    return (
+      <div className="flex min-h-screen items-center justify-center px-4">
+        <div className="w-full max-w-sm text-center">
+          <h1 className="mb-2 font-mono text-2xl font-bold text-accent-2">
+            CortX
+          </h1>
+          <p className="mb-4 text-sm text-muted">
+            Authentication is not configured yet. You can still study without an account.
+          </p>
+          <Link
+            href="/"
+            className="inline-block rounded-lg bg-accent px-6 py-2.5 text-sm font-bold text-white"
+          >
+            Start Studying
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
     const supabase = createClient();
+    if (!supabase) {
+      setError("Authentication is not configured.");
+      setLoading(false);
+      return;
+    }
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -62,7 +88,7 @@ export default function SignupPage() {
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <h1 className="mb-1 text-center font-mono text-2xl font-bold text-accent-2">
-          CORTEX
+          CortX
         </h1>
         <p className="mb-8 text-center text-sm text-muted">
           Create your account
