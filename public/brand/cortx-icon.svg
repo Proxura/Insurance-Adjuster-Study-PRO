@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="grad-icon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2090ff"/>
+      <stop offset="100%" stop-color="#14d49a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark rounded-square background -->
+  <rect width="512" height="512" rx="96" ry="96" fill="#0a1020"/>
+
+  <!-- Hexagon outline centered -->
+  <g transform="translate(256, 256)">
+    <polygon points="0,-120 103.9,-60 103.9,60 0,120 -103.9,60 -103.9,-60"
+             fill="none" stroke="url(#grad-icon)" stroke-width="9" stroke-linejoin="round"/>
+
+    <!-- Neural network connections -->
+    <line x1="-40" y1="-6" x2="34" y2="-52" stroke="url(#grad-icon)" stroke-width="7" stroke-linecap="round"/>
+    <line x1="-40" y1="-6" x2="34" y2="46" stroke="url(#grad-icon)" stroke-width="7" stroke-linecap="round"/>
+    <line x1="34" y1="-52" x2="34" y2="46" stroke="url(#grad-icon)" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- Neural network nodes -->
+    <circle cx="-40" cy="-6" r="15" fill="url(#grad-icon)"/>
+    <circle cx="34" cy="-52" r="15" fill="url(#grad-icon)"/>
+    <circle cx="34" cy="46" r="15" fill="url(#grad-icon)"/>
+  </g>
+</svg>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useStudyStore } from "@/stores/study-store";
 
 export default function Header() {
@@ -24,10 +25,14 @@ export default function Header() {
       <div className="mx-auto max-w-3xl px-5 py-4">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="font-mono text-[15px] font-bold text-accent-2 tracking-tight">
-              CORTEX
-            </h1>
-            <p className="mt-0.5 text-[11px] text-muted tracking-wide">
+            <Image
+              src="/brand/cortx-wordmark.svg"
+              alt="CortX"
+              width={130}
+              height={28}
+              priority
+            />
+            <p className="mt-1 text-[11px] text-muted tracking-wide">
               Michigan Series 16-72 — Adjuster Exam
             </p>
           </div>
@@ -40,7 +45,7 @@ export default function Header() {
             {accuracy}% accuracy
           </span>
           <span className="text-yellow">
-            🔥 {progress.currentStreak} day streak
+            {progress.currentStreak} day streak
           </span>
           <span className="text-muted">
             {studyHours}h {studyMinutes}m studied
