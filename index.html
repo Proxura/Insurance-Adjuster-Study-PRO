@@ -34,30 +34,30 @@ select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
 /* HEADER */
 .header {
 background: linear-gradient(135deg, #0a1628 0%, #061020 100%);
-border-bottom: 1px solid var(–border);
+border-bottom: 1px solid var(--border);
 padding: 16px 20px 14px;
 position: sticky; top: 0; z-index: 100;
 }
 .header-top { display: flex; align-items: flex-start; justify-content: space-between; }
-.header-title { font-family: var(–mono); font-size: 15px; color: var(–accent2); font-weight: 700; letter-spacing: -0.3px; }
-.header-sub { font-size: 11px; color: var(–muted); margin-top: 3px; letter-spacing: 0.3px; }
+.header-title { font-family: var(--mono); font-size: 15px; color: var(--accent2); font-weight: 700; letter-spacing: -0.3px; }
+.header-sub { font-size: 11px; color: var(--muted); margin-top: 3px; letter-spacing: 0.3px; }
 .header-stats { display: flex; gap: 14px; margin-top: 10px; font-size: 11px; }
-.stat-green { color: var(–green); font-weight: 600; }
-.stat-yellow { color: var(–yellow); }
-.badge { background: var(–accent); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-family: var(–mono); letter-spacing: 0.5px; }
+.stat-green { color: var(--green); font-weight: 600; }
+.stat-yellow { color: var(--yellow); }
+.badge { background: var(--accent); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-family: var(--mono); letter-spacing: 0.5px; }
 
 /* NAV */
-.nav { display: flex; gap: 6px; padding: 10px 16px; border-bottom: 1px solid var(–border); overflow-x: auto; scrollbar-width: none; background: var(–bg); }
+.nav { display: flex; gap: 6px; padding: 10px 16px; border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; background: var(--bg); }
 .nav::-webkit-scrollbar { display: none; }
-.nav-btn { padding: 8px 14px; border: 1px solid #1a2a45; border: 1px solid var(–border); border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: var(–sans); white-space: nowrap; transition: all 0.15s; background: #0d1424; background: var(–surface); color: #5a7aaa; color: var(–muted); }
-.nav-btn.active { background: #1e6aff; background: var(–accent); color: #ffffff; border-color: #1e6aff; border-color: var(–accent); }
-.nav-btn:hover:not(.active) { border-color: #223355; border-color: var(–border2); color: #dce8ff; color: var(–text); }
+.nav-btn { padding: 8px 14px; border: 1px solid #1a2a45; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: var(--sans); white-space: nowrap; transition: all 0.15s; background: #0d1424; background: var(--surface); color: #5a7aaa; color: var(--muted); }
+.nav-btn.active { background: #1e6aff; background: var(--accent); color: #ffffff; border-color: #1e6aff; border-color: var(--accent); }
+.nav-btn:hover:not(.active) { border-color: #223355; border-color: var(--border2); color: #dce8ff; color: var(--text); }
 
 /* TOPIC PICKER */
-.topic-bar { padding: 8px 16px; border-bottom: 1px solid var(–border); background: var(–bg); }
-.topic-select { width: 100%; background: #0d1424; background: var(–surface); color: #dce8ff; color: var(–text); border: 1px solid #1a2a45; border: 1px solid var(–border); border-radius: 8px; padding: 8px 12px; font-size: 13px; font-family: var(–sans); outline: none; cursor: pointer; padding-right: 32px; }
+.topic-bar { padding: 8px 16px; border-bottom: 1px solid var(--border); background: var(--bg); }
+.topic-select { width: 100%; background: #0d1424; background: var(--surface); color: #dce8ff; color: var(--text); border: 1px solid #1a2a45; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; font-family: var(--sans); outline: none; cursor: pointer; padding-right: 32px; }
 .topic-select option { background: #0d1424; color: #dce8ff; }
-.topic-select:focus { border-color: #1e6aff; border-color: var(–accent); }
+.topic-select:focus { border-color: #1e6aff; border-color: var(--accent); }
 
 /* MAIN */
 .main { max-width: 720px; margin: 0 auto; padding: 18px 16px; }
@@ -65,143 +65,154 @@ position: sticky; top: 0; z-index: 100;
 .page.active { display: block; }
 
 /* SECTION LABEL */
-.section-label { font-size: 11px; font-weight: 700; color: var(–muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; font-family: var(–mono); }
+.section-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; font-family: var(--mono); }
 
 /* OVERVIEW */
-.blueprint-card { background: var(–surface); border: 1px solid var(–border); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
+.blueprint-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
 .blueprint-row { margin-bottom: 10px; }
 .blueprint-info { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
-.blueprint-name { color: var(–text); }
-.blueprint-pct { font-weight: 700; font-family: var(–mono); }
-.bar-track { height: 6px; background: var(–border); border-radius: 3px; overflow: hidden; }
+.blueprint-name { color: var(--text); }
+.blueprint-pct { font-weight: 700; font-family: var(--mono); }
+.bar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
-.tip-box { background: var(–bg); border: 1px solid var(–border); border-radius: 8px; padding: 10px 12px; font-size: 12px; color: var(–muted); margin-top: 12px; line-height: 1.6; }
-.topic-list-item { background: var(–surface); border: 1px solid var(–border); border-radius: 10px; padding: 13px 14px; margin-bottom: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.15s, background 0.15s; }
-.topic-list-item:hover { border-color: var(–border2); background: var(–surface2); }
+.tip-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+.topic-list-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 13px 14px; margin-bottom: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.15s, background 0.15s; }
+.topic-list-item:hover { border-color: var(--border2); background: var(--surface2); }
 .topic-list-name { font-size: 14px; font-weight: 600; }
-.topic-list-sub { font-size: 11px; color: var(–muted); margin-top: 3px; }
-.topic-list-arrow { color: var(–muted); font-size: 20px; }
-.quiz-start-btn { width: 100%; padding: 15px; background: #1e6aff; background: linear-gradient(135deg, var(–accent), #1550cc); color: #ffffff; border: none; border-radius: 12px; font-size: 15px; font-weight: 700; font-family: var(–sans); cursor: pointer; margin-top: 12px; letter-spacing: 0.3px; transition: opacity 0.15s; }
+.topic-list-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.topic-list-arrow { color: var(--muted); font-size: 20px; }
+.quiz-start-btn { width: 100%; padding: 15px; background: #1e6aff; background: linear-gradient(135deg, var(--accent), #1550cc); color: #ffffff; border: none; border-radius: 12px; font-size: 15px; font-weight: 700; font-family: var(--sans); cursor: pointer; margin-top: 12px; letter-spacing: 0.3px; transition: opacity 0.15s; }
 .quiz-start-btn:hover { opacity: 0.9; }
 .master-progress { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; }
-.master-bar-track { height: 8px; background: var(–border); border-radius: 4px; overflow: hidden; margin-bottom: 14px; }
-.master-bar-fill { height: 100%; background: var(–green); border-radius: 4px; transition: width 0.4s; }
+.master-bar-track { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 14px; }
+.master-bar-fill { height: 100%; background: var(--green); border-radius: 4px; transition: width 0.4s; }
 
 /* FLASHCARDS */
 .fc-meta { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; }
-.fc-meta-left { color: var(–muted); font-family: var(–mono); font-size: 12px; }
-.fc-meta-right { color: var(–green); font-weight: 600; }
-.card { background: var(–surface); border: 2px solid var(–border); border-radius: 18px; padding: 28px 22px; min-height: 185px; cursor: pointer; margin-bottom: 14px; transition: border-color 0.2s, background 0.2s; user-select: none; }
-.card.flipped { background: #0a1628; border-color: var(–accent); }
-.card-tag { font-size: 10px; color: var(–muted); font-family: var(–mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+.fc-meta-left { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.fc-meta-right { color: var(--green); font-weight: 600; }
+.card { background: var(--surface); border: 2px solid var(--border); border-radius: 18px; padding: 28px 22px; min-height: 185px; cursor: pointer; margin-bottom: 14px; transition: border-color 0.2s, background 0.2s; user-select: none; }
+.card.flipped { background: #0a1628; border-color: var(--accent); }
+.card-tag { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
 .card-text { font-size: 16px; line-height: 1.65; }
 .card-text.answer { color: #93c5fd; font-weight: 600; font-size: 15px; }
-.card-hint { margin-top: 14px; font-size: 12px; color: var(–dim); }
-.detail-toggle { width: 100%; background: #06090f; background: var(–bg); border: 1px solid #1a2a45; border: 1px solid var(–border); color: #5a7aaa; color: var(–muted); border-radius: 9px; padding: 9px 0; font-size: 13px; cursor: pointer; font-family: var(–sans); margin-bottom: 10px; transition: border-color 0.15s; }
-.detail-toggle:hover { border-color: var(–border2); }
-.detail-box { background: #060d1a; border: 1px solid var(–border); border-left: 3px solid var(–accent); border-radius: 9px; padding: 13px 15px; font-size: 13px; color: var(–muted); margin-bottom: 12px; line-height: 1.7; }
+.card-hint { margin-top: 14px; font-size: 12px; color: var(--dim); }
+.detail-toggle { width: 100%; background: #06090f; background: var(--bg); border: 1px solid #1a2a45; border: 1px solid var(--border); color: #5a7aaa; color: var(--muted); border-radius: 9px; padding: 9px 0; font-size: 13px; cursor: pointer; font-family: var(--sans); margin-bottom: 10px; transition: border-color 0.15s; }
+.detail-toggle:hover { border-color: var(--border2); }
+.detail-box { background: #060d1a; border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 9px; padding: 13px 15px; font-size: 13px; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
 .fc-actions { display: flex; gap: 8px; margin-bottom: 10px; }
-.fc-btn { flex: 1; padding: 12px; background: #0d1424; background: var(–surface); border: 1px solid #1a2a45; border: 1px solid var(–border); color: #dce8ff; color: var(–text); border-radius: 9px; cursor: pointer; font-size: 14px; font-family: var(–sans); transition: background 0.15s; }
-.fc-btn:hover { background: var(–surface2); }
-.fc-btn.mastered { background: #052e16; border-color: var(–green); color: var(–green); }
+.fc-btn { flex: 1; padding: 12px; background: #0d1424; background: var(--surface); border: 1px solid #1a2a45; border: 1px solid var(--border); color: #dce8ff; color: var(--text); border-radius: 9px; cursor: pointer; font-size: 14px; font-family: var(--sans); transition: background 0.15s; }
+.fc-btn:hover { background: var(--surface2); }
+.fc-btn.mastered { background: #052e16; border-color: var(--green); color: var(--green); }
 .fc-btn.mark { font-size: 12px; font-weight: 600; }
-.fc-shuffle { width: 100%; padding: 10px; background: #06090f; background: var(–bg); border: 1px solid #1a2a45; border: 1px solid var(–border); color: #5a7aaa; color: var(–muted); border-radius: 9px; cursor: pointer; font-size: 13px; font-family: var(–sans); }
+.fc-shuffle { width: 100%; padding: 10px; background: #06090f; background: var(--bg); border: 1px solid #1a2a45; border: 1px solid var(--border); color: #5a7aaa; color: var(--muted); border-radius: 9px; cursor: pointer; font-size: 13px; font-family: var(--sans); }
 
 /* QUIZ */
 .quiz-progress { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; }
-.quiz-prog-left { color: var(–muted); font-family: var(–mono); font-size: 12px; }
-.quiz-prog-right { color: var(–green); font-weight: 700; }
-.prog-bar { height: 4px; background: var(–border); border-radius: 2px; margin-bottom: 18px; overflow: hidden; }
-.prog-fill { height: 100%; background: var(–accent); border-radius: 2px; transition: width 0.3s; }
-.quiz-question { background: var(–surface); border: 1px solid var(–border); border-radius: 14px; padding: 20px 18px; margin-bottom: 16px; font-size: 15px; line-height: 1.7; }
-.quiz-cat { font-size: 10px; color: var(–muted); font-family: var(–mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
-.option { background: #0d1424; background: var(–surface); border: 1px solid #1a2a45; border: 1px solid var(–border); border-radius: 11px; padding: 14px 15px; margin-bottom: 9px; cursor: pointer; font-size: 13px; line-height: 1.5; transition: all 0.15s; color: #dce8ff; color: var(–text); }
-.option:hover:not(.disabled) { border-color: var(–border2); background: var(–surface2); }
+.quiz-prog-left { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.quiz-prog-right { color: var(--green); font-weight: 700; }
+.prog-bar { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 18px; overflow: hidden; }
+.prog-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
+.quiz-question { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px 18px; margin-bottom: 16px; font-size: 15px; line-height: 1.7; }
+.quiz-cat { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.option { background: #0d1424; background: var(--surface); border: 1px solid #1a2a45; border: 1px solid var(--border); border-radius: 11px; padding: 14px 15px; margin-bottom: 9px; cursor: pointer; font-size: 13px; line-height: 1.5; transition: all 0.15s; color: #dce8ff; color: var(--text); }
+.option:hover:not(.disabled) { border-color: var(--border2); background: var(--surface2); }
 .option.disabled { cursor: default; }
-.option.correct { background: #052e16; border-color: var(–green); color: var(–green); }
-.option.wrong { background: #3f0000; border-color: var(–red); color: var(–red); }
-.option.faded { color: var(–dim); }
-.option-letter { font-weight: 700; margin-right: 8px; font-family: var(–mono); }
-.quiz-tip { background: #060d1a; border: 1px solid var(–border); border-left: 3px solid var(–yellow); border-radius: 9px; padding: 12px 14px; font-size: 13px; color: var(–muted); margin-bottom: 12px; line-height: 1.7; }
-.next-btn { width: 100%; padding: 14px; background: #1e6aff; background: var(–accent); color: #ffffff; border: none; border-radius: 11px; font-size: 14px; font-weight: 700; font-family: var(–sans); cursor: pointer; transition: opacity 0.15s; }
+.option.correct { background: #052e16; border-color: var(--green); color: var(--green); }
+.option.wrong { background: #3f0000; border-color: var(--red); color: var(--red); }
+.option.faded { color: var(--dim); }
+.option-letter { font-weight: 700; margin-right: 8px; font-family: var(--mono); }
+.quiz-tip { background: #060d1a; border: 1px solid var(--border); border-left: 3px solid var(--yellow); border-radius: 9px; padding: 12px 14px; font-size: 13px; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+.next-btn { width: 100%; padding: 14px; background: #1e6aff; background: var(--accent); color: #ffffff; border: none; border-radius: 11px; font-size: 14px; font-weight: 700; font-family: var(--sans); cursor: pointer; transition: opacity 0.15s; }
 .next-btn:hover { opacity: 0.9; }
 
 /* QUIZ IDLE */
 .quiz-idle { text-align: center; padding: 40px 0; }
 .quiz-idle-icon { font-size: 60px; margin-bottom: 16px; }
-.quiz-idle-text { color: var(–muted); margin-bottom: 22px; font-size: 14px; line-height: 1.7; }
+.quiz-idle-text { color: var(--muted); margin-bottom: 22px; font-size: 14px; line-height: 1.7; }
 
 /* RESULTS */
 .results { text-align: center; }
 .results-icon { font-size: 64px; margin-bottom: 14px; }
-.results-score { font-size: 34px; font-weight: 800; font-family: var(–mono); margin-bottom: 6px; }
-.results-msg { color: var(–muted); font-size: 13px; margin-bottom: 22px; line-height: 1.6; }
+.results-score { font-size: 34px; font-weight: 800; font-family: var(--mono); margin-bottom: 6px; }
+.results-msg { color: var(--muted); font-size: 13px; margin-bottom: 22px; line-height: 1.6; }
 .wrong-section { text-align: left; margin-bottom: 20px; }
-.wrong-label { font-weight: 700; color: var(–red); font-size: 13px; margin-bottom: 10px; }
-.wrong-card { background: var(–surface); border: 1px solid #3f0000; border-radius: 10px; padding: 12px 14px; margin-bottom: 9px; }
-.wrong-q { color: var(–muted); font-size: 12px; margin-bottom: 5px; }
-.wrong-a { color: var(–green); font-weight: 600; font-size: 13px; margin-bottom: 4px; }
-.wrong-d { color: var(–dim); font-size: 12px; line-height: 1.6; }
-.retake-btn { width: 100%; padding: 14px; background: #1e6aff; background: var(–accent); color: #ffffff; border: none; border-radius: 11px; font-size: 14px; font-weight: 700; font-family: var(–sans); cursor: pointer; margin-bottom: 9px; }
-.back-btn { width: 100%; padding: 12px; background: #0d1424; background: var(–surface); color: #5a7aaa; color: var(–muted); border: 1px solid #1a2a45; border: 1px solid var(–border); border-radius: 11px; font-size: 13px; font-family: var(–sans); cursor: pointer; }
+.wrong-label { font-weight: 700; color: var(--red); font-size: 13px; margin-bottom: 10px; }
+.wrong-card { background: var(--surface); border: 1px solid #3f0000; border-radius: 10px; padding: 12px 14px; margin-bottom: 9px; }
+.wrong-q { color: var(--muted); font-size: 12px; margin-bottom: 5px; }
+.wrong-a { color: var(--green); font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+.wrong-d { color: var(--dim); font-size: 12px; line-height: 1.6; }
+.retake-btn { width: 100%; padding: 14px; background: #1e6aff; background: var(--accent); color: #ffffff; border: none; border-radius: 11px; font-size: 14px; font-weight: 700; font-family: var(--sans); cursor: pointer; margin-bottom: 9px; }
+.back-btn { width: 100%; padding: 12px; background: #0d1424; background: var(--surface); color: #5a7aaa; color: var(--muted); border: 1px solid #1a2a45; border: 1px solid var(--border); border-radius: 11px; font-size: 13px; font-family: var(--sans); cursor: pointer; }
 
 /* NUMBERS */
-.num-intro { font-size: 12px; color: var(–muted); margin-bottom: 14px; line-height: 1.6; }
-.num-search { width: 100%; background: #0d1424; background: var(–surface); border: 1px solid #1a2a45; border: 1px solid var(–border); border-radius: 9px; padding: 9px 12px; color: #dce8ff; color: var(–text); font-size: 13px; font-family: var(–sans); outline: none; margin-bottom: 18px; }
-.num-search:focus { border-color: var(–accent); }
-.num-section-label { font-size: 12px; font-weight: 700; color: var(–muted); font-family: var(–mono); letter-spacing: 0.8px; margin-bottom: 9px; margin-top: 18px; }
-.num-row { display: flex; justify-content: space-between; align-items: center; background: var(–surface); border: 1px solid var(–border); border-radius: 9px; padding: 10px 13px; margin-bottom: 6px; }
-.num-key { font-size: 13px; color: var(–muted); }
-.num-val { font-size: 13px; font-weight: 700; color: #60a5fa; font-family: var(–mono); }
+.num-intro { font-size: 12px; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
+.num-search { width: 100%; background: #0d1424; background: var(--surface); border: 1px solid #1a2a45; border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; color: #dce8ff; color: var(--text); font-size: 13px; font-family: var(--sans); outline: none; margin-bottom: 18px; }
+.num-search:focus { border-color: var(--accent); }
+.num-section-label { font-size: 12px; font-weight: 700; color: var(--muted); font-family: var(--mono); letter-spacing: 0.8px; margin-bottom: 9px; margin-top: 18px; }
+.num-row { display: flex; justify-content: space-between; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 10px 13px; margin-bottom: 6px; }
+.num-key { font-size: 13px; color: var(--muted); }
+.num-val { font-size: 13px; font-weight: 700; color: #60a5fa; font-family: var(--mono); }
 
 /* TRICK SECTION highlight */
-.trick-badge { display: inline-block; background: #ff4757; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-family: var(–mono); margin-left: 6px; vertical-align: middle; }
+.trick-badge { display: inline-block; background: #ff4757; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-family: var(--mono); margin-left: 6px; vertical-align: middle; }
 
 /* GLOSSARY */
-.gloss-row { background: #0d1424; background: var(–surface); border: 1px solid #1a2a45; border: 1px solid var(–border); border-radius: 9px; padding: 11px 13px; margin-bottom: 6px; }
-.gloss-term { font-size: 13px; font-weight: 700; color: #60a5fa; font-family: var(–mono); margin-bottom: 3px; }
-.gloss-def { font-size: 12px; color: #5a7aaa; color: var(–muted); line-height: 1.5; }
+.gloss-row { background: #0d1424; background: var(--surface); border: 1px solid #1a2a45; border: 1px solid var(--border); border-radius: 9px; padding: 11px 13px; margin-bottom: 6px; }
+.gloss-term { font-size: 13px; font-weight: 700; color: #60a5fa; font-family: var(--mono); margin-bottom: 3px; }
+.gloss-def { font-size: 12px; color: #5a7aaa; color: var(--muted); line-height: 1.5; }
 
 /* STUDY GUIDE */
-.sg-intro { font-size: 12px; color: #5a7aaa; color: var(–muted); margin-bottom: 14px; line-height: 1.6; }
+.sg-intro { font-size: 12px; color: #5a7aaa; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
 .sg-voice-select { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 .sg-voice-btn { text-transform: capitalize; }
 .sg-controls { margin-bottom: 18px; }
 .sg-audio-bar { display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-.sg-play-btn { padding: 10px 20px; background: #1e6aff; color: #ffffff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; font-family: var(–sans); cursor: pointer; transition: opacity 0.15s; min-width: 90px; }
+.sg-play-btn { padding: 10px 20px; background: #1e6aff; color: #ffffff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; font-family: var(--sans); cursor: pointer; transition: opacity 0.15s; min-width: 90px; }
 .sg-play-btn:hover { opacity: 0.9; }
 .sg-play-btn.playing { background: #f97316; }
-.sg-stop-btn { padding: 10px 14px; background: #0d1424; color: #5a7aaa; border: 1px solid #1a2a45; border-radius: 8px; font-size: 14px; font-family: var(–sans); cursor: pointer; }
+.sg-stop-btn { padding: 10px 14px; background: #0d1424; color: #5a7aaa; border: 1px solid #1a2a45; border-radius: 8px; font-size: 14px; font-family: var(--sans); cursor: pointer; }
 .sg-stop-btn:hover { border-color: #223355; color: #dce8ff; }
 .sg-speed { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 .sg-speed label { font-size: 11px; color: #5a7aaa; margin-right: 2px; }
-.sg-speed-btn { padding: 5px 8px; background: #0d1424; border: 1px solid #1a2a45; color: #5a7aaa; border-radius: 6px; font-size: 11px; font-family: var(–mono); cursor: pointer; }
+.sg-speed-btn { padding: 5px 8px; background: #0d1424; border: 1px solid #1a2a45; color: #5a7aaa; border-radius: 6px; font-size: 11px; font-family: var(--mono); cursor: pointer; }
 .sg-speed-btn.sg-speed-active { background: #1e6aff; color: #ffffff; border-color: #1e6aff; }
-.sg-status { font-size: 11px; color: #5a7aaa; margin-top: 8px; font-family: var(–mono); }
+.sg-status { font-size: 11px; color: #5a7aaa; margin-top: 8px; font-family: var(--mono); }
 .sg-section { margin-bottom: 20px; }
 .sg-section-title { font-size: 14px; font-weight: 700; color: #dce8ff; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #1a2a45; }
-.sg-concept { background: #0d1424; border: 1px solid #1a2a45; border-radius: 10px; padding: 14px; margin-bottom: 10px; transition: border-color 0.2s, background 0.2s; }
-.sg-concept.sg-reading { border-color: #1e6aff; background: #0a1628; }
+.sg-concept { background: #0d1424; border: 1px solid #1a2a45; border-radius: 10px; padding: 14px; margin-bottom: 10px; transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; cursor: pointer; }
+.sg-concept:hover { border-color: #223355; background: #111c30; }
+.sg-concept.sg-reading { border-color: #1e6aff; background: #0a1628; box-shadow: 0 0 12px rgba(30, 106, 255, 0.25), 0 0 4px rgba(30, 106, 255, 0.15); }
 .sg-concept-q { font-size: 13px; font-weight: 600; color: #dce8ff; margin-bottom: 6px; }
 .sg-concept-a { font-size: 13px; color: #93c5fd; line-height: 1.6; margin-bottom: 6px; }
 .sg-concept-tip { font-size: 12px; color: #5a7aaa; line-height: 1.5; padding-top: 6px; border-top: 1px solid #1a2a45; }
+.sg-loading-dots { display: inline-block; }
+.sg-loading-dots::after { content: ''; animation: sgDots 1.2s steps(4) infinite; }
+@keyframes sgDots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75% { content: '...'; } }
+
+/* WORD-BY-WORD HIGHLIGHTING */
+.sg-word { transition: color 0.1s, background 0.1s; border-radius: 2px; padding: 0 1px; }
+.sg-word.sg-word-active { color: #ffffff; background: rgba(30, 106, 255, 0.35); }
+.sg-word-title { font-weight: 700; }
+.sg-word-body { }
+
 
 /* STUDY STATS BAR */
 .study-stats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-.study-stat-card { background: var(–surface); border: 1px solid var(–border); border-radius: 10px; padding: 10px 12px; flex: 1; min-width: 90px; }
-.study-stat-label { font-size: 10px; color: var(–muted); font-family: var(–mono); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
-.study-stat-value { font-size: 15px; font-weight: 700; color: var(–text); }
+.study-stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; flex: 1; min-width: 90px; }
+.study-stat-label { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+.study-stat-value { font-size: 15px; font-weight: 700; color: var(--text); }
 
 /* EXAM DATE */
-.exam-date-wrap { background: var(–surface); border: 1px solid var(–border); border-radius: 10px; padding: 12px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.exam-date-wrap label { font-size: 12px; color: var(–muted); white-space: nowrap; }
-.exam-date-wrap input[type=“date”] { background: var(–bg); border: 1px solid var(–border); border-radius: 6px; padding: 6px 10px; color: var(–text); font-size: 12px; font-family: var(–mono); outline: none; }
-.exam-date-wrap input[type=“date”]:focus { border-color: var(–accent); }
-.exam-countdown { font-size: 13px; font-weight: 700; color: var(–accent); font-family: var(–mono); margin-left: auto; }
+.exam-date-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.exam-date-wrap label { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.exam-date-wrap input[type="date"] { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; color: var(--text); font-size: 12px; font-family: var(--mono); outline: none; }
+.exam-date-wrap input[type="date"]:focus { border-color: var(--accent); }
+.exam-countdown { font-size: 13px; font-weight: 700; color: var(--accent); font-family: var(--mono); margin-left: auto; }
 
 /* WEAK SPOTS BUTTON */
-.weak-btn { width: 100%; padding: 13px; background: var(–surface); border: 1px solid #3f0000; color: var(–red); border-radius: 12px; font-size: 14px; font-weight: 700; font-family: var(–sans); cursor: pointer; margin-top: 8px; transition: all 0.15s; }
-.weak-btn:hover { background: #1a0000; border-color: var(–red); }
+.weak-btn { width: 100%; padding: 13px; background: var(--surface); border: 1px solid #3f0000; color: var(--red); border-radius: 12px; font-size: 14px; font-weight: 700; font-family: var(--sans); cursor: pointer; margin-top: 8px; transition: all 0.15s; }
+.weak-btn:hover { background: #1a0000; border-color: var(--red); }
 .weak-btn:disabled { opacity: 0.4; cursor: default; }
 
 /* PERF DOT on topic list items */
@@ -397,7 +408,6 @@ position: sticky; top: 0; z-index: 100;
 </div>
 
 <!-- GLOSSARY -->
-
 <div class="page" id="page-glossary">
 <div class="section-label">Glossary of Terms & Acronyms</div>
 <div class="num-intro">Every abbreviation, acronym, and technical term used in this study guide and on the PSI exam. Search below to find any term.</div>
@@ -803,31 +813,31 @@ return ALL_CARDS.filter(c => c.category === currentTopic);
 // ========================================================
 function saveProgress() {
 try {
-localStorage.setItem('adj_mastered', JSON.stringify([...mastered]));
-localStorage.setItem('adj_perf', JSON.stringify(perfData));
-localStorage.setItem('adj_topicScores', JSON.stringify(topicScores));
-localStorage.setItem('adj_weakPool', JSON.stringify([...weakPool]));
-localStorage.setItem('adj_totalStudyMs', String(totalStudyMs + (Date.now() - sessionStart)));
-localStorage.setItem('adj_streakCount', String(streakCount));
-localStorage.setItem('adj_lastStudyDate', lastStudyDate || '');
+  localStorage.setItem('adj_mastered', JSON.stringify([...mastered]));
+  localStorage.setItem('adj_perf', JSON.stringify(perfData));
+  localStorage.setItem('adj_topicScores', JSON.stringify(topicScores));
+  localStorage.setItem('adj_weakPool', JSON.stringify([...weakPool]));
+  localStorage.setItem('adj_totalStudyMs', String(totalStudyMs + (Date.now() - sessionStart)));
+  localStorage.setItem('adj_streakCount', String(streakCount));
+  localStorage.setItem('adj_lastStudyDate', lastStudyDate || '');
 } catch(e) { /* quota exceeded — silent fail */ }
 }
 
 function loadProgress() {
 try {
-const m = localStorage.getItem('adj_mastered');
-if (m) mastered = new Set(JSON.parse(m));
-const p = localStorage.getItem('adj_perf');
-if (p) perfData = JSON.parse(p);
-const ts = localStorage.getItem('adj_topicScores');
-if (ts) topicScores = JSON.parse(ts);
-const wp = localStorage.getItem('adj_weakPool');
-if (wp) weakPool = new Set(JSON.parse(wp));
-const tms = localStorage.getItem('adj_totalStudyMs');
-if (tms) totalStudyMs = parseInt(tms) || 0;
-const sc = localStorage.getItem('adj_streakCount');
-if (sc) streakCount = parseInt(sc) || 0;
-lastStudyDate = localStorage.getItem('adj_lastStudyDate') || null;
+  const m = localStorage.getItem('adj_mastered');
+  if (m) mastered = new Set(JSON.parse(m));
+  const p = localStorage.getItem('adj_perf');
+  if (p) perfData = JSON.parse(p);
+  const ts = localStorage.getItem('adj_topicScores');
+  if (ts) topicScores = JSON.parse(ts);
+  const wp = localStorage.getItem('adj_weakPool');
+  if (wp) weakPool = new Set(JSON.parse(wp));
+  const tms = localStorage.getItem('adj_totalStudyMs');
+  if (tms) totalStudyMs = parseInt(tms) || 0;
+  const sc = localStorage.getItem('adj_streakCount');
+  if (sc) streakCount = parseInt(sc) || 0;
+  lastStudyDate = localStorage.getItem('adj_lastStudyDate') || null;
 } catch(e) {}
 }
 
@@ -837,17 +847,17 @@ lastStudyDate = localStorage.getItem('adj_lastStudyDate') || null;
 function startSessionTimer() {
 sessionStart = Date.now();
 sessionTimerInterval = setInterval(() => {
-const elapsed = Date.now() - sessionStart;
-const mins = Math.floor(elapsed / 60000);
-const secs = Math.floor((elapsed % 60000) / 1000);
-const timeStr = mins + ':' + String(secs).padStart(2, '0');
-document.getElementById('session-timer').textContent = '⏱ ' + timeStr;
-document.getElementById('session-study-time').textContent = timeStr;
-// Update total display
-const totalMs = totalStudyMs + elapsed;
-const totalH = Math.floor(totalMs / 3600000);
-const totalM = Math.floor((totalMs % 3600000) / 60000);
-document.getElementById('total-study-time').textContent = totalH + 'h ' + totalM + 'm';
+  const elapsed = Date.now() - sessionStart;
+  const mins = Math.floor(elapsed / 60000);
+  const secs = Math.floor((elapsed % 60000) / 1000);
+  const timeStr = mins + ':' + String(secs).padStart(2, '0');
+  document.getElementById('session-timer').textContent = '⏱ ' + timeStr;
+  document.getElementById('session-study-time').textContent = timeStr;
+  // Update total display
+  const totalMs = totalStudyMs + elapsed;
+  const totalH = Math.floor(totalMs / 3600000);
+  const totalM = Math.floor((totalMs % 3600000) / 60000);
+  document.getElementById('total-study-time').textContent = totalH + 'h ' + totalM + 'm';
 }, 1000);
 }
 
@@ -858,13 +868,13 @@ function updateStreak() {
 const today = new Date().toISOString().split('T')[0];
 if (lastStudyDate === today) return; // already logged today
 if (lastStudyDate) {
-const last = new Date(lastStudyDate);
-const now = new Date(today);
-const diff = Math.round((now - last) / 86400000);
-if (diff === 1) streakCount++;
-else if (diff > 1) streakCount = 1;
+  const last = new Date(lastStudyDate);
+  const now = new Date(today);
+  const diff = Math.round((now - last) / 86400000);
+  if (diff === 1) streakCount++;
+  else if (diff > 1) streakCount = 1;
 } else {
-streakCount = 1;
+  streakCount = 1;
 }
 lastStudyDate = today;
 saveProgress();
@@ -875,8 +885,8 @@ function renderStreak() {
 const el = document.getElementById('streak-display');
 const val = document.getElementById('streak-value');
 if (streakCount > 0) {
-el.style.display = 'inline';
-el.textContent = '🔥 ' + streakCount + ' day streak';
+  el.style.display = 'inline';
+  el.textContent = '🔥 ' + streakCount + ' day streak';
 }
 if (val) val.textContent = streakCount + ' days';
 }
@@ -899,14 +909,14 @@ if (!d) { el1.textContent = ''; el2.textContent = ''; return; }
 if (input) input.value = d;
 const diff = Math.ceil((new Date(d + 'T23:59:59') - new Date()) / 86400000);
 if (diff < 0) {
-el1.textContent = 'Good luck today!';
-el2.textContent = '🎯 Exam day!';
+  el1.textContent = 'Good luck today!';
+  el2.textContent = '🎯 Exam day!';
 } else if (diff === 0) {
-el1.textContent = 'EXAM IS TODAY!';
-el2.textContent = '🎯 Exam today!';
+  el1.textContent = 'EXAM IS TODAY!';
+  el2.textContent = '🎯 Exam today!';
 } else {
-el1.textContent = diff + ' days until exam';
-el2.textContent = '📅 ' + diff + 'd to exam';
+  el1.textContent = diff + ' days until exam';
+  el2.textContent = '📅 ' + diff + 'd to exam';
 }
 }
 
@@ -917,16 +927,16 @@ function recordPerf(questionText, correct) {
 if (!perfData[questionText]) perfData[questionText] = { right: 0, wrong: 0 };
 if (correct) perfData[questionText].right++;
 else {
-perfData[questionText].wrong++;
-weakPool.add(questionText);
+  perfData[questionText].wrong++;
+  weakPool.add(questionText);
 }
 // If right 3 times consecutively in total rights vs wrongs
 if (perfData[questionText].right >= 3 && perfData[questionText].wrong === 0) {
-weakPool.delete(questionText);
+  weakPool.delete(questionText);
 }
 // If gotten right 3 more times than wrong, remove from weak pool
 if (perfData[questionText].right - perfData[questionText].wrong >= 3) {
-weakPool.delete(questionText);
+  weakPool.delete(questionText);
 }
 perfData[questionText].lastSeen = Date.now();
 saveProgress();
@@ -943,8 +953,8 @@ return 1;
 
 function weightedShuffle(cards) {
 return cards.map(c => ({ card: c, sort: Math.random() * getCardWeight(c) }))
-.sort((a, b) => b.sort - a.sort)
-.map(x => x.card);
+  .sort((a, b) => b.sort - a.sort)
+  .map(x => x.card);
 }
 
 // ========================================================
@@ -954,11 +964,11 @@ function updateWeakSpotsBtn() {
 const btn = document.getElementById('weak-spots-btn');
 if (!btn) return;
 if (weakPool.size > 0) {
-btn.disabled = false;
-btn.textContent = '🔥 Weak Spots Quiz — ' + weakPool.size + ' cards to drill';
+  btn.disabled = false;
+  btn.textContent = '🔥 Weak Spots Quiz — ' + weakPool.size + ' cards to drill';
 } else {
-btn.disabled = true;
-btn.textContent = '🔥 Weak Spots Quiz — Complete a quiz first';
+  btn.disabled = true;
+  btn.textContent = '🔥 Weak Spots Quiz — Complete a quiz first';
 }
 }
 
@@ -970,8 +980,8 @@ showPage('quiz');
 // Build quiz from weak cards only
 const shuffled = [...weakCards].sort(() => Math.random() - 0.5).slice(0, 20);
 quizDeck = shuffled.map(card => {
-const wrong = ALL_CARDS.filter(c => c.a !== card.a && c.a.length < 110).sort(() => Math.random() - 0.5).slice(0, 3);
-return { ...card, options: [card, ...wrong].sort(() => Math.random() - 0.5) };
+  const wrong = ALL_CARDS.filter(c => c.a !== card.a && c.a.length < 110).sort(() => Math.random() - 0.5).slice(0, 3);
+  return { ...card, options: [card, ...wrong].sort(() => Math.random() - 0.5) };
 });
 quizIdx = 0; quizScore = 0; quizWrong = []; quizAnswered = false; quizActive = true;
 document.getElementById('quiz-idle').style.display = 'none';
@@ -999,9 +1009,8 @@ renderCountdown();
 updateWeakSpotsBtn();
 // Auto-save on unload
 window.addEventListener('beforeunload', () => {
-if (sgAudio) sgAudio.pause();
-totalStudyMs += (Date.now() - sessionStart);
-saveProgress();
+  if (sgAudio) sgAudio.pause();
+  saveProgress();
 });
 };
 
@@ -1075,15 +1084,15 @@ el.textContent = sub;
 // Performance dot
 const dot = document.getElementById('perf-dot-' + encodeURIComponent(cat));
 if (dot) {
-const pct = m / cards.length;
-const hasBadScores = cards.some(c => {
-const p = perfData[c.q];
-return p && p.wrong > p.right;
-});
-if (pct >= 0.8 && !hasBadScores) dot.style.background = 'var(--green)';
-else if (pct >= 0.3 || (ts && ts.pct >= 50)) dot.style.background = 'var(--yellow)';
-else if (hasBadScores || (ts && ts.pct < 50)) dot.style.background = 'var(--red)';
-else dot.style.background = 'var(--border)';
+  const pct = m / cards.length;
+  const hasBadScores = cards.some(c => {
+    const p = perfData[c.q];
+    return p && p.wrong > p.right;
+  });
+  if (pct >= 0.8 && !hasBadScores) dot.style.background = 'var(--green)';
+  else if (pct >= 0.3 || (ts && ts.pct >= 50)) dot.style.background = 'var(--yellow)';
+  else if (hasBadScores || (ts && ts.pct < 50)) dot.style.background = 'var(--red)';
+  else dot.style.background = 'var(--border)';
 }
 });
 }
@@ -1185,8 +1194,8 @@ const filtered = getFiltered();
 // If card was flipped but not mastered, note it as "seen"
 const card = filtered[currentIdx];
 if (isFlipped && !mastered.has(card.q)) {
-if (!perfData[card.q]) perfData[card.q] = { right: 0, wrong: 0 };
-perfData[card.q].lastSeen = Date.now();
+  if (!perfData[card.q]) perfData[card.q] = { right: 0, wrong: 0 };
+  perfData[card.q].lastSeen = Date.now();
 }
 currentIdx = (currentIdx + 1) % filtered.length;
 isFlipped = false; showingDetail = false;
@@ -1388,14 +1397,27 @@ let sgCurrentConcepts = [];
 let sgAudio = null;
 let sgVoice = 'nova';
 let sgAudioCache = {};
+let sgSingleMode = false;
 
 function sgSetVoice(v) {
 sgVoice = v;
 sgAudioCache = {};
 document.querySelectorAll('.sg-voice-btn').forEach(btn => {
-btn.classList.remove('sg-speed-active');
-if (btn.textContent.trim().toLowerCase() === v) btn.classList.add('sg-speed-active');
+  btn.classList.remove('sg-speed-active');
+  if (btn.textContent.trim().toLowerCase() === v.toLowerCase()) btn.classList.add('sg-speed-active');
 });
+// If currently playing, stop and let them restart with new voice
+if (sgIsPlaying) sgStop();
+}
+
+function sgInitAudio() {
+if (!sgAudio) {
+  sgAudio = new Audio();
+  sgAudio.setAttribute('playsinline', '');
+  // Unlock audio on mobile with a silent play
+  sgAudio.src = 'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAABhgC7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAAYZHhU8LAAAAAAAAAAAAAAAAAAAA//tQZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//tQZB8P8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAEVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVQ==';
+  sgAudio.play().then(() => { sgAudio.pause(); }).catch(() => {});
+}
 }
 
 function buildStudyGuide() {
@@ -1417,6 +1439,29 @@ sgCurrentTopic = document.getElementById('sg-topic-select').value;
 renderStudyContent();
 }
 
+// Word wrapping for karaoke-style highlighting
+let sgWordSpans = [];
+let sgWordPositions = [];
+let sgCharOffset = 0;
+
+function wrapWordsInSpans(text, cssClass) {
+let html = '';
+const words = text.split(/(\s+)/);
+words.forEach(w => {
+  if (/^\s+$/.test(w)) {
+    html += w;
+    sgCharOffset += w.length;
+  } else {
+    const idx = sgWordSpans.length;
+    sgWordSpans.push(idx);
+    sgWordPositions.push({ start: sgCharOffset, len: w.length });
+    html += '<span class="sg-word ' + cssClass + '" id="sgw-' + idx + '">' + w + '</span>';
+    sgCharOffset += w.length;
+  }
+});
+return html;
+}
+
 function renderStudyContent() {
 const sections = LESSONS[sgCurrentTopic] || [];
 sgCurrentConcepts = sections;
@@ -1428,9 +1473,9 @@ let h = '<div class="sg-section">';
 h += '<div class="sg-section-title">' + topicName + ' — ' + sections.length + ' sections</div>';
 
 sections.forEach((sec, i) => {
-h += '<div class="sg-concept" id="sg-c-' + i + '">';
-h += '<div class="sg-concept-q">' + sec.title + '</div>';
-h += '<div class="sg-concept-a">' + sec.text + '</div>';
+h += '<div class="sg-concept" id="sg-c-' + i + '" onclick="sgPlaySingle(' + i + ')">';
+h += '<div class="sg-concept-q" id="sg-cq-' + i + '">' + sec.title + '</div>';
+h += '<div class="sg-concept-a" id="sg-ca-' + i + '">' + sec.text + '</div>';
 h += '</div>';
 });
 
@@ -1439,32 +1484,109 @@ container.innerHTML = h;
 document.getElementById('sg-status').textContent = sections.length + ' sections ready to play';
 }
 
-function sgTogglePlay() {
-if (sgIsPlaying && !sgIsPaused) {
-sgIsPaused = true;
-if (sgAudio) sgAudio.pause();
-document.getElementById('sg-play-btn').textContent = '▶ Resume';
-document.getElementById('sg-play-btn').classList.remove('playing');
-document.getElementById('sg-status').textContent = 'Paused — section ' + (sgConceptIndex + 1) + ' of ' + sgCurrentConcepts.length;
-} else if (sgIsPaused) {
-sgIsPaused = false;
-if (sgAudio) sgAudio.play();
-document.getElementById('sg-play-btn').textContent = '⏸ Pause';
-document.getElementById('sg-play-btn').classList.add('playing');
-document.getElementById('sg-status').textContent = 'Playing section ' + (sgConceptIndex + 1) + ' of ' + sgCurrentConcepts.length;
-} else {
-sgConceptIndex = 0;
-sgIsPlaying = true;
-sgIsPaused = false;
-sgReadConcept(0);
+function sgWrapCurrentSection(idx) {
+sgWordSpans = [];
+sgWordPositions = [];
+sgCharOffset = 0;
+const sec = sgCurrentConcepts[idx];
+const titleEl = document.getElementById('sg-cq-' + idx);
+const bodyEl = document.getElementById('sg-ca-' + idx);
+if (titleEl) titleEl.innerHTML = wrapWordsInSpans(sec.title, 'sg-word-title');
+sgCharOffset += 2; // ". " separator in audio between title and body
+if (bodyEl) bodyEl.innerHTML = wrapWordsInSpans(sec.text, 'sg-word-body');
+}
+
+function sgUnwrapCurrentSection(idx) {
+const sec = sgCurrentConcepts[idx];
+const titleEl = document.getElementById('sg-cq-' + idx);
+const bodyEl = document.getElementById('sg-ca-' + idx);
+if (titleEl && sec) titleEl.textContent = sec.title;
+if (bodyEl && sec) bodyEl.textContent = sec.text;
+sgWordSpans = [];
+sgWordPositions = [];
+}
+
+function sgHighlightWord(wordIdx) {
+document.querySelectorAll('.sg-word-active').forEach(el => el.classList.remove('sg-word-active'));
+const el = document.getElementById('sgw-' + wordIdx);
+if (el) {
+  el.classList.add('sg-word-active');
+  // Scroll the word into view if needed
+  const rect = el.getBoundingClientRect();
+  if (rect.bottom > window.innerHeight - 80 || rect.top < 100) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
 }
 
+function sgSetupWordTracking() {
+if (!sgAudio || sgWordSpans.length === 0) return;
+
+// Calculate total character length for proportional mapping
+const totalChars = sgWordPositions.reduce((sum, wp) => Math.max(sum, wp.start + wp.len), 0);
+
+sgAudio.ontimeupdate = function() {
+  if (!sgAudio.duration || sgAudio.duration === Infinity) return;
+  const progress = sgAudio.currentTime / sgAudio.duration;
+  const charPos = progress * totalChars;
+
+  // Find which word we're on
+  let currentWord = 0;
+  for (let i = 0; i < sgWordPositions.length; i++) {
+    if (sgWordPositions[i].start <= charPos) currentWord = i;
+    else break;
+  }
+  sgHighlightWord(currentWord);
+};
+}
+
+// Play all from beginning
+function sgTogglePlay() {
+sgInitAudio();
+if (sgIsPlaying && !sgIsPaused) {
+  sgIsPaused = true;
+  if (sgAudio) sgAudio.pause();
+  document.getElementById('sg-play-btn').textContent = '▶ Resume';
+  document.getElementById('sg-play-btn').classList.remove('playing');
+  document.getElementById('sg-status').textContent = 'Paused — section ' + (sgConceptIndex + 1) + ' of ' + sgCurrentConcepts.length;
+} else if (sgIsPaused) {
+  sgIsPaused = false;
+  if (sgAudio) sgAudio.play();
+  document.getElementById('sg-play-btn').textContent = '⏸ Pause';
+  document.getElementById('sg-play-btn').classList.add('playing');
+  document.getElementById('sg-status').textContent = 'Playing section ' + (sgConceptIndex + 1) + ' of ' + sgCurrentConcepts.length;
+} else {
+  sgSingleMode = false;
+  sgConceptIndex = 0;
+  sgIsPlaying = true;
+  sgIsPaused = false;
+  sgReadConcept(0);
+}
+}
+
+// Play a single section by clicking its play button
+function sgPlaySingle(idx) {
+sgInitAudio();
+// If already playing this section, stop it
+if (sgIsPlaying && sgConceptIndex === idx) {
+  sgStop();
+  return;
+}
+sgStop();
+sgSingleMode = true;
+sgConceptIndex = idx;
+sgIsPlaying = true;
+sgIsPaused = false;
+sgReadConcept(idx);
+}
+
 function sgStop() {
-if (sgAudio) { sgAudio.pause(); sgAudio.currentTime = 0; }
+if (sgAudio) { sgAudio.pause(); sgAudio.ontimeupdate = null; }
+// Unwrap any highlighted section
+if (sgConceptIndex < sgCurrentConcepts.length) sgUnwrapCurrentSection(sgConceptIndex);
 sgIsPlaying = false;
 sgIsPaused = false;
-sgConceptIndex = 0;
+sgSingleMode = false;
 document.getElementById('sg-play-btn').textContent = '▶ Play';
 document.getElementById('sg-play-btn').classList.remove('playing');
 document.getElementById('sg-status').textContent = sgCurrentConcepts.length + ' sections ready to play';
@@ -1473,89 +1595,109 @@ document.querySelectorAll('.sg-concept').forEach(el => el.classList.remove('sg-r
 
 async function sgReadConcept(idx) {
 if (idx >= sgCurrentConcepts.length) {
-sgStop();
-document.getElementById('sg-status').textContent = 'Finished! All ' + sgCurrentConcepts.length + ' sections complete.';
-return;
+  sgStop();
+  document.getElementById('sg-status').textContent = 'Finished! All ' + sgCurrentConcepts.length + ' sections complete.';
+  return;
 }
 
 sgConceptIndex = idx;
 const sec = sgCurrentConcepts[idx];
 
+// Highlight current section
 document.querySelectorAll('.sg-concept').forEach(el => el.classList.remove('sg-reading'));
 const el = document.getElementById('sg-c-' + idx);
 if (el) {
-el.classList.add('sg-reading');
-el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  el.classList.add('sg-reading');
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-document.getElementById('sg-play-btn').textContent = '⏸ Pause';
-document.getElementById('sg-play-btn').classList.add('playing');
-document.getElementById('sg-status').textContent = 'Loading section ' + (idx + 1) + ' of ' + sgCurrentConcepts.length + '...';
+if (!sgSingleMode) {
+  document.getElementById('sg-play-btn').textContent = '⏸ Pause';
+  document.getElementById('sg-play-btn').classList.add('playing');
+}
+document.getElementById('sg-status').textContent = 'Loading audio<span class="sg-loading-dots"></span>';
+document.getElementById('sg-status').innerHTML = 'Loading audio<span class="sg-loading-dots"></span>';
 
 const text = sec.title + '. ' + sec.text;
 const cacheKey = sgVoice + ':' + sgCurrentTopic + ':' + idx;
 
 try {
-let audioUrl;
-if (sgAudioCache[cacheKey]) {
-audioUrl = sgAudioCache[cacheKey];
-} else {
-const response = await fetch('/api/tts', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({
-text: text,
-voice: sgVoice,
-speed: sgSpeed
-})
-});
+  let audioUrl;
+  if (sgAudioCache[cacheKey]) {
+    audioUrl = sgAudioCache[cacheKey];
+  } else {
+    const response = await fetch('/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: text,
+        voice: sgVoice,
+        speed: sgSpeed
+      })
+    });
 
-if (!response.ok) {
-const err = await response.json().catch(() => ({}));
-if (response.status === 429) {
-document.getElementById('sg-status').textContent = 'Rate limited. Wait a moment and try again.';
-} else {
-document.getElementById('sg-status').textContent = 'Audio error: ' + (err.error || response.status);
-}
-sgStop();
-return;
-}
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      if (response.status === 429) {
+        document.getElementById('sg-status').textContent = 'Rate limited. Wait a moment and try again.';
+      } else {
+        document.getElementById('sg-status').textContent = 'Audio error: ' + (err.error || response.status);
+      }
+      sgStop();
+      return;
+    }
 
-const blob = await response.blob();
-audioUrl = URL.createObjectURL(blob);
-sgAudioCache[cacheKey] = audioUrl;
-}
+    const blob = await response.blob();
+    audioUrl = URL.createObjectURL(blob);
+    sgAudioCache[cacheKey] = audioUrl;
+  }
 
-if (!sgIsPlaying || sgIsPaused) return;
+  if (!sgIsPlaying || sgIsPaused) return;
 
-document.getElementById('sg-status').textContent = 'Playing section ' + (idx + 1) + ' of ' + sgCurrentConcepts.length;
+  document.getElementById('sg-status').textContent = 'Playing section ' + (idx + 1) + ' of ' + sgCurrentConcepts.length;
 
-sgAudio = new Audio(audioUrl);
-sgAudio.playbackRate = 1;
-sgAudio.onended = function() {
-if (sgIsPlaying && !sgIsPaused) {
-setTimeout(function() {
-if (sgIsPlaying && !sgIsPaused) sgReadConcept(idx + 1);
-}, 400);
-}
-};
-sgAudio.onerror = function() {
-document.getElementById('sg-status').textContent = 'Audio playback error. Try again.';
-sgStop();
-};
-sgAudio.play();
+  // Wrap words for karaoke highlighting
+  sgWrapCurrentSection(idx);
+
+  sgAudio.src = audioUrl;
+  sgAudio.playbackRate = sgSpeed;
+  sgAudio.onended = function() {
+    sgUnwrapCurrentSection(idx);
+    if (sgSingleMode) {
+      sgStop();
+      document.getElementById('sg-status').textContent = 'Section complete. Pick another or hit Play for all.';
+      return;
+    }
+    if (sgIsPlaying && !sgIsPaused) {
+      setTimeout(function() {
+        if (sgIsPlaying && !sgIsPaused) sgReadConcept(idx + 1);
+      }, 400);
+    }
+  };
+  sgAudio.onerror = function() {
+    sgUnwrapCurrentSection(idx);
+    document.getElementById('sg-status').textContent = 'Audio playback error. Try again.';
+    sgStop();
+  };
+  sgAudio.play().then(function() {
+    sgSetupWordTracking();
+  }).catch(function(e) {
+    sgUnwrapCurrentSection(idx);
+    document.getElementById('sg-status').textContent = 'Tap play again — mobile browser blocked autoplay.';
+    sgStop();
+  });
 
 } catch (err) {
-document.getElementById('sg-status').textContent = 'Network error. Check your connection.';
-sgStop();
+  document.getElementById('sg-status').textContent = 'Network error. Check your connection.';
+  sgStop();
 }
 }
 
 function sgSetSpeed(speed) {
 sgSpeed = speed;
 document.querySelectorAll('.sg-speed-btn:not(.sg-voice-btn)').forEach(btn => {
-btn.classList.remove('sg-speed-active');
-if (btn.textContent.trim() === speed + 'x') btn.classList.add('sg-speed-active');
+  btn.classList.remove('sg-speed-active');
+  if (btn.textContent.trim() === speed + 'x') btn.classList.add('sg-speed-active');
 });
 if (sgAudio) sgAudio.playbackRate = speed;
 }
