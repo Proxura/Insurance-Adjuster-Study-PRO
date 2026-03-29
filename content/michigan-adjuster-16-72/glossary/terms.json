@@ -1,0 +1,277 @@
+[
+  {
+    "term": "PIP",
+    "definition": "Personal Injury Protection — Michigan's mandatory no-fault auto coverage that pays your own medical bills, wage loss, and replacement services regardless of who caused the accident",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "PPI",
+    "definition": "Property Protection Insurance — Michigan-only coverage ($1M limit) that pays for damage your vehicle causes to other people's buildings, fences, and parked vehicles",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "BI/PD",
+    "definition": "Bodily Injury / Property Damage Liability — coverage that pays when YOU cause injury or property damage to someone else. Listed as three numbers like $250K/$500K/$10K (per person/per accident/property damage)",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "ACV",
+    "definition": "Actual Cash Value — what your property was actually worth at the time of the loss. Calculated as replacement cost minus depreciation (wear and tear)",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "RCV",
+    "definition": "Replacement Cost Value — the cost to replace damaged property with new equivalent property, with no deduction for depreciation",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "WC",
+    "definition": "Workers' Compensation — insurance that covers employees injured on the job. Pays medical bills and wage loss benefits regardless of fault",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "AWW",
+    "definition": "Average Weekly Wage — the worker's average earnings used to calculate workers' comp benefits. Based on the highest 39 of the last 52 weeks",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "SAWW",
+    "definition": "State Average Weekly Wage — the statewide average used to cap workers' comp benefits. Maximum WC benefit is 90% of SAWW",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "CGL",
+    "definition": "Commercial General Liability — a business insurance policy covering bodily injury and property damage claims from third parties",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "CPP",
+    "definition": "Commercial Package Policy — a customizable commercial policy that bundles multiple coverage types (property, liability, auto, etc.) into one package",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "BOP",
+    "definition": "Business Owners Policy — a pre-packaged insurance policy for small to mid-size businesses that automatically includes property, liability, and business income coverage",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "HO",
+    "definition": "Homeowners Policy — insurance covering your home's structure, personal property, liability, and additional living expenses. Comes in numbered forms (HO-2, HO-3, HO-4, HO-5, HO-6, HO-8)",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "DP",
+    "definition": "Dwelling Policy — stripped-down property insurance for rental or investment properties. Covers the building but does NOT include liability coverage",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "UM/UIM",
+    "definition": "Uninsured Motorist / Underinsured Motorist — coverage that protects you when the at-fault driver has no insurance (UM) or not enough insurance (UIM) to cover your damages",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "GAP",
+    "definition": "Guaranteed Asset Protection — insurance that covers the difference between what your car is worth (ACV) and what you still owe on your loan or lease after a total loss",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "NFIP",
+    "definition": "National Flood Insurance Program — the federal program that provides flood insurance, since standard homeowners policies exclude flood damage",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "EUO",
+    "definition": "Examination Under Oath — a formal sworn statement taken by the insurer's attorney from the insured person, usually when fraud is suspected",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "IME",
+    "definition": "Independent Medical Examination — a medical exam ordered by the insurance company using their own chosen doctor to evaluate the severity of an injury",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "ROR",
+    "definition": "Reservation of Rights — a letter from the insurer telling the insured 'we're investigating your claim but we might not cover it.' Preserves the insurer's right to deny later",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "MCL",
+    "definition": "Michigan Compiled Laws — the official collection of Michigan state statutes. When you see MCL 500.xxxx, that's the Michigan Insurance Code",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "FELA",
+    "definition": "Federal Employers Liability Act — a federal law covering railroad worker injuries. Unlike regular WC, FELA requires the worker to prove the railroad was negligent",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "EL",
+    "definition": "Employers' Liability — Part Two of a workers' comp policy that covers lawsuits from injured employees that fall outside standard WC. Default limits are $100K/$100K/$500K",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "SFP",
+    "definition": "Standard Fire Policy — the historical foundation of property insurance dating back to 1943. Fire, lightning, and internal explosion are the core perils from this original policy",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "PAP",
+    "definition": "Personal Auto Policy — the standard personal auto insurance policy. Has six parts: A (Liability), B (Medical Payments), C (Uninsured Motorist), D (Physical Damage), E (Duties), F (General Provisions)",
+    "category": "Insurance Acronyms"
+  },
+  {
+    "term": "Subrogation",
+    "definition": "After an insurer pays your claim, they 'step into your shoes' and can go after the person who actually caused the damage to recover what they paid. The insurer can't do this until you've been fully compensated first",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Indemnity",
+    "definition": "The core principle of insurance: it restores you to where you were before the loss, no better and no worse. You can't profit from an insurance claim",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Coinsurance",
+    "definition": "A clause that penalizes you if you don't insure your property for enough. If you're supposed to carry 80% of value and you carry less, the insurer pays proportionally less on claims",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Deductible",
+    "definition": "The amount you pay out of pocket before insurance kicks in. A $1,000 deductible means you pay the first $1,000 of any covered loss",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Premium",
+    "definition": "The amount you pay for your insurance policy, usually monthly or annually",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Endorsement",
+    "definition": "An add-on or modification to an existing insurance policy that changes what's covered. Also called a 'rider'",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Exclusion",
+    "definition": "Something specifically NOT covered by your policy. Flood, earthquake, and intentional acts are common exclusions",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Named Perils",
+    "definition": "A policy that ONLY covers the specific dangers listed in it. If it's not on the list, it's not covered. HO-3 personal property uses named perils",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Open Perils",
+    "definition": "A policy that covers everything UNLESS it's specifically excluded. Much broader protection. HO-3 dwelling coverage is open perils",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Declarations Page",
+    "definition": "The front page of your policy listing your name, address, coverage amounts, deductibles, and premium. The 'who, what, where, how much' page",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Insurable Interest",
+    "definition": "You must have a financial stake in the thing you're insuring. You can't insure your neighbor's house because you don't lose money if it burns down",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Bad Faith",
+    "definition": "When an insurer unreasonably denies, delays, or lowballs a legitimate claim without proper investigation. Can result in penalties beyond the policy limits",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Waiver",
+    "definition": "When an insurer gives up a right, either intentionally or by accident. Example: if an insurer investigates for months without sending a Reservation of Rights letter, they may have waived the right to deny coverage",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Estoppel",
+    "definition": "A legal doctrine that prevents an insurer from denying coverage if their previous actions led the insured to reasonably believe they were covered",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Tort",
+    "definition": "A wrongful act (other than breach of contract) that causes harm and allows the injured person to sue for damages. Negligence is the most common tort",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Negligence",
+    "definition": "Failure to exercise reasonable care, resulting in harm. Requires four elements: duty, breach, causation, and damages — all four must be present",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Strict Liability",
+    "definition": "Liability without negligence. Applies to abnormally dangerous activities (storing explosives) and defective products. You're liable just for doing it",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Vicarious Liability",
+    "definition": "When an employer is held liable for what their employee did on the job, even though the employer wasn't personally at fault",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Proximate Cause",
+    "definition": "The primary cause that sets a chain of events in motion leading to a loss. Insurance pays based on whether the proximate cause is covered, not what happened after",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Moral Hazard",
+    "definition": "The risk that a person will intentionally cause or exaggerate a loss because they have insurance. Think arson for profit",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Morale Hazard",
+    "definition": "The risk that a person becomes careless because they know insurance will pay. Not intentional fraud, just sloppiness because they're covered",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Mini-tort",
+    "definition": "Michigan's rule allowing you to sue an at-fault driver for up to $3,000 in vehicle damage that wasn't covered by your own insurance",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Tort Threshold",
+    "definition": "In Michigan, you can only sue for pain and suffering from an auto accident if you have death, permanent serious disfigurement, or serious impairment of an important body function",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Twisting",
+    "definition": "Illegally convincing someone to drop their current insurance policy and buy a new one by using misrepresentation or lies about the old policy",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Rebating",
+    "definition": "Illegally offering money, gifts, or kickbacks to get someone to buy insurance. Even small gifts count. The inducement itself is the violation",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Vacancy vs Unoccupancy",
+    "definition": "Vacant means no stuff AND no people inside. Unoccupied means your stuff is still there but nobody's living in it. Policies restrict coverage after 60 days of VACANCY specifically",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Assigned Claims Plan",
+    "definition": "Michigan's safety net for uninsured accident victims. Provides PIP benefits capped at $250K for medical (no cap on wage loss). Covers hit-and-run victims and uninsured drivers",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Period of Restoration",
+    "definition": "In business income insurance, the time from when the loss happens until the business COULD reasonably reopen. Not when it actually reopens, when it COULD",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Salvage",
+    "definition": "The leftover value of damaged property after a total loss. Insurer takes ownership and sells it to reduce their net cost on the claim",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Proof of Loss",
+    "definition": "A formal sworn document you submit to your insurer detailing what was lost or damaged. Most policies require it within 60 days",
+    "category": "Key Insurance Terms"
+  },
+  {
+    "term": "Appraisal",
+    "definition": "A dispute resolution process for disagreements about HOW MUCH a loss is worth (not whether it's covered). Each side picks an appraiser, they pick an umpire, two of three must agree",
+    "category": "Key Insurance Terms"
+  }
+]

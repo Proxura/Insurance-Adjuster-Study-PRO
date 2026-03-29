@@ -1,0 +1,76 @@
+{
+  "id": "michigan-adjuster-16-72",
+  "name": "Michigan Insurance Adjuster Exam",
+  "state": "MI",
+  "category": "insurance",
+  "seriesCode": "Series 16-72",
+  "version": "1.0",
+  "questionCount": 100,
+  "timeLimit": 120,
+  "passingScore": 70,
+  "blueprint": [
+    {
+      "id": "insurance-basics",
+      "name": "Insurance Basics",
+      "weight": 20,
+      "questionCount": 20,
+      "lessonCount": 14
+    },
+    {
+      "id": "adjusting-losses",
+      "name": "Adjusting Losses",
+      "weight": 20,
+      "questionCount": 20,
+      "lessonCount": 9
+    },
+    {
+      "id": "auto-no-fault",
+      "name": "Auto / No-Fault",
+      "weight": 15,
+      "questionCount": 15,
+      "lessonCount": 7
+    },
+    {
+      "id": "homeowners",
+      "name": "Homeowners",
+      "weight": 12,
+      "questionCount": 12,
+      "lessonCount": 7
+    },
+    {
+      "id": "workers-comp",
+      "name": "Workers' Comp",
+      "weight": 10,
+      "questionCount": 10,
+      "lessonCount": 7
+    },
+    {
+      "id": "commercial-lines",
+      "name": "Commercial Lines",
+      "weight": 10,
+      "questionCount": 10,
+      "lessonCount": 6
+    },
+    {
+      "id": "dwelling-policy",
+      "name": "Dwelling Policy",
+      "weight": 5,
+      "questionCount": 5,
+      "lessonCount": 2
+    },
+    {
+      "id": "bop",
+      "name": "BOP",
+      "weight": 5,
+      "questionCount": 5,
+      "lessonCount": 0
+    },
+    {
+      "id": "regulation",
+      "name": "Regulation",
+      "weight": 3,
+      "questionCount": 3,
+      "lessonCount": 0
+    }
+  ]
+}

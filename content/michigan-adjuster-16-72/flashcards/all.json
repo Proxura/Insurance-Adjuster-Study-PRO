@@ -1,0 +1,751 @@
+[
+  {
+    "id": "fc-001",
+    "topicId": "insurance-basics",
+    "question": "What are the four elements of a valid insurance contract?",
+    "answer": "Offer & acceptance, consideration, competent parties, legal purpose",
+    "explanation": "Memorize all four. 'Legal purpose' is the trick answer — gambling contracts lack this element."
+  },
+  {
+    "id": "fc-002",
+    "topicId": "insurance-basics",
+    "question": "When must insurable interest exist — property vs. life insurance?",
+    "answer": "Property: at time of LOSS. Life: at time of APPLICATION only.",
+    "explanation": "TRICK: Life insurance only needs insurable interest at inception — NOT at death. Property is the opposite."
+  },
+  {
+    "id": "fc-003",
+    "topicId": "insurance-basics",
+    "question": "Distinguish physical, moral, and morale hazard.",
+    "answer": "Physical = tangible risk condition. Moral = dishonesty/intent to defraud. Morale = carelessness because insured.",
+    "explanation": "Moral vs Morale: Moral = intentional bad behavior. Morale = indifference because you're covered."
+  },
+  {
+    "id": "fc-004",
+    "topicId": "insurance-basics",
+    "question": "What are the four elements of negligence (all must be present)?",
+    "answer": "1) Duty owed, 2) Breach of that duty, 3) Proximate causation, 4) Actual damages resulted",
+    "explanation": "ALL FOUR must be present. Exam presents scenarios where one element is absent — correct answer is 'no negligence.'"
+  },
+  {
+    "id": "fc-005",
+    "topicId": "insurance-basics",
+    "question": "What is the coinsurance penalty formula?",
+    "answer": "(Amount Carried ÷ Amount Required) × Loss = Payment",
+    "explanation": "EXAMPLE: $300K carried, 80% coinsurance on $500K building = $400K required. $50K loss: ($300÷$400)×$50K = $37,500. TRICK: Exam asks how much insured ABSORBS ($12,500)."
+  },
+  {
+    "id": "fc-006",
+    "topicId": "insurance-basics",
+    "question": "What is Actual Cash Value (ACV)?",
+    "answer": "Replacement Cost minus Depreciation — what the property was worth at time of loss",
+    "explanation": "ACV ≠ replacement cost new. Depreciation is subtracted for age and wear. This formula is guaranteed to appear."
+  },
+  {
+    "id": "fc-007",
+    "topicId": "insurance-basics",
+    "question": "What is the principle of indemnity?",
+    "answer": "Insurance restores insured to pre-loss position — no better, no worse. Cannot profit from a loss.",
+    "explanation": "This principle drives ACV valuation, coinsurance, and deductibles. Life insurance is NOT indemnity-based."
+  },
+  {
+    "id": "fc-008",
+    "topicId": "insurance-basics",
+    "question": "What is subrogation and the 'made whole' doctrine?",
+    "answer": "After paying insured, insurer steps into their shoes to recover from negligent party — but ONLY after insured is fully compensated.",
+    "explanation": "Insurer CANNOT subrogate until insured is made whole. Insurer CANNOT subrogate against its own insured."
+  },
+  {
+    "id": "fc-009",
+    "topicId": "insurance-basics",
+    "question": "What are the four parts of every insurance policy (DICE)?",
+    "answer": "Declarations, Insuring Agreement, Conditions, Exclusions",
+    "explanation": "'Where is named insured listed?' = Declarations. 'What must insured do after loss?' = Conditions. Endorsements modify any of these four parts."
+  },
+  {
+    "id": "fc-010",
+    "topicId": "insurance-basics",
+    "question": "What is the difference between ROR letter and a nonwaiver agreement?",
+    "answer": "ROR = unilateral letter from insurer. Nonwaiver = bilateral signed agreement. Both preserve insurer's right to deny later.",
+    "explanation": "Failure to send ROR when coverage is in doubt = WAIVER of the coverage defense. Fatal claims error."
+  },
+  {
+    "id": "fc-011",
+    "topicId": "insurance-basics",
+    "question": "What is strict liability?",
+    "answer": "Liability imposed without negligence — applies to abnormally dangerous activities and product defects",
+    "explanation": "Storing explosives, keeping wild animals, defective products. Prove causation and damages only — no negligence needed."
+  },
+  {
+    "id": "fc-012",
+    "topicId": "insurance-basics",
+    "question": "What is vicarious liability?",
+    "answer": "Employer is liable for employees' on-the-job negligence under respondeat superior — liability based on relationship, not personal fault",
+    "explanation": "Key for auto claims involving company vehicles or delivery drivers acting within scope of employment."
+  },
+  {
+    "id": "fc-013",
+    "topicId": "insurance-basics",
+    "question": "What is the difference between agreed value and stated amount?",
+    "answer": "Agreed value: pays full agreed amount for total loss, no depreciation. Stated amount: pays lesser of stated amount or ACV.",
+    "explanation": "Agreed value = better for insured. Stated amount can leave a gap. Fine art and classic cars often use agreed value."
+  },
+  {
+    "id": "fc-014",
+    "topicId": "insurance-basics",
+    "question": "What is a binder?",
+    "answer": "Temporary evidence of coverage pending formal policy issuance — valid 30–90 days and legally binding",
+    "explanation": "If a covered loss occurs during the binder period, insurer must pay even without a formal policy issued yet."
+  },
+  {
+    "id": "fc-015",
+    "topicId": "insurance-basics",
+    "question": "What are compensatory, punitive, and nominal damages?",
+    "answer": "Compensatory = economic + pain/suffering. Punitive = punishment for egregious conduct. Nominal = token award for technical violation, no real harm.",
+    "explanation": "Special damages = bills/wages. General damages = pain/suffering. Punitive can exceed policy limits if awarded."
+  },
+  {
+    "id": "fc-016",
+    "topicId": "insurance-basics",
+    "question": "What is bad faith in insurance?",
+    "answer": "Insurer unreasonably denies, delays, or underpays a legitimate claim without proper investigation",
+    "explanation": "Michigan recognizes bad faith claims. Disagreement over value alone is NOT bad faith. Can result in extra-contractual damages."
+  },
+  {
+    "id": "fc-017",
+    "topicId": "insurance-basics",
+    "question": "What is the difference between vacancy and unoccupancy?",
+    "answer": "Vacant = no contents AND no people. Unoccupied = contents present but no one currently residing.",
+    "explanation": "TRICK: Policies restrict/suspend coverage after 60 days of VACANCY — not unoccupancy. A furnished vacation home = unoccupied, not vacant."
+  },
+  {
+    "id": "fc-018",
+    "topicId": "insurance-basics",
+    "question": "What is a waiver of subrogation endorsement?",
+    "answer": "Insurer agrees in advance not to pursue recovery against a named third party — insurer still pays the claim but gives up recovery rights",
+    "explanation": "Common in commercial leases and construction contracts. Check for this BEFORE releasing any third party."
+  },
+  {
+    "id": "fc-019",
+    "topicId": "insurance-basics",
+    "question": "What is utmost good faith (uberrimae fidei)?",
+    "answer": "Both parties must disclose all material facts — concealment or misrepresentation can void the policy",
+    "explanation": "Higher standard than ordinary contract law. Misrepresentation on application = grounds for rescission."
+  },
+  {
+    "id": "fc-020",
+    "topicId": "insurance-basics",
+    "question": "What is the pro rata other insurance clause?",
+    "answer": "When multiple policies cover the same loss, each pays its proportional share based on its limits relative to total coverage",
+    "explanation": "Two $200K policies, $100K loss = each pays $50K. Insured cannot recover more than actual loss — indemnity principle enforced."
+  },
+  {
+    "id": "fc-021",
+    "topicId": "adjusting-losses",
+    "question": "What is the difference between staff, independent, and public adjusters?",
+    "answer": "Staff = insurer employee. Independent = contractor working FOR insurer. Public = hired BY INSURED, charges % of settlement.",
+    "explanation": "Public adjusters work for the INSURED — NOT the insurer. Michigan requires licensing for all independent and public adjusters."
+  },
+  {
+    "id": "fc-022",
+    "topicId": "adjusting-losses",
+    "question": "Michigan claims payment deadline and penalty (MCL 500.2006)?",
+    "answer": "60 days after satisfactory proof of loss. 12% annual interest on overdue amounts. Insurer has 30 days to specify what constitutes proof.",
+    "explanation": "MCL 500.2026 lists prohibited practices — requires a 'pattern of conduct,' not a single incident, to trigger regulatory action."
+  },
+  {
+    "id": "fc-023",
+    "topicId": "adjusting-losses",
+    "question": "What is a proof of loss and when is it required?",
+    "answer": "Formal sworn statement by insured detailing the loss — most Michigan policies require within 60 days of loss",
+    "explanation": "Failure to submit = policy condition breach. Adjuster should NOT waive this requirement without explicit supervisor authority."
+  },
+  {
+    "id": "fc-024",
+    "topicId": "adjusting-losses",
+    "question": "What is an Examination Under Oath (EUO)?",
+    "answer": "Sworn statement taken by insurer's attorney from insured — policy condition. Failure to comply can void the claim.",
+    "explanation": "More formal than a recorded statement. An attorney must be present. Refusal = breach of cooperation clause."
+  },
+  {
+    "id": "fc-025",
+    "topicId": "adjusting-losses",
+    "question": "What is the insured's duty to mitigate losses?",
+    "answer": "Insured must take reasonable steps to prevent further damage after a covered loss — failure reduces or voids claim for additional damage",
+    "explanation": "Example: Put a tarp on a damaged roof immediately. Insurer reimburses mitigation costs even if main coverage is disputed."
+  },
+  {
+    "id": "fc-026",
+    "topicId": "adjusting-losses",
+    "question": "What is a declaratory judgment action?",
+    "answer": "Lawsuit filed by insurer to determine whether a policy covers a specific claim BEFORE paying",
+    "explanation": "Insurer still has duty to DEFEND even during a DJ action if there's any possibility of coverage. Defense costs not recoverable if insurer loses."
+  },
+  {
+    "id": "fc-027",
+    "topicId": "adjusting-losses",
+    "question": "What is the Michigan appraisal process under MCL 500.2833?",
+    "answer": "Either party demands appraisal — each hires an appraiser, they select an umpire, award requires two of three to agree. Resolves AMOUNT only — not coverage.",
+    "explanation": "Each party pays their own appraiser. Umpire cost split 50/50. Award is binding. Cannot use appraisal to dispute whether a loss is covered."
+  },
+  {
+    "id": "fc-028",
+    "topicId": "adjusting-losses",
+    "question": "When is a vehicle a total loss in Michigan?",
+    "answer": "When repair cost exceeds approximately 75–80% of ACV. Michigan has no fixed statutory threshold — adjusters exercise judgment.",
+    "explanation": "Most Michigan carriers internally total at 75% ACV. Document ACV source (CCC, Mitchell, NADA) and repair estimate."
+  },
+  {
+    "id": "fc-029",
+    "topicId": "adjusting-losses",
+    "question": "What is salvage and how does it reduce insurer loss costs?",
+    "answer": "Residual value of damaged property after total loss settlement — insurer takes title and sells it to reduce net claim cost",
+    "explanation": "If insured keeps salvage, deduct its value from settlement. Always get a salvage bid before finalizing a total loss."
+  },
+  {
+    "id": "fc-030",
+    "topicId": "adjusting-losses",
+    "question": "What are the required elements of a complete claim file?",
+    "answer": "Notice of loss, statements, investigation report, photos, police/fire reports, coverage analysis, proof of loss, estimates, signed release",
+    "explanation": "Missing coverage analysis = major error. Missing photos = reconstruction problem. No signed release = open liability exposure."
+  },
+  {
+    "id": "fc-031",
+    "topicId": "adjusting-losses",
+    "question": "What is draft authority and consequences of exceeding it?",
+    "answer": "Dollar limit adjuster can settle without supervisor approval — exceeding it = disciplinary action and potential bad faith exposure",
+    "explanation": "Always confirm authority limits before settling. Get written approval when approaching limits. Document the approval."
+  },
+  {
+    "id": "fc-032",
+    "topicId": "adjusting-losses",
+    "question": "Full release vs. partial release — what is the difference?",
+    "answer": "Full release: surrenders ALL rights to ALL damages. Partial: releases only specified damages while preserving rights to others.",
+    "explanation": "NEVER obtain full release when damages are still being determined (ongoing medical treatment). Doing so = bad faith exposure."
+  },
+  {
+    "id": "fc-033",
+    "topicId": "adjusting-losses",
+    "question": "What is an advance payment and when is it appropriate?",
+    "answer": "Partial payment before final settlement — appropriate when coverage is clear, liability established, and some damages are determined",
+    "explanation": "Document as ADVANCE — not full and final settlement. Helps insured immediately without waiving rights to contest total damages."
+  },
+  {
+    "id": "fc-034",
+    "topicId": "adjusting-losses",
+    "question": "Who can be compelled to give a recorded statement?",
+    "answer": "INSUREDS must cooperate — it's a policy condition. THIRD-PARTY claimants cannot be compelled to give a recorded statement.",
+    "explanation": "Take recorded statements from YOUR insured ASAP. Third parties have no contractual duty to cooperate with your investigation."
+  },
+  {
+    "id": "fc-035",
+    "topicId": "adjusting-losses",
+    "question": "What is estoppel in insurance claims?",
+    "answer": "Doctrine preventing insurer from denying coverage if they previously behaved in a way that led insured to reasonably believe coverage existed",
+    "explanation": "Example: Insurer investigates and defends for 6 months, then tries to deny. Court may estop the denial due to prior conduct."
+  },
+  {
+    "id": "fc-036",
+    "topicId": "adjusting-losses",
+    "question": "What are the three methods of property loss valuation?",
+    "answer": "ACV (replacement cost minus depreciation), Replacement Cost (new for old), Functional Replacement Cost (modern equivalent at lower cost)",
+    "explanation": "ACV is default unless replacement cost endorsement is purchased. Exam loves ACV calculation questions with depreciation."
+  },
+  {
+    "id": "fc-037",
+    "topicId": "adjusting-losses",
+    "question": "What must adjuster verify before releasing a third party?",
+    "answer": "Verify all subrogation rights BEFORE releasing the third party. Check for waiver of subrogation endorsements. Document the recovery claim.",
+    "explanation": "Releasing a third party without preserving subrogation rights = fatal adjusting error. Insurer loses recovery rights permanently."
+  },
+  {
+    "id": "fc-038",
+    "topicId": "adjusting-losses",
+    "question": "What is the difference between arbitration and mediation?",
+    "answer": "Arbitration: neutral third party makes a decision (binding or nonbinding). Mediation: neutral facilitates negotiation — no imposed decision.",
+    "explanation": "Most UM/UIM disputes in Michigan require arbitration. Mediation is voluntary and non-binding unless both parties agree to the outcome."
+  },
+  {
+    "id": "fc-039",
+    "topicId": "adjusting-losses",
+    "question": "What is an independent medical examination (IME)?",
+    "answer": "Medical exam ordered by insurer using their selected physician to evaluate injury severity, causation, and treatment necessity — a policy right",
+    "explanation": "Failure to attend as required can void coverage. Used heavily in PIP and liability bodily injury claims."
+  },
+  {
+    "id": "fc-040",
+    "topicId": "adjusting-losses",
+    "question": "Michigan unfair claims practices — key prohibited acts (MCL 500.2026)?",
+    "answer": "Misrepresenting policy provisions, failing to acknowledge claims promptly, refusing to pay without investigation, compelling litigation by offering substantially less than due",
+    "explanation": "These practices require a 'general business practice' pattern — a single incident does not violate the Act. Individual remedies come from common law."
+  },
+  {
+    "id": "fc-041",
+    "topicId": "auto-no-fault",
+    "question": "What THREE coverages must every Michigan driver carry?",
+    "answer": "1) Personal Injury Protection (PIP), 2) Property Protection Insurance (PPI), 3) Residual Bodily Injury/Property Damage Liability",
+    "explanation": "MEMORIZE all three. PIP pays YOUR injuries regardless of fault. PPI = Michigan-only coverage for damage to stationary property."
+  },
+  {
+    "id": "fc-042",
+    "topicId": "auto-no-fault",
+    "question": "What are the six PIP tiers under Michigan's 2019 no-fault reform?",
+    "answer": "1) Unlimited, 2) $500K, 3) $250K, 4) $250K w/QHC (deductible ≤$6K), 5) $50K (Medicaid only), 6) Opt-out (Medicare A+B only)",
+    "explanation": "Reform effective July 2, 2020. If NO selection is made = defaults to UNLIMITED at full premium. Each tier has a mandated premium reduction."
+  },
+  {
+    "id": "fc-043",
+    "topicId": "auto-no-fault",
+    "question": "What does Michigan PIP pay and at what limits?",
+    "answer": "Medical (per tier) + wage loss at 85% gross up to ~$7,201/month × 3 years + replacement services $20/day × 3 years + attendant care + funeral",
+    "explanation": "Wage loss and replacement services apply even if driver OPTS OUT of PIP medical. Attendant care capped at 56 hrs/week for family members."
+  },
+  {
+    "id": "fc-044",
+    "topicId": "auto-no-fault",
+    "question": "What does Michigan Property Protection Insurance (PPI) cover?",
+    "answer": "$1,000,000 for damage your vehicle causes to others' stationary property — buildings, fences, properly PARKED vehicles only",
+    "explanation": "TRICK: PPI does NOT cover moving vehicles. Damage to moving vehicles = liability, not PPI. PPI is unique to Michigan — no other state has it."
+  },
+  {
+    "id": "fc-045",
+    "topicId": "auto-no-fault",
+    "question": "Michigan BI/PD: default vs. minimum limits post-reform?",
+    "answer": "Default: $250K/$500K/$10K. Minimum: $50K/$100K/$10K. (Old minimum was $20K/$40K/$10K)",
+    "explanation": "Reform raised limits substantially. The $10K property damage minimum remains inadequate for most vehicle damage claims."
+  },
+  {
+    "id": "fc-046",
+    "topicId": "auto-no-fault",
+    "question": "What is the Michigan mini-tort and its post-reform limit?",
+    "answer": "Right to sue at-fault driver (≥50% fault) for uncompensated vehicle damage — maximum $3,000 (raised from $1,000 by 2019 reform)",
+    "explanation": "Only applies if you have no collision coverage OR paid a deductible. Cannot recover more than $3,000 regardless of actual damage."
+  },
+  {
+    "id": "fc-047",
+    "topicId": "auto-no-fault",
+    "question": "What is the PIP priority order for vehicle occupants?",
+    "answer": "1) Your own insurer, 2) Spouse's insurer, 3) Resident relative's insurer, 4) Vehicle owner/registrant's insurer, 5) Driver's insurer, 6) Assigned Claims Plan",
+    "explanation": "EXCEPTION: Employer-owned vehicle occupants file with the employer's auto insurer — bypasses personal PIP entirely."
+  },
+  {
+    "id": "fc-048",
+    "topicId": "auto-no-fault",
+    "question": "When does PIP become overdue and what is the penalty?",
+    "answer": "30 days after receiving reasonable proof of loss. 12% annual interest accrues. Attorney fees recoverable for unreasonable refusal.",
+    "explanation": "MCL 500.3142. Statute of limitations to sue for unpaid PIP = 1 year from DENIAL (not from date of accident)."
+  },
+  {
+    "id": "fc-049",
+    "topicId": "auto-no-fault",
+    "question": "What rating factors CANNOT be used in Michigan post-reform?",
+    "answer": "Sex, marital status, home ownership, credit score, education level, occupation, ZIP code",
+    "explanation": "Insurers CAN still use: driving history, claims history, vehicle type, annual mileage, age. Rating now by county — not ZIP code."
+  },
+  {
+    "id": "fc-050",
+    "topicId": "auto-no-fault",
+    "question": "What tort threshold must be met to sue for pain & suffering in Michigan?",
+    "answer": "Death, permanent serious disfigurement, or serious impairment of an important body function",
+    "explanation": "Michigan = limited tort. 'Serious impairment' must affect general ability to lead a normal life. Minor injuries don't qualify."
+  },
+  {
+    "id": "fc-051",
+    "topicId": "auto-no-fault",
+    "question": "Who covers PIP for Michigan motorcyclists?",
+    "answer": "The insurer of the MOTOR VEHICLE involved — motorcycles are not 'motor vehicles' under the No-Fault Act",
+    "explanation": "TRICK: Solo motorcycle crash with no motor vehicle involved = file with Michigan Assigned Claims Plan (capped at $250K medical)."
+  },
+  {
+    "id": "fc-052",
+    "topicId": "auto-no-fault",
+    "question": "What is the Michigan Assigned Claims Plan?",
+    "answer": "Safety net for uninsured accident victims — PIP benefits with $250K medical cap (no cap on wage loss or replacement services)",
+    "explanation": "Covers: uninsured drivers, hit-and-run victims, out-of-state drivers. Does NOT cover those who intentionally avoided buying insurance."
+  },
+  {
+    "id": "fc-053",
+    "topicId": "auto-no-fault",
+    "question": "What are PAP Parts A through F?",
+    "answer": "A=Liability, B=Medical Payments, C=Uninsured Motorist, D=Collision/Comprehensive (OTC), E=Duties After Accident, F=General Provisions",
+    "explanation": "In Michigan, Part B (MedPay) is less common because PIP is mandatory. Parts A, C, and D are the key add-ons."
+  },
+  {
+    "id": "fc-054",
+    "topicId": "auto-no-fault",
+    "question": "What is GAP insurance?",
+    "answer": "Covers the gap between ACV settlement and remaining loan/lease balance after a total loss",
+    "explanation": "Standard auto policy pays ACV only. A $35K car financed for $40K that totals 6 months later = $5K+ gap that GAP covers."
+  },
+  {
+    "id": "fc-055",
+    "topicId": "auto-no-fault",
+    "question": "What is UM/UIM coverage?",
+    "answer": "UM: covers you when at-fault driver has NO insurance. UIM: covers you when at-fault driver has INSUFFICIENT insurance for your damages.",
+    "explanation": "Michigan allows stacking of UM/UIM if multiple vehicles are insured. UM/UIM disputes typically go to arbitration."
+  },
+  {
+    "id": "fc-056",
+    "topicId": "homeowners",
+    "question": "What are the HO policy forms and who uses each?",
+    "answer": "HO-2=Broad, HO-3=Special/most common, HO-4=Renters, HO-5=Comprehensive, HO-6=Condo, HO-8=Older homes.",
+    "explanation": "HO-3 is by far the most exam-tested. HO-1 (basic) is rarely used today. Know who uses each form cold."
+  },
+  {
+    "id": "fc-057",
+    "topicId": "homeowners",
+    "question": "HO-3 critical distinction: dwelling vs. personal property coverage?",
+    "answer": "Dwelling (Coverage A): OPEN perils — all losses covered unless excluded. Personal Property (Coverage C): NAMED perils — only 16 listed perils covered.",
+    "explanation": "TRICK: Most think HO-3 is open perils on everything. WRONG — personal property = named perils only. HO-5 gives open perils on both."
+  },
+  {
+    "id": "fc-058",
+    "topicId": "homeowners",
+    "question": "What are Coverages A–F and their standard percentage limits?",
+    "answer": "A=Dwelling (100%), B=Other Structures (10%A), C=Personal Property (50%A), D=Loss of Use (30%A), E=Liability ($100K), F=Med Pay ($1K–$5K)",
+    "explanation": "TRICK: Percentages are of Coverage A amount. E and F are LIABILITY coverages — not property damage coverages."
+  },
+  {
+    "id": "fc-059",
+    "topicId": "homeowners",
+    "question": "Difference between Coverage E (Liability) and Coverage F (Med Pay)?",
+    "answer": "Coverage E: insurer defends you AND pays damages if sued — requires negligence. Coverage F: pays guest medical bills regardless of fault — no lawsuit needed.",
+    "explanation": "Coverage F = goodwill coverage to avoid lawsuits. Does NOT cover household residents. Very limited ($1K–$5K standard)."
+  },
+  {
+    "id": "fc-060",
+    "topicId": "homeowners",
+    "question": "What perils are EXCLUDED from ALL homeowners policies?",
+    "answer": "Flood, earthquake, earth movement, wear and tear, intentional acts, nuclear hazard, war, government action",
+    "explanation": "FLOOD is the #1 excluded peril — requires separate NFIP policy. Earthquake requires separate endorsement."
+  },
+  {
+    "id": "fc-061",
+    "topicId": "homeowners",
+    "question": "What are the 16 named perils under HO-3 for personal property?",
+    "answer": "Fire/lightning, windstorm/hail, explosion, riot, aircraft, vehicles, smoke, vandalism, theft, falling objects, weight of ice/snow, accidental water discharge, tearing of appliances, freezing, electrical damage, volcanic eruption",
+    "explanation": "TRICKS: 'Vehicles' excludes YOUR OWN vehicles. 'Theft' excludes mysterious disappearance. 'Falling objects' must penetrate exterior first."
+  },
+  {
+    "id": "fc-062",
+    "topicId": "homeowners",
+    "question": "What does HO-6 (condo) cover vs. the master policy?",
+    "answer": "HO-6: unit interior from bare walls inward, personal property, liability, loss assessment. Master policy: building exterior and common areas.",
+    "explanation": "Exam assumes 'bare walls in' — HO-6 covers everything from the drywall inward. What master policy type determines HO-6 scope."
+  },
+  {
+    "id": "fc-063",
+    "topicId": "homeowners",
+    "question": "What homeowners coverage applies to business activities?",
+    "answer": "NONE — business activities are EXCLUDED for both property and liability. Need a Home Business endorsement or separate BOP.",
+    "explanation": "CLASSIC TRAP: Customer slips at home-based business. HO Coverage E does NOT apply — business exclusion."
+  },
+  {
+    "id": "fc-064",
+    "topicId": "homeowners",
+    "question": "What is a scheduled personal property (floater) endorsement?",
+    "answer": "Open perils coverage for specific high-value items (jewelry, art, furs) at agreed value — no deductible, no sublimits",
+    "explanation": "Standard HO sublimits: jewelry $1,500, cash $200, securities $1,500, silverware $2,500. Floater removes these sublimits."
+  },
+  {
+    "id": "fc-065",
+    "topicId": "homeowners",
+    "question": "What boat size is covered under homeowners liability (Coverage E)?",
+    "answer": "Watercraft ≤26 feet AND ≤25 HP is covered under HO liability. Larger/more powerful boats need a separate watercraft policy.",
+    "explanation": "TRICK: Exam LOVES the 26-foot/25-HP rule. Any boat question on the exam = immediately check these two numbers."
+  },
+  {
+    "id": "fc-066",
+    "topicId": "homeowners",
+    "question": "When does the homeowners vacancy provision trigger?",
+    "answer": "After 60 days of VACANCY — vandalism/malicious mischief coverage is typically suspended",
+    "explanation": "Vacant = no contents AND no people. Unoccupied = contents present, no residents. Only VACANCY triggers the provision."
+  },
+  {
+    "id": "fc-067",
+    "topicId": "homeowners",
+    "question": "What is a loss assessment charge and is it covered by HO-6?",
+    "answer": "Special assessment to condo owners for shared losses exceeding master policy — HO-6 typically provides $1,000 coverage, expandable by endorsement",
+    "explanation": "Example: Association has $500K loss, master covers $400K. Each owner assessed $2K. HO-6 loss assessment coverage pays this."
+  },
+  {
+    "id": "fc-068",
+    "topicId": "workers-comp",
+    "question": "Which Michigan employers MUST carry workers' comp?",
+    "answer": "Private: 3+ employees anytime OR 1+ working 35+ hrs/week for 13+ consecutive weeks. ALL government employers.",
+    "explanation": "MEMORIZE: 3 OR 1-full-time for private. Agricultural: 3+ on same day for 35+ days/year. Domestic workers: 2+ at 35+ hrs/week."
+  },
+  {
+    "id": "fc-069",
+    "topicId": "workers-comp",
+    "question": "How is Michigan WC wage loss calculated?",
+    "answer": "80% of after-tax average weekly wage, based on highest 39 of last 52 weeks. Max = 90% of SAWW. Min = 25% of SAWW.",
+    "explanation": "Includes overtime, bonuses, and discontinued fringe benefits. After-tax wages — not gross. 'Highest 39 weeks' favors the injured worker."
+  },
+  {
+    "id": "fc-070",
+    "topicId": "workers-comp",
+    "question": "What is the 7-day waiting period and 14-day retroactive rule?",
+    "answer": "7-day waiting period — benefits start day 8. If disability lasts 14+ days, benefits retroactively cover from day 1. First payment due within 14 days.",
+    "explanation": "MEMORIZE: 7/14/14. Late payment penalty = $50/day up to $1,500 maximum."
+  },
+  {
+    "id": "fc-071",
+    "topicId": "workers-comp",
+    "question": "Who selects the treating physician in Michigan WC?",
+    "answer": "EMPLOYER selects the physician for the first 28 DAYS — after that, employee may choose their own with proper notice",
+    "explanation": "THE 28-DAY RULE — heavily tested. After 28 days, employee gives notice and selects their own physician."
+  },
+  {
+    "id": "fc-072",
+    "topicId": "workers-comp",
+    "question": "What are the four WC disability types?",
+    "answer": "Temporary Total (TT), Temporary Partial (TP), Permanent Total (PT), Permanent Partial (PP)",
+    "explanation": "All pay at 80% of after-tax AWW for wage loss component. Specific loss = type of PP paid on schedule regardless of time off work."
+  },
+  {
+    "id": "fc-073",
+    "topicId": "workers-comp",
+    "question": "Michigan WC specific loss schedule — major body parts?",
+    "answer": "Arm=269 wks, Hand=215, Leg=215, Foot=162, Eye=162, Thumb=65, Index=38, Middle/Gt.Toe=33, Ring=22, Pinky=16",
+    "explanation": "NO waiting period for specific loss. Paid regardless of time missed from work. Loss of 1st phalange only = half benefit; more = full benefit."
+  },
+  {
+    "id": "fc-074",
+    "topicId": "workers-comp",
+    "question": "What is the exclusive remedy doctrine in Michigan WC?",
+    "answer": "WC is the ONLY remedy against the EMPLOYER — employees cannot sue employer in civil court (MCL 418.131)",
+    "explanation": "EXCEPTION: Third-party lawsuits ARE still allowed. Can sue equipment manufacturer or at-fault co-worker but NOT the employer directly."
+  },
+  {
+    "id": "fc-075",
+    "topicId": "workers-comp",
+    "question": "Michigan WC death benefits?",
+    "answer": "500 weeks of wage loss benefits + up to $6,000 burial/funeral expenses. Spouse benefits end at remarriage. Children at 18 (21 if student).",
+    "explanation": "500 weeks ≈ 9.6 years. Benefits go to dependents. Spouse who remarries receives a 2-year lump sum."
+  },
+  {
+    "id": "fc-076",
+    "topicId": "workers-comp",
+    "question": "Federal WC laws tested on the Series 16-72?",
+    "answer": "FELA (railroad — negligence-based), Longshore & Harbor Workers' Act (maritime shore — no-fault), Jones Act (seamen — negligence-based), Defense Base Act (overseas contractors — no-fault)",
+    "explanation": "FELA and Jones Act are NEGLIGENCE-based — not automatic like state WC. Key distinction for exam questions."
+  },
+  {
+    "id": "fc-077",
+    "topicId": "workers-comp",
+    "question": "Michigan WC filing deadlines?",
+    "answer": "Notice to employer: 90 days. File claim: 2 years. Death claims: 2 years from death. Disputes: WC Board of Magistrates — NOT civil court.",
+    "explanation": "Employee files form WC-104A. No civil court jurisdiction over WC disputes. Second Injury Fund handles pre-existing condition cases."
+  },
+  {
+    "id": "fc-078",
+    "topicId": "commercial-lines",
+    "question": "CPP vs. BOP — what is the difference?",
+    "answer": "CPP = modular, customized, any size business. BOP = pre-packaged for small/mid businesses with automatic coverages including business income.",
+    "explanation": "BOP auto-includes business income/extra expense. CPP requires separate forms. Large/complex businesses use CPP; small businesses use BOP."
+  },
+  {
+    "id": "fc-079",
+    "topicId": "commercial-lines",
+    "question": "What is Business Income (BI) and the 'period of restoration'?",
+    "answer": "Covers lost net income + continuing expenses when business closes due to covered loss. Period of restoration = loss date to when business CAN reasonably reopen.",
+    "explanation": "TRICK: Period ends when business CAN reopen — not when it actually does. Extended Period of Indemnity covers reduced revenues post-reopening."
+  },
+  {
+    "id": "fc-080",
+    "topicId": "commercial-lines",
+    "question": "What are the three CGL coverage parts?",
+    "answer": "A: Bodily Injury & Property Damage Liability. B: Personal & Advertising Injury. C: Medical Payments to Others.",
+    "explanation": "CGL does NOT cover: auto, aircraft, WC, professional errors, pollution (standard form), or intentional injury. Occurrence-based by default."
+  },
+  {
+    "id": "fc-081",
+    "topicId": "commercial-lines",
+    "question": "Occurrence vs. claims-made CGL policies?",
+    "answer": "Occurrence: covers events that HAPPEN during policy period (whenever claimed). Claims-made: covers claims FILED during policy period (whenever event occurred).",
+    "explanation": "Claims-made needs retroactive date (prior acts) + tail coverage (extended reporting period). Most professional liability = claims-made."
+  },
+  {
+    "id": "fc-082",
+    "topicId": "commercial-lines",
+    "question": "What is the Ordinance or Law exclusion?",
+    "answer": "Standard commercial property EXCLUDES extra cost to meet current building codes after a covered loss — requires Ordinance or Law endorsement",
+    "explanation": "MAJOR TRAP: Fire damages 40% of building, but code requires demolishing and rebuilding all of it to current standards. Extra cost = excluded."
+  },
+  {
+    "id": "fc-083",
+    "topicId": "commercial-lines",
+    "question": "Commercial Umbrella vs. Excess Liability?",
+    "answer": "Umbrella: excess limits PLUS broader coverage filling some underlying policy gaps. Excess: additional limits ONLY — follows underlying policy exactly.",
+    "explanation": "True umbrella may cover claims that fall through underlying policy gaps. Excess is purely a limits-extension with no gap coverage."
+  },
+  {
+    "id": "fc-084",
+    "topicId": "commercial-lines",
+    "question": "What is inland marine and why is pet insurance classified as such?",
+    "answer": "Covers property in transit, movable specialty risks — pet insurance is classified as inland marine (NAIC Line 09) because it covers living animals as property.",
+    "explanation": "Other inland marine: contractors equipment, fine art, jewelry, accounts receivable, EDP. Open perils is the standard form."
+  },
+  {
+    "id": "fc-085",
+    "topicId": "commercial-lines",
+    "question": "WC policy Part One vs. Part Two — standard EL limits?",
+    "answer": "Part One: statutory WC (unlimited). Part Two: Employers' Liability — default $100K per accident / $100K per employee disease / $500K disease aggregate.",
+    "explanation": "EL default limits are almost always increased by endorsement. $100K/$100K/$500K is very low for serious catastrophic injury claims."
+  },
+  {
+    "id": "fc-086",
+    "topicId": "commercial-lines",
+    "question": "Five ethics terms you must distinguish on the exam?",
+    "answer": "Defamation = false statements about insurer finances. Misrepresentation = false statements to induce purchase. Twisting = policy switch via misrepresentation. Rebating = kickbacks. Unfair discrimination = different rates for same risk class.",
+    "explanation": "TWISTING requires misrepresentation — legitimate comparison shopping is NOT twisting. Rebating is illegal in Michigan regardless of amount."
+  },
+  {
+    "id": "fc-087",
+    "topicId": "commercial-lines",
+    "question": "What is the difference between Commercial Umbrella and a CPP?",
+    "answer": "CPP = primary policy combining multiple lines (property + liability). Umbrella = excess liability sitting above underlying primary policies.",
+    "explanation": "A business can have both: a CPP for primary coverage PLUS an umbrella for excess liability above CGL, auto, and employers' liability."
+  },
+  {
+    "id": "fc-088",
+    "topicId": "dwelling-policy",
+    "question": "What are the three dwelling policy forms?",
+    "answer": "DP-1: Basic — named perils (fire, lightning, windstorm, hail only). DP-2: Broad — more named perils. DP-3: Special — open perils on dwelling.",
+    "explanation": "Dwelling policies cover non-owner-occupied rental properties and vacation homes that don't qualify for homeowners policies."
+  },
+  {
+    "id": "fc-089",
+    "topicId": "dwelling-policy",
+    "question": "Key difference between a dwelling policy and a homeowners policy?",
+    "answer": "Dwelling policy: covers structure and limited contents ONLY — NO personal liability coverage included. Homeowners: covers structure, contents, AND liability.",
+    "explanation": "Liability must be added separately to a dwelling policy. DP policies are stripped-down by design for investment/rental properties."
+  },
+  {
+    "id": "fc-090",
+    "topicId": "dwelling-policy",
+    "question": "What fire-related coverage is in EVERY DP policy regardless of form?",
+    "answer": "Fire, lightning, and internal explosion are covered in ALL DP forms — the foundational perils from the Standard Fire Policy era",
+    "explanation": "The Standard Fire Policy (SFP, 1943) is the historical foundation. Extended Coverage endorsement added windstorm, hail, explosion, riot, aircraft, vehicles, smoke."
+  },
+  {
+    "id": "fc-091",
+    "topicId": "dwelling-policy",
+    "question": "What is Coverage A, B, C, D in a dwelling policy?",
+    "answer": "A=Dwelling, B=Other Private Structures, C=Personal Property (optional), D=Fair Rental Value (loss of rents)",
+    "explanation": "TRICK: DP Coverage D is loss of RENTAL INCOME — not loss of use like HO Coverage D. Makes sense: it's a rental property."
+  },
+  {
+    "id": "fc-092",
+    "topicId": "dwelling-policy",
+    "question": "What is a vacancy provision in a dwelling policy?",
+    "answer": "If dwelling is vacant beyond 60 days, vandalism/malicious mischief coverage is suspended and some policies limit/void other coverages",
+    "explanation": "Landlords must notify insurer of extended vacancies. Vacant building = dramatically higher risk. Most policies suspend vandalism coverage specifically."
+  },
+  {
+    "id": "fc-093",
+    "topicId": "exam-strategy",
+    "question": "TRICK: How do you handle 'Which is NOT covered?' or 'All EXCEPT' questions?",
+    "answer": "Convert mentally: 'Which IS excluded?' Evaluate each option as True/False. The FALSE one is the answer to an EXCEPT question.",
+    "explanation": "Double negatives cost you 30 extra seconds each. Practice converting them instantly — it's the #1 most common trap on PSI exams."
+  },
+  {
+    "id": "fc-094",
+    "topicId": "exam-strategy",
+    "question": "TRICK: Two answer choices mean essentially the same thing — what do you do?",
+    "answer": "ELIMINATE BOTH — only one answer can be correct. If A and C are near-synonyms, neither can be uniquely correct. Focus on B and D.",
+    "explanation": "This is a common exam design flaw. When two options are near-synonyms, both are wrong by default. It's a gift — use it."
+  },
+  {
+    "id": "fc-095",
+    "topicId": "exam-strategy",
+    "question": "TRICK: Should you trust 'always,' 'never,' 'all,' or 'none' as answers?",
+    "answer": "Default to SUSPICION — these absolute terms are usually wrong in insurance because nearly every rule has exceptions. Eliminate them first.",
+    "explanation": "Exception: Some WC rules genuinely use absolutes. But as a default test-taking strategy, eliminate absolutes first and confirm from there."
+  },
+  {
+    "id": "fc-096",
+    "topicId": "exam-strategy",
+    "question": "TRICK: A Michigan worker is injured commuting TO work. Is it covered by WC?",
+    "answer": "NO — the 'going and coming' rule: standard commuting injuries are NOT work-related and NOT covered by WC",
+    "explanation": "EXCEPTIONS: Employer provides transportation, employee is on a special errand for employer, or employment creates the travel hazard."
+  },
+  {
+    "id": "fc-097",
+    "topicId": "exam-strategy",
+    "question": "TRICK: A question mentions a boat — what two facts must you immediately identify?",
+    "answer": "LENGTH (≤26 feet?) AND HORSEPOWER (≤25 HP?) — BOTH must be met for HO policy to cover the boat's liability",
+    "explanation": "Exam writers put boat questions specifically to test this rule. If either threshold is exceeded = need a separate watercraft policy."
+  },
+  {
+    "id": "fc-098",
+    "topicId": "exam-strategy",
+    "question": "TRICK: Home-based business customer injured at insured's home. HO covers it?",
+    "answer": "NO — business activity exclusion applies to BOTH property and liability under the standard homeowners policy",
+    "explanation": "Need a Home Business endorsement or BOP. This scenario appears on virtually every adjuster exam in some form."
+  },
+  {
+    "id": "fc-099",
+    "topicId": "exam-strategy",
+    "question": "TRICK: What is the difference between defamation and misrepresentation in insurance ethics?",
+    "answer": "Defamation = false malicious statements about a COMPETITOR insurer's financial condition. Misrepresentation = false statements to induce CUSTOMER to buy/change a policy.",
+    "explanation": "Defamation = attacks on competitors. Misrepresentation = lying to customers. Both prohibited under Michigan Unfair Trade Practices Act."
+  },
+  {
+    "id": "fc-100",
+    "topicId": "exam-strategy",
+    "question": "TRICK: Against whom can an insurer NOT subrogate?",
+    "answer": "Cannot subrogate against its OWN INSURED — and cannot subrogate until the insured has been fully made whole first",
+    "explanation": "EXAMPLE: Insurer pays homeowner's claim for damage caused by their adult child living in the house. Cannot subrogate against the child — they're an insured too."
+  },
+  {
+    "id": "fc-101",
+    "topicId": "exam-strategy",
+    "question": "TRICK: What does 'twisting' mean and how is it different from legitimate sales?",
+    "answer": "Twisting = inducing a policyholder to drop one policy for another through MISREPRESENTATION. Legitimate comparison of policies is NOT twisting.",
+    "explanation": "The key element is MISREPRESENTATION. Truthfully telling a customer another policy is better = legal. Lying to get them to switch = twisting."
+  },
+  {
+    "id": "fc-102",
+    "topicId": "exam-strategy",
+    "question": "TRICK: Can a claimant sue for pain & suffering if they were in a Michigan auto accident?",
+    "answer": "Only if they meet the tort threshold: death, permanent serious disfigurement, or serious impairment of an important body function",
+    "explanation": "Michigan is a limited tort state. The question is whether the injury meets the threshold — not whether there was an accident."
+  },
+  {
+    "id": "fc-103",
+    "topicId": "exam-strategy",
+    "question": "STRATEGY: Best approach to scenario-based exam questions?",
+    "answer": "Read the LAST SENTENCE first to identify what's being asked — then read the scenario to find relevant facts. Ignore distracting details.",
+    "explanation": "Scenario questions include distractors (names, weather, colors). Identify the legal principle being tested, then apply it to the facts given."
+  },
+  {
+    "id": "fc-104",
+    "topicId": "exam-strategy",
+    "question": "STRATEGY: Should you change an answer on the exam?",
+    "answer": "Only if you MISREAD the question OR a later question gives you contradicting information — first instinct is correct more often than the revision.",
+    "explanation": "Research shows changing answers based on 'gut feeling' lowers scores. Change only with a specific logical reason."
+  },
+  {
+    "id": "fc-105",
+    "topicId": "exam-strategy",
+    "question": "STRATEGY: What practice exam score means you're ready to schedule the real exam?",
+    "answer": "Consistently scoring 90%+ on TIMED practice exams — this buffer accounts for test-day nerves and trick wording",
+    "explanation": "The exam is intentionally worded differently from prep materials. 90% practice score = comfortable 70%+ on the actual PSI exam."
+  },
+  {
+    "id": "fc-106",
+    "topicId": "exam-strategy",
+    "question": "EXAM INTEL: What is the exam format and what five topics account for 77% of questions?",
+    "answer": "100 questions, 2 hours, 70% to pass ($41). Insurance Basics (20) + Adjusting Losses (20) + Auto (15) + Homeowners (12) + Workers' Comp (10) = 77 questions.",
+    "explanation": "Allocate approximately 75% of your study time to these five topics. The remaining 23 questions are spread thin across 4 other sections."
+  },
+  {
+    "id": "fc-107",
+    "topicId": "exam-strategy",
+    "question": "TRICK: What is the difference between rebating and misrepresentation in insurance ethics?",
+    "answer": "Rebating = offering inducements (money, gifts, discounts) not specified in the policy. Misrepresentation = making false statements to induce a purchase.",
+    "explanation": "Both are illegal in Michigan. Rebating doesn't require a false statement — the inducement itself is the violation. Even small rebates are illegal."
+  }
+]

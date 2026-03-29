@@ -1,0 +1,287 @@
+[
+  {
+    "label": "PIP wage loss rate",
+    "value": "85% of gross wages",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "PIP wage loss max/month",
+    "value": "~$7,201",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "PIP wage loss duration",
+    "value": "3 years",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "PIP replacement services",
+    "value": "$20/day × 3 years",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "PIP attendant care cap",
+    "value": "56 hrs/week (family)",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "PPI limit",
+    "value": "$1,000,000",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "BI/PD default limits",
+    "value": "$250K / $500K / $10K",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "BI/PD minimum limits",
+    "value": "$50K / $100K / $10K",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "Mini-tort maximum",
+    "value": "$3,000",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "QHC deductible max",
+    "value": "$6,000",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "PIP overdue threshold",
+    "value": "30 days after proof",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "PIP penalty interest",
+    "value": "12% per year",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "PIP lawsuit deadline",
+    "value": "1 year from denial (MCL 500.3145)",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "Assigned Claims Plan medical cap",
+    "value": "$250,000",
+    "category": "PIP / NoFault Auto"
+  },
+  {
+    "label": "WC waiting period",
+    "value": "7 days",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC retroactive trigger",
+    "value": "14+ days disabled",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC first payment due",
+    "value": "14 days after onset",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC late payment penalty",
+    "value": "$50/day, max $1,500",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC employer physician",
+    "value": "First 28 days",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC wage loss rate",
+    "value": "80% of after-tax AWW",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC maximum benefit",
+    "value": "90% of SAWW",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC minimum benefit",
+    "value": "25% of SAWW",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC death benefits",
+    "value": "500 weeks",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC burial expenses",
+    "value": "Max $6,000",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC notice to employer",
+    "value": "90 days",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC claim filing deadline",
+    "value": "2 years from injury",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC death claim deadline",
+    "value": "2 years from death",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC arm (specific loss)",
+    "value": "269 weeks",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC hand / leg",
+    "value": "215 weeks each",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC foot / eye",
+    "value": "162 weeks each",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC thumb",
+    "value": "65 weeks",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC index finger",
+    "value": "38 weeks",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC middle finger / great toe",
+    "value": "33 weeks",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC ring finger",
+    "value": "22 weeks",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC pinky finger",
+    "value": "16 weeks",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "WC age reduction starts",
+    "value": "Age 65 — 5%/year, max 50% at 75",
+    "category": "Workers Compensation"
+  },
+  {
+    "label": "HO Coverage B (other structures)",
+    "value": "10% of Coverage A",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "HO Coverage C (personal property)",
+    "value": "50% of Coverage A",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "HO Coverage D (loss of use)",
+    "value": "30% of Coverage A",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "Vacancy provision trigger",
+    "value": "60 days",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "Boat HO coverage threshold",
+    "value": "≤26 feet AND ≤25 HP",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "HO jewelry sublimit",
+    "value": "$1,500 total",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "HO cash sublimit",
+    "value": "$200",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "HO securities sublimit",
+    "value": "$1,500",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "HO silverware sublimit",
+    "value": "$2,500",
+    "category": "Homeowners / Property"
+  },
+  {
+    "label": "Claims payment deadline",
+    "value": "60 days after proof of loss",
+    "category": "Michigan Claims Law"
+  },
+  {
+    "label": "Insurer proof specification period",
+    "value": "30 days after receiving claim",
+    "category": "Michigan Claims Law"
+  },
+  {
+    "label": "Penalty interest on late claims",
+    "value": "12% per year (MCL 500.2006)",
+    "category": "Michigan Claims Law"
+  },
+  {
+    "label": "Driving uninsured fine",
+    "value": "$500 + up to 1 year jail",
+    "category": "Michigan Claims Law"
+  },
+  {
+    "label": "Exam fee",
+    "value": "$41 per attempt",
+    "category": "Licensing"
+  },
+  {
+    "label": "Passing score",
+    "value": "70% (70 of 100 questions)",
+    "category": "Licensing"
+  },
+  {
+    "label": "Time limit",
+    "value": "2 hours",
+    "category": "Licensing"
+  },
+  {
+    "label": "License application fee",
+    "value": "$15",
+    "category": "Licensing"
+  },
+  {
+    "label": "Annual renewal deadline",
+    "value": "March 31",
+    "category": "Licensing"
+  },
+  {
+    "label": "Annual renewal fee",
+    "value": "$5",
+    "category": "Licensing"
+  },
+  {
+    "label": "Continuing education required",
+    "value": "NONE",
+    "category": "Licensing"
+  },
+  {
+    "label": "License validity after passing",
+    "value": "12 months to apply",
+    "category": "Licensing"
+  }
+]
